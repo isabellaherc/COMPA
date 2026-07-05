@@ -1,0 +1,69 @@
+{
+  "type": "webhook",
+  "name": "retar_decision",
+  "description": "Genera 3 preguntas criticas para desafiar una decision de negocio del productor usando OpenAI/Codex y guarda la decision en Supabase.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "decision_descrita": {
+        "type": "string",
+        "description": "Descripcion textual exacta de la decision. Minimo 10 caracteres."
+      },
+      "productor_id": {
+        "type": "string",
+        "description": "UUID real del productor en Supabase."
+      },
+      "oportunidad_id": {
+        "type": "string",
+        "description": "UUID real de la oportunidad en Supabase."
+      },
+      "conversation_id": {
+        "type": "string",
+        "description": "ID de conversacion de ElevenLabs o trace_id."
+      },
+      "nombre_productor": {
+        "type": "string",
+        "description": "Nombre del productor."
+      },
+      "rubro_negocio": {
+        "type": "string",
+        "description": "Rubro del productor."
+      },
+      "capacidad_productor": {
+        "type": "string",
+        "description": "Capacidad operativa del productor."
+      },
+      "oportunidad_titulo": {
+        "type": "string",
+        "description": "Titulo de la oportunidad detectada."
+      },
+      "oportunidad_institucion": {
+        "type": "string",
+        "description": "Institucion compradora."
+      },
+      "oportunidad_monto": {
+        "type": "number",
+        "description": "Monto estimado de la oportunidad."
+      },
+      "oportunidad_cierre": {
+        "type": "string",
+        "description": "Fecha de cierre YYYY-MM-DD."
+      }
+    },
+    "required": [
+      "decision_descrita",
+      "productor_id",
+      "oportunidad_id",
+      "nombre_productor",
+      "rubro_negocio"
+    ]
+  },
+  "api": {
+    "url": "https://{WORKSPACE}.app.n8n.cloud/webhook/retar-decision",
+    "method": "POST",
+    "headers": {
+      "Content-Type": "application/json",
+      "X-Compa-Webhook-Secret": "whsec_compa_buildathon_2026"
+    }
+  }
+}
