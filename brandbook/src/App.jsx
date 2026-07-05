@@ -1,4 +1,18 @@
+import { useEffect, useState } from "react";
 import "./App.css";
+
+// ---------- Backend (n8n webhooks) ----------
+const API_BASE = import.meta.env.VITE_COMPA_API || "https://wilbe.app.n8n.cloud/webhook";
+const WEBHOOK_SECRET = "whsec_compa_buildathon_2026";
+const ELEVENLABS_AGENT_ID = "agent_9801kwr61ctre7x8c944ze53p95w";
+// Demo: Vilma (productora real en Supabase) y su oportunidad top
+const DEMO_PRODUCTOR_ID = "f5c952f0-a0b7-4a2e-a752-ddb373e04411";
+const DEMO_OPORTUNIDAD_ID = "e173f2d6-26d9-46be-9f41-238978889572";
+
+const fmtMonto = (m) =>
+  Number(m || 0).toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+
+const TIPO_LABEL = { LP: "Licitación Pública", LG: "Libre Gestión", CD: "Contratación Directa" };
 
 // ---------- Brand Mark (5-petal flower) ----------
 function Mark({ className }) {
@@ -114,6 +128,154 @@ const COMO_FUNCIONA = [
   },
 ];
 
+// ---------- Oportunidades en vivo (Supabase via n8n) ----------
+function OportunidadesLive() {
+  const [state, setState] = useState({ loading: true, error: null, items: [] });
+
+  useEffect(() => {
+    fetch(`${API_BASE}/oportunidades-feed`, { cache: "no-store" })
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
+      .then((data) =>
+        setState({ loading: false, error: null, items: data.oportunidades || [] })
+      )
+      .catch((e) => setState({ loading: false, error: e.message, items: [] }));
+  }, []);
+
+  return (
+    <section id="en-vivo" style={{ background: "var(--color-surface)" }}>
+      <div className="wrap">
+        <div className="section-head">
+          <div className="eyebrow">En vivo</div>
+          <h2>Oportunidades abiertas ahora en COMPRASAL</h2>
+          <p>
+            Datos reales desde la base de Compa — las mismas licitaciones que el agente
+            usa para llamar a los productores.
+          </p>
+        </div>
+
+        {state.loading && <p className="live-status">Cargando oportunidades…</p>}
+        {state.error && (
+          <p className="live-status">
+            No se pudo cargar el feed ({state.error}). Probá de nuevo en un rato.
+          </p>
+        )}
+
+        <div className="live-grid">
+          {state.items.map((op) => (
+            <div className="live-card" key={op.id}>
+              <div className="live-card-top">
+                <span className="live-tipo">{TIPO_LABEL[op.tipo_contratacion] || op.tipo_contratacion}</span>
+                <span className="live-monto">{fmtMonto(op.monto)}</span>
+              </div>
+              <h4>{op.titulo}</h4>
+              <p className="live-inst">{op.institucion}</p>
+              <div className="live-card-foot">
+                <span className="live-rubro">{op.rubro_requerido}</span>
+                <span className="live-cierre">Cierra {op.fecha_cierre}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ---------- Retá tu decisión (OpenAI via n8n) ----------
+function RetaTuDecision() {
+  const [decision, setDecision] = useState("");
+  const [state, setState] = useState({ loading: false, error: null, data: null });
+
+  const submit = async (e) => {
+    e.preventDefault();
+    if (decision.trim().length < 10 || state.loading) return;
+    setState({ loading: true, error: null, data: null });
+    try {
+      const r = await fetch(`${API_BASE}/retar-decision`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Compa-Webhook-Secret": WEBHOOK_SECRET,
+        },
+        body: JSON.stringify({
+          decision_descrita: decision.trim(),
+          productor_id: DEMO_PRODUCTOR_ID,
+          oportunidad_id: DEMO_OPORTUNIDAD_ID,
+          nombre_productor: "Vilma Jeanneth Guardado de Ayala",
+          rubro_negocio: "Alimentos y Bebidas",
+          conversation_id: `web_${Date.now()}`,
+        }),
+      });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const data = await r.json();
+      setState({ loading: false, error: null, data });
+    } catch (err) {
+      setState({ loading: false, error: err.message, data: null });
+    }
+  };
+
+  return (
+    <div className="reto-box">
+      <h3>Probalo vos: contale una decisión a Compa</h3>
+      <p className="reto-sub">
+        Escribí una decisión de negocio que estés evaluando. Compa te devuelve las 3
+        preguntas que un socio de verdad te haría — generadas en vivo por el mismo
+        backend que usa el agente de voz.
+      </p>
+      <form onSubmit={submit} className="reto-form">
+        <textarea
+          value={decision}
+          onChange={(e) => setDecision(e.target.value)}
+          placeholder='Ej: "Quiero comprar un camión refrigerado para ampliar mis entregas a San Salvador"'
+          rows={3}
+          maxLength={400}
+        />
+        <button
+          type="submit"
+          className="btn btn-primary"
+          disabled={decision.trim().length < 10 || state.loading}
+        >
+          {state.loading ? "Compa está pensando…" : "Que Compa me rete"}
+        </button>
+      </form>
+
+      {state.error && (
+        <p className="live-status">Error consultando a Compa ({state.error}).</p>
+      )}
+
+      {state.data && (
+        <div className="reto-result">
+          {(state.data.preguntas || []).map((q, i) => (
+            <div className="reto-pregunta" key={i}>
+              <span className="reto-num">{i + 1}</span>
+              <p>{q}</p>
+            </div>
+          ))}
+          {state.data.reasoning_trace && (
+            <p className="reto-trace">{state.data.reasoning_trace}</p>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ---------- Widget de voz ElevenLabs ----------
+function VoiceWidget() {
+  useEffect(() => {
+    if (document.querySelector('script[data-compa-convai]')) return;
+    const s = document.createElement("script");
+    s.src = "https://unpkg.com/@elevenlabs/convai-widget-embed";
+    s.async = true;
+    s.setAttribute("data-compa-convai", "1");
+    document.body.appendChild(s);
+  }, []);
+  return <elevenlabs-convai agent-id={ELEVENLABS_AGENT_ID}></elevenlabs-convai>;
+}
+
 function StepCard({ item, index }) {
   return (
     <div className="step-card">
@@ -211,6 +373,9 @@ function App() {
           </div>
         </section>
 
+        {/* ---------- OPORTUNIDADES EN VIVO (Supabase via n8n) ---------- */}
+        <OportunidadesLive />
+
         {/* ---------- COFUNDADOR ---------- */}
         <section id="cofundador" style={{ background: "var(--color-surface)" }}>
           <div className="wrap">
@@ -273,6 +438,8 @@ function App() {
                 </div>
               </div>
             </div>
+
+            <RetaTuDecision />
           </div>
         </section>
 
@@ -332,6 +499,9 @@ function App() {
           <div>© 2026 Compa — Hecho en El Salvador</div>
         </div>
       </footer>
+
+      {/* ---------- Hablá con Compa (ElevenLabs ConvAI) ---------- */}
+      <VoiceWidget />
     </div>
   );
 }

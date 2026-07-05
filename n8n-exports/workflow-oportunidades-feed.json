@@ -1,0 +1,79 @@
+{
+  "name": "COMPA - Frontend - oportunidades_feed",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "GET",
+        "path": "oportunidades-feed",
+        "responseMode": "responseNode",
+        "options": { "allowedOrigins": "*" }
+      },
+      "id": "webhook-oportunidades-feed",
+      "name": "Webhook oportunidades-feed",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "compa-oportunidades-feed"
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://cuzrbvnjjsjeicoourtx.supabase.co/rest/v1/oportunidades?select=id,titulo,institucion,monto,fecha_cierre,rubro_requerido,tipo_contratacion&fecha_cierre=gte.{{ $now.toFormat('yyyy-MM-dd') }}&order=fecha_cierre.asc&limit=60",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "{{SUPABASE_SERVICE_KEY}}" },
+            { "name": "Authorization", "value": "Bearer {{SUPABASE_SERVICE_KEY}}" }
+          ]
+        },
+        "options": { "timeout": 10000 }
+      },
+      "id": "get-oportunidades",
+      "name": "Get Oportunidades",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [260, 0],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const rows = $input.all().map((i) => i.json).filter((r) => r && r.id);\nconst seen = new Set();\nconst unique = [];\nfor (const r of rows) {\n  const key = `${(r.titulo || '').trim().toLowerCase()}|${(r.institucion || '').trim().toLowerCase()}`;\n  if (seen.has(key)) continue;\n  seen.add(key);\n  unique.push(r);\n  if (unique.length >= 12) break;\n}\nreturn [{ json: { oportunidades: unique, total: unique.length, actualizado_en: new Date().toISOString() } }];\n"
+      },
+      "id": "shape-feed",
+      "name": "Shape Feed",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [520, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              { "name": "Access-Control-Allow-Origin", "value": "*" },
+              { "name": "Cache-Control", "value": "public, max-age=300" }
+            ]
+          }
+        }
+      },
+      "id": "respond-feed",
+      "name": "Respond Feed",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [780, 0]
+    }
+  ],
+  "connections": {
+    "Webhook oportunidades-feed": { "main": [[{ "node": "Get Oportunidades", "type": "main", "index": 0 }]] },
+    "Get Oportunidades": { "main": [[{ "node": "Shape Feed", "type": "main", "index": 0 }]] },
+    "Shape Feed": { "main": [[{ "node": "Respond Feed", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1", "timezone": "America/El_Salvador" },
+  "staticData": null,
+  "pinData": {},
+  "versionId": "compa-frontend-oportunidades-feed",
+  "triggerCount": 1
+}

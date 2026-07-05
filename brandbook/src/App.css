@@ -1038,3 +1038,185 @@ section {
   padding-top: 10px;
   border-top: 1px solid var(--color-border);
 }
+
+/* ---------- Oportunidades en vivo ---------- */
+.live-status {
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 14px;
+  padding: 12px 0;
+}
+
+.live-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.live-card {
+  background: var(--color-paper);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.live-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(193, 39, 45, 0.1);
+}
+
+.live-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.live-tipo {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-red);
+  background: rgba(193, 39, 45, 0.08);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.live-monto {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--color-ink);
+}
+
+.live-card h4 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.live-inst {
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.live-card-foot {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.live-rubro {
+  font-weight: 600;
+}
+
+/* ---------- Retá tu decisión ---------- */
+.reto-box {
+  margin-top: 48px;
+  background: var(--color-paper);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 32px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reto-box h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.reto-sub {
+  font-size: 14px;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.reto-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reto-form textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 14px;
+  font: inherit;
+  font-size: 14px;
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.reto-form textarea:focus {
+  outline: 2px solid var(--color-pink);
+  outline-offset: 1px;
+}
+
+.reto-form button {
+  align-self: flex-start;
+}
+
+.reto-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.reto-result {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reto-pregunta {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.reto-pregunta p {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.reto-num {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--color-red);
+  color: var(--color-paper);
+  font-weight: 800;
+  font-size: 13px;
+  display: grid;
+  place-items: center;
+}
+
+.reto-trace {
+  font-size: 12.5px;
+  color: var(--color-muted);
+  font-style: italic;
+  padding-top: 6px;
+  border-top: 1px solid var(--color-border);
+}
