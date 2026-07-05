@@ -1,0 +1,14 @@
+﻿{
+  "conversation_id": "demo-vilma-fase-1",
+  "productor_id": "REEMPLAZAR_CON_UUID_DE_VILMA",
+  "oportunidad_id": "REEMPLAZAR_CON_UUID_DE_OPORTUNIDAD",
+  "nombre_productor": "Vilma Jeanneth Guardado de Ayala",
+  "rubro_negocio": "Alimentos y Bebidas",
+  "capacidad_productor": "500 almuerzos/dia",
+  "experiencia_estado": "primera participacion",
+  "oportunidad_titulo": "Servicio de Alimentacion Escolar - Distrito 04-25",
+  "oportunidad_institucion": "MINEDUCYT",
+  "oportunidad_monto": 48750,
+  "oportunidad_cierre": "2026-07-18",
+  "decision_descrita": "Me interesa participar, pero me preocupa si puedo cumplir con el volumen y esperar el pago del Estado."
+}

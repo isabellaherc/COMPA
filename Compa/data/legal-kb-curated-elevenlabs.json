@@ -1,0 +1,69 @@
+{
+  "source": "legal-kb-repository-manifest.json",
+  "elevenlabs_kb_recommended": [
+    {
+      "archivo": "Ley-de-compras-publicas-III-15.julio_.2024_con-portada.pdf",
+      "path": "DocumentacionLegal/Leyes y reglamentos/Leyes y reglamentos/Ley-de-compras-publicas-III-15.julio_.2024_con-portada.pdf",
+      "extension": "pdf",
+      "bytes": 1417920,
+      "area": "leyes_y_reglamentos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "LEY-DE-CREACION-DE-LA-DIRECCION-NACIONAL-DE-COMPRAS-PUBLICAS-DL-653-ANIO-2023-LT.pdf",
+      "path": "DocumentacionLegal/Leyes y reglamentos/Leyes y reglamentos/LEY-DE-CREACION-DE-LA-DIRECCION-NACIONAL-DE-COMPRAS-PUBLICAS-DL-653-ANIO-2023-LT.pdf",
+      "extension": "pdf",
+      "bytes": 2566279,
+      "area": "leyes_y_reglamentos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "nov23-Codigo-Etica-Socios-Negocios-DINAC.pdf",
+      "path": "DocumentacionLegal/Leyes y reglamentos/Leyes y reglamentos/nov23-Codigo-Etica-Socios-Negocios-DINAC.pdf",
+      "extension": "pdf",
+      "bytes": 1696690,
+      "area": "leyes_y_reglamentos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-el-Metodo-de-Contratacion-de-Licitacion-Competitiva.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-el-Metodo-de-Contratacion-de-Licitacion-Competitiva.pdf",
+      "extension": "pdf",
+      "bytes": 4936903,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-el-Metodo-de-Contratacion-Directa.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-el-Metodo-de-Contratacion-Directa.pdf",
+      "extension": "pdf",
+      "bytes": 4913123,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "LINEAMIENTO-PARA-EL-PROCEDIMIENTO-ESPECIAL-DE-SUBASTA-INVERSA.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/LINEAMIENTO-PARA-EL-PROCEDIMIENTO-ESPECIAL-DE-SUBASTA-INVERSA.pdf",
+      "extension": "pdf",
+      "bytes": 6577390,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-la-Participacion-en-los-Procesos-de-Compras-Publicas-de-las-MIPYMES.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-la-Participacion-en-los-Procesos-de-Compras-Publicas-de-las-MIPYMES.pdf",
+      "extension": "pdf",
+      "bytes": 2310654,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Politica-Anual-de-Compras-2026-.pdf",
+      "path": "DocumentacionLegal/Políticas/Políticas/Politica-Anual-de-Compras-2026-.pdf",
+      "extension": "pdf",
+      "bytes": 1052553,
+      "area": "politicas",
+      "subir_a_rag": true
+    }
+  ]
+}

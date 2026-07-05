@@ -1,0 +1,309 @@
+{
+  "source": "DocumentacionLegal except Documentación-usuario",
+  "repository": [
+    {
+      "archivo": "Información DINAC.txt",
+      "path": "DocumentacionLegal/Información DINAC.txt",
+      "extension": "txt",
+      "bytes": 1912,
+      "area": "repositorio_legal",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "BORRADOR_REGLAMENTO-DE-LA-LEY-DE-COMPRAS-PUBLICOS.pdf",
+      "path": "DocumentacionLegal/Leyes y reglamentos/Leyes y reglamentos/BORRADOR_REGLAMENTO-DE-LA-LEY-DE-COMPRAS-PUBLICOS.pdf",
+      "extension": "pdf",
+      "bytes": 355420,
+      "area": "leyes_y_reglamentos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "INSTRUCTIVO-DE-LA-DINAC-PARA-EL-CUMPLIMIENTO-DE-LA-LCP-EN-LA-REESTRUCTURACION-DE-LOS-MUNICIPIOS.1.pdf",
+      "path": "DocumentacionLegal/Leyes y reglamentos/Leyes y reglamentos/INSTRUCTIVO-DE-LA-DINAC-PARA-EL-CUMPLIMIENTO-DE-LA-LCP-EN-LA-REESTRUCTURACION-DE-LOS-MUNICIPIOS.1.pdf",
+      "extension": "pdf",
+      "bytes": 3152904,
+      "area": "leyes_y_reglamentos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Instructivo-de-Seguimiento-a-la-Ejecucion-Contractual.pdf",
+      "path": "DocumentacionLegal/Leyes y reglamentos/Leyes y reglamentos/Instructivo-de-Seguimiento-a-la-Ejecucion-Contractual.pdf",
+      "extension": "pdf",
+      "bytes": 24220246,
+      "area": "leyes_y_reglamentos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Ley-de-compras-publicas-III-15.julio_.2024_con-portada.pdf",
+      "path": "DocumentacionLegal/Leyes y reglamentos/Leyes y reglamentos/Ley-de-compras-publicas-III-15.julio_.2024_con-portada.pdf",
+      "extension": "pdf",
+      "bytes": 1417920,
+      "area": "leyes_y_reglamentos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "LEY-DE-CREACION-DE-LA-DIRECCION-NACIONAL-DE-COMPRAS-PUBLICAS-DL-653-ANIO-2023-LT.pdf",
+      "path": "DocumentacionLegal/Leyes y reglamentos/Leyes y reglamentos/LEY-DE-CREACION-DE-LA-DIRECCION-NACIONAL-DE-COMPRAS-PUBLICAS-DL-653-ANIO-2023-LT.pdf",
+      "extension": "pdf",
+      "bytes": 2566279,
+      "area": "leyes_y_reglamentos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "nov23-Codigo-Etica-Socios-Negocios-DINAC.pdf",
+      "path": "DocumentacionLegal/Leyes y reglamentos/Leyes y reglamentos/nov23-Codigo-Etica-Socios-Negocios-DINAC.pdf",
+      "extension": "pdf",
+      "bytes": 1696690,
+      "area": "leyes_y_reglamentos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Realizacion-de-Sondeos-de-Mercado.pdf",
+      "path": "DocumentacionLegal/Leyes y reglamentos/Leyes y reglamentos/Realizacion-de-Sondeos-de-Mercado.pdf",
+      "extension": "pdf",
+      "bytes": 2699684,
+      "area": "leyes_y_reglamentos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "26.-Lineamiento-Contratacion-Auditorias-Externas-que-dentro-de-su-alcance-relacionen-procesos-de-compras-publicas.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/26.-Lineamiento-Contratacion-Auditorias-Externas-que-dentro-de-su-alcance-relacionen-procesos-de-compras-publicas.pdf",
+      "extension": "pdf",
+      "bytes": 2327101,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "LIN-2024-027.-Mod.1.-Lineamiento-sobre-la-Administracion-Uso-y-Contenido-de-COMPRASAL.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/LIN-2024-027.-Mod.1.-Lineamiento-sobre-la-Administracion-Uso-y-Contenido-de-COMPRASAL.pdf",
+      "extension": "pdf",
+      "bytes": 4108638,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "LIN-2024-028.-Lineamiento-para-la-Elaboracion-y-Aprobacion-de-Documentos-Via-Electronica.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/LIN-2024-028.-Lineamiento-para-la-Elaboracion-y-Aprobacion-de-Documentos-Via-Electronica.pdf",
+      "extension": "pdf",
+      "bytes": 2864665,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-de-Evaluacion-de-Ofertas-Propuestas-o-Cotizaciones.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-de-Evaluacion-de-Ofertas-Propuestas-o-Cotizaciones.pdf",
+      "extension": "pdf",
+      "bytes": 6974910,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-Contrataciones-Directas-en-casos-de-Emergencia-y-otros.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-Contrataciones-Directas-en-casos-de-Emergencia-y-otros.pdf",
+      "extension": "pdf",
+      "bytes": 2868329,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-el-Establecimiento-del-Plan-de-Implementacion-del-Proceso-PIP.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-el-Establecimiento-del-Plan-de-Implementacion-del-Proceso-PIP.pdf",
+      "extension": "pdf",
+      "bytes": 2917143,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-el-Funcionamiento-Implementacion-y-Coordinacion-del-SINAC-LIN-2025-001.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-el-Funcionamiento-Implementacion-y-Coordinacion-del-SINAC-LIN-2025-001.pdf",
+      "extension": "pdf",
+      "bytes": 4570267,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-el-Manejo-de-Expedientes.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-el-Manejo-de-Expedientes.pdf",
+      "extension": "pdf",
+      "bytes": 4131654,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-el-Metodo-de-Contratacion-de-Baja-Cuantia.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-el-Metodo-de-Contratacion-de-Baja-Cuantia.pdf",
+      "extension": "pdf",
+      "bytes": 2683647,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-el-Metodo-de-Contratacion-de-Comparacion-de-Precios.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-el-Metodo-de-Contratacion-de-Comparacion-de-Precios.pdf",
+      "extension": "pdf",
+      "bytes": 5090394,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-el-Metodo-de-Contratacion-de-Licitacion-Competitiva.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-el-Metodo-de-Contratacion-de-Licitacion-Competitiva.pdf",
+      "extension": "pdf",
+      "bytes": 4936903,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-el-Metodo-de-Contratacion-de-Servicios-de-Consultoria-Seleccion-Basada-al-Menor-Costo.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-el-Metodo-de-Contratacion-de-Servicios-de-Consultoria-Seleccion-Basada-al-Menor-Costo.pdf",
+      "extension": "pdf",
+      "bytes": 5600065,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-el-Metodo-de-Contratacion-de-Servicios-de-Consultoria-Seleccion-Basada-en-Calidad-y-Costo.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-el-Metodo-de-Contratacion-de-Servicios-de-Consultoria-Seleccion-Basada-en-Calidad-y-Costo.pdf",
+      "extension": "pdf",
+      "bytes": 6037725,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-el-Metodo-de-Contratacion-de-Servicios-de-Consultoria-Seleccion-Basada-en-Calidad.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-el-Metodo-de-Contratacion-de-Servicios-de-Consultoria-Seleccion-Basada-en-Calidad.pdf",
+      "extension": "pdf",
+      "bytes": 5289194,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-el-Metodo-de-Contratacion-de-Servicios-de-Consultoria-Seleccion-Basada-en-Calificacion-de-los-Consultores.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-el-Metodo-de-Contratacion-de-Servicios-de-Consultoria-Seleccion-Basada-en-Calificacion-de-los-Consultores.pdf",
+      "extension": "pdf",
+      "bytes": 5421216,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-el-Metodo-de-Contratacion-de-Servicios-de-Consultoria-Seleccion-Basada-en-Precio-Fijo.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-el-Metodo-de-Contratacion-de-Servicios-de-Consultoria-Seleccion-Basada-en-Precio-Fijo.pdf",
+      "extension": "pdf",
+      "bytes": 5167080,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-el-Metodo-de-Contratacion-Directa.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-el-Metodo-de-Contratacion-Directa.pdf",
+      "extension": "pdf",
+      "bytes": 4913123,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-el-Procedimiento-Especial-de-Compras-en-Linea.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-el-Procedimiento-Especial-de-Compras-en-Linea.pdf",
+      "extension": "pdf",
+      "bytes": 3043842,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-el-Procedimiento-especial-de-Contratacion-por-Catalogo-Electronico-derivado-del-Convenio-Marco.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-el-Procedimiento-especial-de-Contratacion-por-Catalogo-Electronico-derivado-del-Convenio-Marco.pdf",
+      "extension": "pdf",
+      "bytes": 3975551,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "LINEAMIENTO-PARA-EL-PROCEDIMIENTO-ESPECIAL-DE-SUBASTA-INVERSA.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/LINEAMIENTO-PARA-EL-PROCEDIMIENTO-ESPECIAL-DE-SUBASTA-INVERSA.pdf",
+      "extension": "pdf",
+      "bytes": 6577390,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-la-Certificacion-AntiSoborno-y-Oficial-de-Cumplimiento.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-la-Certificacion-AntiSoborno-y-Oficial-de-Cumplimiento.pdf",
+      "extension": "pdf",
+      "bytes": 2295509,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-la-Contratacion-de-Consultores-Individuales.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-la-Contratacion-de-Consultores-Individuales.pdf",
+      "extension": "pdf",
+      "bytes": 5359599,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-la-Elaboracion-de-la-Planificacion-Anual-de-Compras-PAC.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-la-Elaboracion-de-la-Planificacion-Anual-de-Compras-PAC.pdf",
+      "extension": "pdf",
+      "bytes": 3683321,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-la-Participacion-en-los-Procesos-de-Compras-Publicas-de-las-MIPYMES.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-la-Participacion-en-los-Procesos-de-Compras-Publicas-de-las-MIPYMES.pdf",
+      "extension": "pdf",
+      "bytes": 2310654,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-la-realizacion-de-Contrataciones-de-Servicios-de-Consultoria-Seleccion-Basada-en-Fuente-Unica.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-la-realizacion-de-Contrataciones-de-Servicios-de-Consultoria-Seleccion-Basada-en-Fuente-Unica.pdf",
+      "extension": "pdf",
+      "bytes": 4870296,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Lineamiento-para-la-Tramitacion-del-Recurso-de-Revision.pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/Lineamiento-para-la-Tramitacion-del-Recurso-de-Revision.pdf",
+      "extension": "pdf",
+      "bytes": 2690270,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "N-1.05-Lineamiento-para-Razonabilidad-de-Precios..pdf",
+      "path": "DocumentacionLegal/Lineamientos/Lineamientos/N-1.05-Lineamiento-para-Razonabilidad-de-Precios..pdf",
+      "extension": "pdf",
+      "bytes": 3193002,
+      "area": "lineamientos",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Politica-Anual-de-Compras-2025.pdf",
+      "path": "DocumentacionLegal/Políticas/Políticas/Politica-Anual-de-Compras-2025.pdf",
+      "extension": "pdf",
+      "bytes": 7775702,
+      "area": "politicas",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Politica-Anual-de-Compras-2026-.pdf",
+      "path": "DocumentacionLegal/Políticas/Políticas/Politica-Anual-de-Compras-2026-.pdf",
+      "extension": "pdf",
+      "bytes": 1052553,
+      "area": "politicas",
+      "subir_a_rag": true
+    },
+    {
+      "archivo": "Politica-Anual-de-Compras.pdf",
+      "path": "DocumentacionLegal/Políticas/Políticas/Politica-Anual-de-Compras.pdf",
+      "extension": "pdf",
+      "bytes": 1774760,
+      "area": "politicas",
+      "subir_a_rag": true
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "_meta": {
+    "source": "supabase-schema.sql"
+  },
+  "productores": [
+    {
+      "id": "prod-001",
+      "nombre": "Vilma Jeanneth Guardado de Ayala",
+      "rubro": "Alimentos y Bebidas",
+      "ubicacion": "Cantón El Zapote, San Juan Opico, La Libertad",
+      "capacidad": "500 almuerzos/día",
+      "telefono": "+50377234567",
+      "dui": "02734457-8",
+      "nit": "0614-270479-105-7"
+    },
+    {
+      "id": "prod-002",
+      "nombre": "Carlos Alberto Mejía López",
+      "rubro": "Textiles y Uniformes",
+      "ubicacion": "Colonia Escalón, San Salvador",
+      "capacidad": "2000 uniformes/mes",
+      "telefono": "+50378901234",
+      "dui": "04567891-2",
+      "nit": "0614-150389-101-3"
+    },
+    {
+      "id": "prod-003",
+      "nombre": "María Elena Rivas de Hernández",
+      "rubro": "Mobiliario y Equipo",
+      "ubicacion": "Ciudad Arce, La Libertad",
+      "capacidad": "100 pupitres/semana",
+      "telefono": "+50370123456",
+      "dui": "03124567-8",
+      "nit": "0614-220592-109-1"
+    },
+    {
+      "id": "prod-004",
+      "nombre": "Pedro Antonio Sorto García",
+      "rubro": "Construcción y Materiales",
+      "ubicacion": "Soyapango, San Salvador",
+      "capacidad": "50 m³ concreto/semana",
+      "telefono": "+50375678901",
+      "dui": "05678901-2",
+      "nit": "0614-100183-101-5"
+    },
+    {
+      "id": "prod-005",
+      "nombre": "Ana Beatriz Cruz de Lemus",
+      "rubro": "Servicios Generales",
+      "ubicacion": "Santa Tecla, La Libertad",
+      "capacidad": "30 instalaciones/mes",
+      "telefono": "+50372345678",
+      "dui": "03456789-0",
+      "nit": "0614-051290-103-9"
+    },
+    {
+      "id": "prod-006",
+      "nombre": "César Rolando Contreras Obispo",
+      "rubro": "Construcción y Materiales",
+      "ubicacion": "San Salvador, San Salvador",
+      "capacidad": "Mantenimiento de infraestructura gubernamental",
+      "telefono": "+50372561478",
+      "dui": "04256987-3",
+      "nit": "0614-150881-102-6"
+    },
+    {
+      "id": "prod-007",
+      "nombre": "Milton Ernesto Cea Panameño",
+      "rubro": "Tecnología",
+      "ubicacion": "San Salvador, San Salvador",
+      "capacidad": "Desarrollo PowerBuilder/Oracle",
+      "telefono": "+50379854123",
+      "dui": "05123456-7",
+      "nit": "0614-201192-105-2"
+    },
+    {
+      "id": "prod-008",
+      "nombre": "Óscar Armando Ocón Díaz",
+      "rubro": "Tecnología",
+      "ubicacion": "Santa Tecla, La Libertad",
+      "capacidad": "Soporte SONARQUBE Enterprise",
+      "telefono": "+50371239876",
+      "dui": "04789123-5",
+      "nit": "0614-180690-103-4"
+    },
+    {
+      "id": "prod-009",
+      "nombre": "Karen Yamileth Hernández de Méndez",
+      "rubro": "Alimentos y Bebidas",
+      "ubicacion": "Soyapango, San Salvador",
+      "capacidad": "Refrigerios y catering para eventos",
+      "telefono": "+50374561230",
+      "dui": "05214789-6",
+      "nit": "0614-110588-104-8"
+    },
+    {
+      "id": "prod-010",
+      "nombre": "Norma Eloisa Romero Medrano",
+      "rubro": "Suministros Médicos",
+      "ubicacion": "San Miguel, San Miguel",
+      "capacidad": "Botiquines y equipos médicos",
+      "telefono": "+50376894512",
+      "dui": "03874561-2",
+      "nit": "0614-220384-101-9"
+    },
+    {
+      "id": "prod-011",
+      "nombre": "María Zoila Aguilar Pineda",
+      "rubro": "Imprenta y Papelería",
+      "ubicacion": "San Salvador, San Salvador",
+      "capacidad": "Impresos Unidos Salvadoreños - Formularios oficiales",
+      "telefono": "+50372369874",
+      "dui": "03698741-0",
+      "nit": "0614-080479-103-5"
+    },
+    {
+      "id": "prod-012",
+      "nombre": "José Cecilio Tobar Valle",
+      "rubro": "Imprenta y Papelería",
+      "ubicacion": "Santa Ana, Santa Ana",
+      "capacidad": "IMPRESOS DILEFRAN - Impresos comerciales",
+      "telefono": "+50378965412",
+      "dui": "04512369-8",
+      "nit": "0614-140286-105-1"
+    },
+    {
+      "id": "prod-013",
+      "nombre": "Dora Enelsa Castro Borja",
+      "rubro": "Mobiliario y Equipo",
+      "ubicacion": "San Salvador, San Salvador",
+      "capacidad": "DIVERSUS HOME - Electrodomésticos para oficina",
+      "telefono": "+50375632148",
+      "dui": "04123789-5",
+      "nit": "0614-250691-104-3"
+    },
+    {
+      "id": "prod-014",
+      "nombre": "María Susana Mejía Argueta",
+      "rubro": "Comercio y Distribución",
+      "ubicacion": "San Salvador, San Salvador",
+      "capacidad": "DISTRIBUIDORA SALVADOREÑA - Insumos para negocios",
+      "telefono": "+50378963214",
+      "dui": "05369874-1",
+      "nit": "0614-200889-106-2"
+    },
+    {
+      "id": "prod-015",
+      "nombre": "Ronald Onil Serrano Texin",
+      "rubro": "Transporte y Logística",
+      "ubicacion": "San Salvador, San Salvador",
+      "capacidad": "TRANS ARGENTINA - Transporte de personal",
+      "telefono": "+50370123698",
+      "dui": "04789632-5",
+      "nit": "0614-170492-102-7"
+    }
+  ]
+}

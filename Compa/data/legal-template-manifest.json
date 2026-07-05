@@ -1,0 +1,173 @@
+{
+  "source": "DocumentacionLegal/Documentación-usuario",
+  "templates": [
+    {
+      "archivo": "DES-2024-001.-Documento-Estandar-Licitacion-Competitiva.-Obras(1).docx",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/DES-2024-001.-Documento-Estandar-Licitacion-Competitiva.-Obras(1).docx",
+      "extension": "docx",
+      "bytes": 156023,
+      "uso": "documento_estandar_generable",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "DES-2024-001.-Documento-Estandar-Licitacion-Competitiva.-Obras.docx",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/DES-2024-001.-Documento-Estandar-Licitacion-Competitiva.-Obras.docx",
+      "extension": "docx",
+      "bytes": 156023,
+      "uso": "documento_estandar_generable",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "DES-2024-001.-Documento-Estandar-Licitacion-Competitiva.-Obras.pdf",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/DES-2024-001.-Documento-Estandar-Licitacion-Competitiva.-Obras.pdf",
+      "extension": "pdf",
+      "bytes": 708379,
+      "uso": "plantilla_usuario",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "DES-2024-002.-Documento-Estandar-Licitacion-Competitiva.-Bienes-y-Servicios.docx",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/DES-2024-002.-Documento-Estandar-Licitacion-Competitiva.-Bienes-y-Servicios.docx",
+      "extension": "docx",
+      "bytes": 127581,
+      "uso": "documento_estandar_generable",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "DES-2024-003.-Documento-Estandar-Comparacion-de-Precios.-Obras.docx",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/DES-2024-003.-Documento-Estandar-Comparacion-de-Precios.-Obras.docx",
+      "extension": "docx",
+      "bytes": 155680,
+      "uso": "documento_estandar_generable",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "DES-2024-004.-Documento-Estandar-Comparacion-de-Precios.-Bienes-y-Servicios.docx",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/DES-2024-004.-Documento-Estandar-Comparacion-de-Precios.-Bienes-y-Servicios.docx",
+      "extension": "docx",
+      "bytes": 119704,
+      "uso": "documento_estandar_generable",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "DES-2024-005.-Documento-Estandar-Consultoria.-Seleccion-Basada-en-Calidad-y-Costo.docx",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/DES-2024-005.-Documento-Estandar-Consultoria.-Seleccion-Basada-en-Calidad-y-Costo.docx",
+      "extension": "docx",
+      "bytes": 169288,
+      "uso": "documento_estandar_generable",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "DES-2024-006.-Documento-Estandar-Consultoria.-Seleccion-Basada-en-la-Calidad.docx",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/DES-2024-006.-Documento-Estandar-Consultoria.-Seleccion-Basada-en-la-Calidad.docx",
+      "extension": "docx",
+      "bytes": 147481,
+      "uso": "documento_estandar_generable",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "DES-2024-007.-Documento-Estandar-Consultoria.-Seleccion-Basada-en-Precio-Fijo.docx",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/DES-2024-007.-Documento-Estandar-Consultoria.-Seleccion-Basada-en-Precio-Fijo.docx",
+      "extension": "docx",
+      "bytes": 152293,
+      "uso": "documento_estandar_generable",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "DES-2024-008.-Documento-Estandar-Consultoria.-Seleccion-Basada-al-Menor-Costo.docx",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/DES-2024-008.-Documento-Estandar-Consultoria.-Seleccion-Basada-al-Menor-Costo.docx",
+      "extension": "docx",
+      "bytes": 170627,
+      "uso": "documento_estandar_generable",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "DES-2024-009.-Documento-Estandar-Consultoria.-Seleccion-Basada-en-Calificaciones-de-los-Consultores.docx",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/DES-2024-009.-Documento-Estandar-Consultoria.-Seleccion-Basada-en-Calificaciones-de-los-Consultores.docx",
+      "extension": "docx",
+      "bytes": 160258,
+      "uso": "documento_estandar_generable",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "DES-2024-010.-Documento-Estandar-Consultoria.-Seleccion-de-Fuente-Unica.docx",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/DES-2024-010.-Documento-Estandar-Consultoria.-Seleccion-de-Fuente-Unica.docx",
+      "extension": "docx",
+      "bytes": 148141,
+      "uso": "documento_estandar_generable",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "DES-2024-011.-Documento-Estandar-Consultoria.-Consultores-Individuales.docx",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/DES-2024-011.-Documento-Estandar-Consultoria.-Consultores-Individuales.docx",
+      "extension": "docx",
+      "bytes": 146337,
+      "uso": "documento_estandar_generable",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "DES-2024-012.-Documento-Estandar-Catalogo-Electronico-Convenio-Marco-Bienes-o-Servicios.docx",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/DES-2024-012.-Documento-Estandar-Catalogo-Electronico-Convenio-Marco-Bienes-o-Servicios.docx",
+      "extension": "docx",
+      "bytes": 388187,
+      "uso": "documento_estandar_generable",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "DES-2024-013.-Documento-Estandar-Subasta-Inversa-Bienes-y-Servicios-de-No-Consultoria.docx",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/DES-2024-013.-Documento-Estandar-Subasta-Inversa-Bienes-y-Servicios-de-No-Consultoria.docx",
+      "extension": "docx",
+      "bytes": 134283,
+      "uso": "documento_estandar_generable",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "DES-2025-001-Documento-Estandar-de-contratacion-directa-version-word.docx",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/DES-2025-001-Documento-Estandar-de-contratacion-directa-version-word.docx",
+      "extension": "docx",
+      "bytes": 151575,
+      "uso": "documento_estandar_generable",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "DES-2025-002-Documento-Estandar-de-Contratacion-directa-por-calificativo-de-urgencia-version-word.docx",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/DES-2025-002-Documento-Estandar-de-Contratacion-directa-por-calificativo-de-urgencia-version-word.docx",
+      "extension": "docx",
+      "bytes": 152386,
+      "uso": "documento_estandar_generable",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "PERSONA-JURIDICA-APODERADO.pdf",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/PERSONA-JURIDICA-APODERADO.pdf",
+      "extension": "pdf",
+      "bytes": 224305,
+      "uso": "declaracion_usuario",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "PERSONA-JURIDICA.pdf",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/PERSONA-JURIDICA.pdf",
+      "extension": "pdf",
+      "bytes": 224010,
+      "uso": "declaracion_usuario",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "PERSONA-NATURAL-APODERADO.pdf",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/PERSONA-NATURAL-APODERADO.pdf",
+      "extension": "pdf",
+      "bytes": 224823,
+      "uso": "declaracion_usuario",
+      "subir_a_rag": false
+    },
+    {
+      "archivo": "PERSONA-NATURAL.pdf",
+      "path": "DocumentacionLegal/Documentación-usuario/Documentación-usuario/PERSONA-NATURAL.pdf",
+      "extension": "pdf",
+      "bytes": 223140,
+      "uso": "declaracion_usuario",
+      "subir_a_rag": false
+    }
+  ]
+}

@@ -1,0 +1,630 @@
+{
+  "_meta": {
+    "source": "supabase-schema.sql"
+  },
+  "proveedores": [
+    {
+      "id": "prov-001",
+      "nombre": "PRINT RUNNING, S.A. DE C.V.",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Formularios, viñetas, sobres impresos y talonarios para el Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-002",
+      "nombre": "UH INTERNACIONAL",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Formularios, viñetas, sobres impresos y talonarios para el Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-003",
+      "nombre": "IMPRESOS DOBLE G, S.A. DE C.V.",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Formularios, viñetas, sobres impresos y talonarios para el Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-004",
+      "nombre": "EDITORIAL E IMPRESORA PANAMERICANA, S.A. DE C.V.",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Formularios, viñetas, sobres impresos y talonarios para el Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-005",
+      "nombre": "LANDOS, S.A. DE C.V.",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Formularios, especies municipales forma plana, encuadernado y empastado de diarios oficiales"
+    },
+    {
+      "id": "prov-006",
+      "nombre": "MARÍA ZOILA AGUILAR PINEDA (IMPRESOS UNIDOS SALVADOREÑOS)",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Formularios, viñetas, sobres impresos y talonarios para el Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-007",
+      "nombre": "FORMULARIOS STANDARD, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Especies municipales forma plana"
+    },
+    {
+      "id": "prov-008",
+      "nombre": "RR DONNELEY DE EL SALVADOR, S.A. DE C.V.",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Especies municipales forma plana"
+    },
+    {
+      "id": "prov-009",
+      "nombre": "RZ, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Papelería y útiles de oficina para la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-010",
+      "nombre": "OLG SERVICE, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Papelería y útiles de oficina para la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-011",
+      "nombre": "PAPELERA SAN REY, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Papelería y útiles de oficina para la Secretaría de Estado"
+    },
+    {
+      "id": "prov-012",
+      "nombre": "NOE ALBERTO GUILLEN (LIBRERÍA Y PAPELERÍA LA NUEVA SAN SALVADOR)",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Papelería y útiles de oficina para la Secretaría de Estado"
+    },
+    {
+      "id": "prov-013",
+      "nombre": "DPG, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Papelería y útiles de oficina para la Secretaría de Estado"
+    },
+    {
+      "id": "prov-014",
+      "nombre": "BUSINESS CENTER, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Papelería y útiles de oficina para la Dirección General de Tesorería"
+    },
+    {
+      "id": "prov-015",
+      "nombre": "LIBRERÍA CERVANTES, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Papelería y útiles de oficina para la Dirección General de Tesorería"
+    },
+    {
+      "id": "prov-016",
+      "nombre": "LANDOS, S.A. DE C.V. (Encuadernados)",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Servicio de encuadernado y empastado de diarios oficiales, registros de entrada y salida de documentos"
+    },
+    {
+      "id": "prov-017",
+      "nombre": "COMUNICACIONES IBW EL SALVADOR, S.A. DE C.V.",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "ACCESS POINTS para la Red Inalámbrica del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-018",
+      "nombre": "CRM SOLUTIONS, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "UPS para la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-019",
+      "nombre": "BIT OFFICE EL SALVADOR (Sandra Patricia Vásquez Hernández)",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Reloj Marcador para el registro de correspondencia"
+    },
+    {
+      "id": "prov-020",
+      "nombre": "MT2005, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Reforzamiento de memoria principal RAM para solución VMWARE HCI del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-021",
+      "nombre": "GRUPO OCTO, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Suscripción del software AUTODESK AEC COLLECTION versión 2025 o superior"
+    },
+    {
+      "id": "prov-022",
+      "nombre": "PBS EL SALVADOR, S.A. DE C.V.",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Servicios de desarrollo de sistemas y suscripción SONARQUBE ENTERPRISE"
+    },
+    {
+      "id": "prov-023",
+      "nombre": "SPC INTERNACIONAL, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Soporte de Equipos CISCO MDS del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-024",
+      "nombre": "STB COMPUTER, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Suscripción de Licencia ADOBE CREATIVE CLOUD para el departamento de formación"
+    },
+    {
+      "id": "prov-025",
+      "nombre": "INGENIERIA BIO PRO S.A.S DE C.V.",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Servicios de Mantenimiento",
+      "descripcion": "Mantenimiento preventivo y correctivo para equipos médicos de clínicas empresariales del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-026",
+      "nombre": "ISERTEC DE EL SALVADOR, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Servicios de Mantenimiento",
+      "descripcion": "Mantenimiento preventivo y correctivo, desmontaje y traslado para sistema de detención"
+    },
+    {
+      "id": "prov-027",
+      "nombre": "AIR AND ELECTRIC SERVICE, S.A. DE C.V.",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Servicios de Mantenimiento",
+      "descripcion": "Mantenimiento Preventivo y Correctivo para Extractores de Aire en Laboratorio de Merceología DGA"
+    },
+    {
+      "id": "prov-028",
+      "nombre": "INFRA DE EL SALVADOR, S.A. DE C.V.",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Servicios de Mantenimiento",
+      "descripcion": "Recarga de Gases y Mantenimiento Preventivo y Correctivo a Red de Gases del Laboratorio DGA"
+    },
+    {
+      "id": "prov-029",
+      "nombre": "ABJ INVERSORES, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Servicios de Mantenimiento",
+      "descripcion": "Mantenimiento preventivo y correctivo del sistema de detención de incendios en Laboratorio DGA"
+    },
+    {
+      "id": "prov-030",
+      "nombre": "SUPLIDORES DIVERSOS, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Servicios de Mantenimiento",
+      "descripcion": "Insumos Médicos para las 4 clínicas empresariales del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-031",
+      "nombre": "CESAR ROLANDO CONTRERAS OBISPO (CROBISPO)",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Construcción y Materiales",
+      "descripcion": "Mantenimiento preventivo y correctivo en infraestructura y readecuación de espacios físicos del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-032",
+      "nombre": "INGEREZ, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Construcción y Materiales",
+      "descripcion": "Mantenimiento preventivo y correctivo en la infraestructura del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-033",
+      "nombre": "INESERMA, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Construcción y Materiales",
+      "descripcion": "Readecuación de espacios físicos y reparación de techos en oficinas, bodegas y salones del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-034",
+      "nombre": "CONSULTORIA, MEDIO AMBIENTE Y SOLUCIONES, S.A. DE C.V.",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Construcción y Materiales",
+      "descripcion": "Mantenimiento preventivo y correctivo al sistema de filtración para remoción de hierro y manganeso - Aduana El Poy"
+    },
+    {
+      "id": "prov-035",
+      "nombre": "INSTRUQUIMICA, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Suministros de Laboratorio",
+      "descripcion": "Consumibles para el departamento de laboratorio de la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-036",
+      "nombre": "COMERCIO Y REPRESENTACIONES, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Suministros de Laboratorio",
+      "descripcion": "Consumibles para el departamento de laboratorio de la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-037",
+      "nombre": "RGH DE EL SALVADOR",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Suministros de Laboratorio",
+      "descripcion": "Consumibles para el departamento de laboratorio de la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-038",
+      "nombre": "CARLOS ORLANDO ROMERO CALLES",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Suministros de Laboratorio",
+      "descripcion": "Consumibles y Cristalería para el Laboratorio de Merceología de la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-039",
+      "nombre": "INVERSIONES VIDA, S.A. DE C.V.",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Alimentos y Bebidas",
+      "descripcion": "Botellas de agua para SEDE del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-040",
+      "nombre": "FUNDACION EMPRESARIAL PARA EL DESARROLLO EDUCATIVO (FEPADE)",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Alimentos y Bebidas",
+      "descripcion": "Servicios de Auditorio y Refrigerio para Coloquio del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-041",
+      "nombre": "MULTIPROMOCIONES, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Textiles y Uniformes",
+      "descripcion": "Chumpas, Gorras, Chalecos, Capas Impermeables, Mochilas y Calzado de seguridad para personal operativo de la DGA"
+    },
+    {
+      "id": "prov-042",
+      "nombre": "PROBIGE, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Mobiliario y Equipo",
+      "descripcion": "Mobiliario para la Dirección General del Presupuesto del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-043",
+      "nombre": "DORA ENELSA CASTRO BORJA (DIVERSUS HOME)",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Mobiliario y Equipo",
+      "descripcion": "Electrodomésticos para la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-044",
+      "nombre": "BTECH SOLUCIONES INTEGRALES, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Mobiliario y Equipo",
+      "descripcion": "Electrodomésticos para la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-045",
+      "nombre": "MURCIA Y MURCIA, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Servicios Profesionales",
+      "descripcion": "Auditoría externa del programa para la transformación del clima de negocios de El Salvador CFA-12031"
+    },
+    {
+      "id": "prov-046",
+      "nombre": "SEGUROS FEDECREDITO, S.A.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Servicios Financieros",
+      "descripcion": "Póliza de seguro de Responsabilidad Civil para el Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-047",
+      "nombre": "NORMA ELOISA ROMERO MEDRANO (Medical Systems El Salvador)",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Suministros Médicos",
+      "descripcion": "Botiquines para la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-048",
+      "nombre": "SUPLIDORES DIVERSOS, S.A. DE C.V. (Médico)",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Suministros Médicos",
+      "descripcion": "Insumos Médicos para las 4 clínicas empresariales del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-049",
+      "nombre": "D'QUISA, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Suministros de Limpieza",
+      "descripcion": "Papel Higiénico Jumbo y dispensadores para la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-050",
+      "nombre": "CONSULTORIA, MEDIO AMBIENTE Y SOLUCIONES, S.A. DE C.V. (Ambiental)",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Servicios Ambientales",
+      "descripcion": "Mantenimiento a sistema de filtración para Remoción de Hierro y Manganeso y Suministro de Hipoclorito de sodio para Aduana El Poy"
+    },
+    {
+      "id": "prov-051",
+      "nombre": "TRANSPORTES ARGUETA, S.A. DE C.V.",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Transporte y Logística",
+      "descripcion": "Servicio de transporte colectivo y jornada extraordinaria para empleados del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-052",
+      "nombre": "TRANSPORTES ALAS S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Transporte y Logística",
+      "descripcion": "Servicio de transporte colectivo para empleados del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-053",
+      "nombre": "URBANO EXPRESS, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Transporte y Logística",
+      "descripcion": "Servicios de mensajería y paquetería"
+    },
+    {
+      "id": "prov-054",
+      "nombre": "ETS CONSULTING, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Servicio de soporte técnico para infraestructura de balanceo de aplicaciones ADC del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-055",
+      "nombre": "GBM DE EL SALVADOR, S.A. DE C.V.",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Soporte UPS, CISCO, IBM Cognos Analytics e Infosphere Information Server para Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-056",
+      "nombre": "TELEMOVIL EL SALVADOR, S.A. DE CV.",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Enlace de internet satelital para respaldo DGA y CloudFlare Application Security Advanced WAF"
+    },
+    {
+      "id": "prov-057",
+      "nombre": "AMAZON WEB SERVICES, INC",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Servicios de almacenamiento en la nube para despliegue de aplicativos gubernamentales"
+    },
+    {
+      "id": "prov-058",
+      "nombre": "GOOGLE LLC",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Google Cloud, Workspace, CrowdStrike Falcon Cloud Security para Gobierno de El Salvador"
+    },
+    {
+      "id": "prov-059",
+      "nombre": "DATAGUARDS, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Servicio de alojamiento físico para equipos TIC del centro de datos MH (colocation)"
+    },
+    {
+      "id": "prov-060",
+      "nombre": "UDP ASOCIO GRUPO PLUS-CONFICO",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Servicio de soporte técnico especializado para plataforma BPM AuraQuantic del MH"
+    },
+    {
+      "id": "prov-061",
+      "nombre": "COMPONENTES EL ORBE, S.A. DE CV.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Servicios de asistencia técnica en sitio y soporte VMWARE para infraestructura HCI del MH"
+    },
+    {
+      "id": "prov-062",
+      "nombre": "SISTEMAS C&C, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Tecnología",
+      "descripcion": "Sistemas informáticos y consultoría"
+    },
+    {
+      "id": "prov-063",
+      "nombre": "JMTELCOM (JESUS MARTINEZ Y ASOCIADOS, S.A. DE C.V.)",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Tecnología",
+      "descripcion": "Servicios de telecomunicaciones"
+    },
+    {
+      "id": "prov-064",
+      "nombre": "TECNOLOGIAS INDUSTRIALES, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Tecnología",
+      "descripcion": "Tecnologías industriales"
+    },
+    {
+      "id": "prov-065",
+      "nombre": "TECNOLOGÍAS Y SISTEMAS FRIOS, S.A. DE C.V",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Tecnología",
+      "descripcion": "Sistemas de refrigeración industrial"
+    },
+    {
+      "id": "prov-066",
+      "nombre": "MAPFRE SEGUROS EL SALVADOR, S.A. DE CV",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Servicios Financieros",
+      "descripcion": "Pólizas de seguro y fianzas de fidelidad para el Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-067",
+      "nombre": "LA CENTRAL DE SEGUROS Y FIANZAS, S.A. DE CV.",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Servicios Financieros",
+      "descripcion": "Pólizas de seguro y fianzas para el Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-068",
+      "nombre": "MAPRECO, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Servicios de Limpieza",
+      "descripcion": "Servicio de limpieza de fosas sépticas para la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-069",
+      "nombre": "LEMUSIMUN PUBLICIDAD, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Servicios de Publicidad",
+      "descripcion": "Servicios de imagen y agencia de publicidad para el Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-070",
+      "nombre": "CORPORACIÓN HERMANOS MARISTAS DE EL SALVADOR",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Servicios Educativos",
+      "descripcion": "Servicio de educación para los hijos de empleados del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-071",
+      "nombre": "DIARIO EL SALVADOR (El Diario Nacional, S.A. de C.V.)",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Medios y Suscripciones",
+      "descripcion": "Servicio de suscripción para periódicos en físico para oficinas del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-072",
+      "nombre": "EDITORA EL MUNDO, S.A.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Medios y Suscripciones",
+      "descripcion": "Publicaciones y medios impresos"
+    },
+    {
+      "id": "prov-073",
+      "nombre": "SERVICIO SALVADOREÑO DE PROTECCIÓN, S.A. DE C.V.",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Servicios de Mensajería",
+      "descripcion": "Servicio de recolección y traslado de paquetería liviana y entrega de correspondencia"
+    },
+    {
+      "id": "prov-074",
+      "nombre": "NETO SPORT, S.A DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Artículos Deportivos",
+      "descripcion": "Adquisición de trofeos y artículos deportivos para juegos deportivos del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-075",
+      "nombre": "LISETH MARGARITA GARCÍA DE HIDALGO",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Servicios Profesionales",
+      "descripcion": "Consultoría de especialista financiero UGP-CAF con fondos de la Corporación Andina de Fomento"
+    },
+    {
+      "id": "prov-076",
+      "nombre": "AENOR CENTROAMERICA, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Servicios Profesionales",
+      "descripcion": "Servicios de certificación y normalización"
+    },
+    {
+      "id": "prov-077",
+      "nombre": "RYASA (R.Y.A. SERVICIOS PROFESIONALES, S.A. DE C.V.)",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Servicios Profesionales",
+      "descripcion": "Servicios profesionales integrados"
+    },
+    {
+      "id": "prov-078",
+      "nombre": "SERCOMCA, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Servicios de Mantenimiento",
+      "descripcion": "Mantenimiento preventivo y correctivo de contadoras de billetes y monedas para Tesorería"
+    },
+    {
+      "id": "prov-079",
+      "nombre": "O & M MANTENIMIENTO Y SERVICIOS, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Servicios de Mantenimiento",
+      "descripcion": "Mantenimiento y servicios generales"
+    },
+    {
+      "id": "prov-080",
+      "nombre": "ASECOMER, S.A. DE C.V.",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Alimentos y Bebidas",
+      "descripcion": "Suministro de café y azúcar para las dependencias del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-081",
+      "nombre": "PLANTA DE TORREFACCIÓN DE CAFÉ",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Alimentos y Bebidas",
+      "descripcion": "Torrefacción y suministro de café"
+    },
+    {
+      "id": "prov-082",
+      "nombre": "PARCELADORA SALVADOREÑA / RESTAURANTE CASA DE PIEDRA",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Alimentos y Bebidas",
+      "descripcion": "Servicios de restaurante y alimentación"
+    },
+    {
+      "id": "prov-083",
+      "nombre": "IMPORTACIONES Y SERVICIOS DIVERSOS, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Comercio y Distribución",
+      "descripcion": "Importaciones y servicios comerciales diversos"
+    },
+    {
+      "id": "prov-084",
+      "nombre": "DISTRIBUIDORA SALVADOREÑA (María Susana Mejía Argueta)",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Comercio y Distribución",
+      "descripcion": "Distribución de insumos y productos comerciales"
+    },
+    {
+      "id": "prov-085",
+      "nombre": "INTERTOURS, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Servicios de Viajes",
+      "descripcion": "Servicios de turismo y viajes"
+    },
+    {
+      "id": "prov-086",
+      "nombre": "FERRETERIA GUARDADO, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Construcción y Materiales",
+      "descripcion": "Suministro de materiales de ferretería y construcción"
+    },
+    {
+      "id": "prov-087",
+      "nombre": "ANALI (ANALITICA SALVADOREÑA, S.A. DE C.V.)",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Suministros de Laboratorio",
+      "descripcion": "Servicios de analítica y laboratorio"
+    },
+    {
+      "id": "prov-088",
+      "nombre": "BASCULAS Y BALANZAS, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Mobiliario y Equipo",
+      "descripcion": "Equipos de medición, básculas y balanzas"
+    },
+    {
+      "id": "prov-089",
+      "nombre": "CENTRO DE SERVICIO DOÑO, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Servicios Generales",
+      "descripcion": "Servicios generales, apoyo operativo y atencion institucional"
+    }
+  ]
+}

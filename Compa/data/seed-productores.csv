@@ -1,0 +1,16 @@
+id,nombre,rubro,ubicacion,capacidad,telefono,dui,nit
+prod-001,Vilma Jeanneth Guardado de Ayala,Alimentos y Bebidas,"Cantón El Zapote, San Juan Opico, La Libertad",500 almuerzos/día,+50377234567,02734457-8,0614-270479-105-7
+prod-002,Carlos Alberto Mejía López,Textiles y Uniformes,"Colonia Escalón, San Salvador",2000 uniformes/mes,+50378901234,04567891-2,0614-150389-101-3
+prod-003,María Elena Rivas de Hernández,Mobiliario y Equipo,"Ciudad Arce, La Libertad",100 pupitres/semana,+50370123456,03124567-8,0614-220592-109-1
+prod-004,Pedro Antonio Sorto García,Construcción y Materiales,"Soyapango, San Salvador",50 m³ concreto/semana,+50375678901,05678901-2,0614-100183-101-5
+prod-005,Ana Beatriz Cruz de Lemus,Servicios Generales,"Santa Tecla, La Libertad",30 instalaciones/mes,+50372345678,03456789-0,0614-051290-103-9
+prod-006,César Rolando Contreras Obispo,Construcción y Materiales,"San Salvador, San Salvador",Mantenimiento de infraestructura gubernamental,+50372561478,04256987-3,0614-150881-102-6
+prod-007,Milton Ernesto Cea Panameño,Tecnología,"San Salvador, San Salvador",Desarrollo PowerBuilder/Oracle,+50379854123,05123456-7,0614-201192-105-2
+prod-008,Óscar Armando Ocón Díaz,Tecnología,"Santa Tecla, La Libertad",Soporte SONARQUBE Enterprise,+50371239876,04789123-5,0614-180690-103-4
+prod-009,Karen Yamileth Hernández de Méndez,Alimentos y Bebidas,"Soyapango, San Salvador",Refrigerios y catering para eventos,+50374561230,05214789-6,0614-110588-104-8
+prod-010,Norma Eloisa Romero Medrano,Suministros Médicos,"San Miguel, San Miguel",Botiquines y equipos médicos,+50376894512,03874561-2,0614-220384-101-9
+prod-011,María Zoila Aguilar Pineda,Imprenta y Papelería,"San Salvador, San Salvador",Impresos Unidos Salvadoreños - Formularios oficiales,+50372369874,03698741-0,0614-080479-103-5
+prod-012,José Cecilio Tobar Valle,Imprenta y Papelería,"Santa Ana, Santa Ana",IMPRESOS DILEFRAN - Impresos comerciales,+50378965412,04512369-8,0614-140286-105-1
+prod-013,Dora Enelsa Castro Borja,Mobiliario y Equipo,"San Salvador, San Salvador",DIVERSUS HOME - Electrodomésticos para oficina,+50375632148,04123789-5,0614-250691-104-3
+prod-014,María Susana Mejía Argueta,Comercio y Distribución,"San Salvador, San Salvador",DISTRIBUIDORA SALVADOREÑA - Insumos para negocios,+50378963214,05369874-1,0614-200889-106-2
+prod-015,Ronald Onil Serrano Texin,Transporte y Logística,"San Salvador, San Salvador",TRANS ARGENTINA - Transporte de personal,+50370123698,04789632-5,0614-170492-102-7

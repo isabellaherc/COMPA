@@ -1,0 +1,1366 @@
+{
+  "_meta": {
+    "name": "Compa Fallback Data",
+    "version": "2.0",
+    "source_of_truth": "supabase-schema.sql",
+    "last_updated": "2026-07-04",
+    "purpose": "Fallback local derivado del SQL para evitar drift entre Supabase, JSON y CSV.",
+    "note": "IDs prod/opp/prov son locales para fallback. En Supabase usar UUID reales."
+  },
+  "productores": [
+    {
+      "id": "prod-001",
+      "nombre": "Vilma Jeanneth Guardado de Ayala",
+      "rubro": "Alimentos y Bebidas",
+      "ubicacion": "Cantón El Zapote, San Juan Opico, La Libertad",
+      "capacidad": "500 almuerzos/día",
+      "telefono": "+50377234567",
+      "dui": "02734457-8",
+      "nit": "0614-270479-105-7"
+    },
+    {
+      "id": "prod-002",
+      "nombre": "Carlos Alberto Mejía López",
+      "rubro": "Textiles y Uniformes",
+      "ubicacion": "Colonia Escalón, San Salvador",
+      "capacidad": "2000 uniformes/mes",
+      "telefono": "+50378901234",
+      "dui": "04567891-2",
+      "nit": "0614-150389-101-3"
+    },
+    {
+      "id": "prod-003",
+      "nombre": "María Elena Rivas de Hernández",
+      "rubro": "Mobiliario y Equipo",
+      "ubicacion": "Ciudad Arce, La Libertad",
+      "capacidad": "100 pupitres/semana",
+      "telefono": "+50370123456",
+      "dui": "03124567-8",
+      "nit": "0614-220592-109-1"
+    },
+    {
+      "id": "prod-004",
+      "nombre": "Pedro Antonio Sorto García",
+      "rubro": "Construcción y Materiales",
+      "ubicacion": "Soyapango, San Salvador",
+      "capacidad": "50 m³ concreto/semana",
+      "telefono": "+50375678901",
+      "dui": "05678901-2",
+      "nit": "0614-100183-101-5"
+    },
+    {
+      "id": "prod-005",
+      "nombre": "Ana Beatriz Cruz de Lemus",
+      "rubro": "Servicios Generales",
+      "ubicacion": "Santa Tecla, La Libertad",
+      "capacidad": "30 instalaciones/mes",
+      "telefono": "+50372345678",
+      "dui": "03456789-0",
+      "nit": "0614-051290-103-9"
+    },
+    {
+      "id": "prod-006",
+      "nombre": "César Rolando Contreras Obispo",
+      "rubro": "Construcción y Materiales",
+      "ubicacion": "San Salvador, San Salvador",
+      "capacidad": "Mantenimiento de infraestructura gubernamental",
+      "telefono": "+50372561478",
+      "dui": "04256987-3",
+      "nit": "0614-150881-102-6"
+    },
+    {
+      "id": "prod-007",
+      "nombre": "Milton Ernesto Cea Panameño",
+      "rubro": "Tecnología",
+      "ubicacion": "San Salvador, San Salvador",
+      "capacidad": "Desarrollo PowerBuilder/Oracle",
+      "telefono": "+50379854123",
+      "dui": "05123456-7",
+      "nit": "0614-201192-105-2"
+    },
+    {
+      "id": "prod-008",
+      "nombre": "Óscar Armando Ocón Díaz",
+      "rubro": "Tecnología",
+      "ubicacion": "Santa Tecla, La Libertad",
+      "capacidad": "Soporte SONARQUBE Enterprise",
+      "telefono": "+50371239876",
+      "dui": "04789123-5",
+      "nit": "0614-180690-103-4"
+    },
+    {
+      "id": "prod-009",
+      "nombre": "Karen Yamileth Hernández de Méndez",
+      "rubro": "Alimentos y Bebidas",
+      "ubicacion": "Soyapango, San Salvador",
+      "capacidad": "Refrigerios y catering para eventos",
+      "telefono": "+50374561230",
+      "dui": "05214789-6",
+      "nit": "0614-110588-104-8"
+    },
+    {
+      "id": "prod-010",
+      "nombre": "Norma Eloisa Romero Medrano",
+      "rubro": "Suministros Médicos",
+      "ubicacion": "San Miguel, San Miguel",
+      "capacidad": "Botiquines y equipos médicos",
+      "telefono": "+50376894512",
+      "dui": "03874561-2",
+      "nit": "0614-220384-101-9"
+    },
+    {
+      "id": "prod-011",
+      "nombre": "María Zoila Aguilar Pineda",
+      "rubro": "Imprenta y Papelería",
+      "ubicacion": "San Salvador, San Salvador",
+      "capacidad": "Impresos Unidos Salvadoreños - Formularios oficiales",
+      "telefono": "+50372369874",
+      "dui": "03698741-0",
+      "nit": "0614-080479-103-5"
+    },
+    {
+      "id": "prod-012",
+      "nombre": "José Cecilio Tobar Valle",
+      "rubro": "Imprenta y Papelería",
+      "ubicacion": "Santa Ana, Santa Ana",
+      "capacidad": "IMPRESOS DILEFRAN - Impresos comerciales",
+      "telefono": "+50378965412",
+      "dui": "04512369-8",
+      "nit": "0614-140286-105-1"
+    },
+    {
+      "id": "prod-013",
+      "nombre": "Dora Enelsa Castro Borja",
+      "rubro": "Mobiliario y Equipo",
+      "ubicacion": "San Salvador, San Salvador",
+      "capacidad": "DIVERSUS HOME - Electrodomésticos para oficina",
+      "telefono": "+50375632148",
+      "dui": "04123789-5",
+      "nit": "0614-250691-104-3"
+    },
+    {
+      "id": "prod-014",
+      "nombre": "María Susana Mejía Argueta",
+      "rubro": "Comercio y Distribución",
+      "ubicacion": "San Salvador, San Salvador",
+      "capacidad": "DISTRIBUIDORA SALVADOREÑA - Insumos para negocios",
+      "telefono": "+50378963214",
+      "dui": "05369874-1",
+      "nit": "0614-200889-106-2"
+    },
+    {
+      "id": "prod-015",
+      "nombre": "Ronald Onil Serrano Texin",
+      "rubro": "Transporte y Logística",
+      "ubicacion": "San Salvador, San Salvador",
+      "capacidad": "TRANS ARGENTINA - Transporte de personal",
+      "telefono": "+50370123698",
+      "dui": "04789632-5",
+      "nit": "0614-170492-102-7"
+    }
+  ],
+  "oportunidades": [
+    {
+      "id": "opp-001",
+      "titulo": "Servicio de Alimentación Escolar - Distrito 04-25",
+      "institucion": "MINEDUCYT",
+      "monto": 48750.0,
+      "fecha_cierre": "2026-07-18",
+      "rubro_requerido": "Alimentos y Bebidas",
+      "unspsc_code": 50200000,
+      "url_fuente": "https://www.comprasal.gob.sv/licitaciones/lp-07-2026-mined",
+      "tipo_contratacion": "LP",
+      "tipo_contratacion_label": "Licitacion Publica"
+    },
+    {
+      "id": "opp-002",
+      "titulo": "Servicio de Cafetería - Edificio Central ANDA",
+      "institucion": "ANDA",
+      "monto": 28400.0,
+      "fecha_cierre": "2026-07-22",
+      "rubro_requerido": "Alimentos y Bebidas",
+      "unspsc_code": 50200000,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-12-2026-anda",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    },
+    {
+      "id": "opp-003",
+      "titulo": "Suministro de Botellas de Agua para SEDE",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 8750.0,
+      "fecha_cierre": "2026-07-10",
+      "rubro_requerido": "Alimentos y Bebidas",
+      "unspsc_code": 50202301,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-08-2026-mh",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    },
+    {
+      "id": "opp-004",
+      "titulo": "Servicio de Catering para Eventos Institucionales",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 4200.0,
+      "fecha_cierre": "2026-07-05",
+      "rubro_requerido": "Alimentos y Bebidas",
+      "unspsc_code": 90101601,
+      "url_fuente": "https://www.comprasal.gob.sv/contrataciones/cd-03-2026-mh",
+      "tipo_contratacion": "CD",
+      "tipo_contratacion_label": "Contratacion Directa"
+    },
+    {
+      "id": "opp-005",
+      "titulo": "Adquisición de Formularios, Viñetas y Sobres Impresos",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 45200.0,
+      "fecha_cierre": "2026-07-15",
+      "rubro_requerido": "Imprenta y Papelería",
+      "unspsc_code": 82121501,
+      "url_fuente": "https://www.comprasal.gob.sv/licitaciones/lp-11-2026-mh",
+      "tipo_contratacion": "LP",
+      "tipo_contratacion_label": "Licitacion Publica"
+    },
+    {
+      "id": "opp-006",
+      "titulo": "Suministro de Especies Municipales Forma Plana",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 38500.0,
+      "fecha_cierre": "2026-07-20",
+      "rubro_requerido": "Imprenta y Papelería",
+      "unspsc_code": 82121502,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-15-2026-mh",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    },
+    {
+      "id": "opp-007",
+      "titulo": "Suministro de Papelería y Útiles de Oficina",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 22100.0,
+      "fecha_cierre": "2026-07-08",
+      "rubro_requerido": "Imprenta y Papelería",
+      "unspsc_code": 14111500,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-09-2026-mh",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    },
+    {
+      "id": "opp-008",
+      "titulo": "Servicio de Encuadernado y Empastado de Diarios Oficiales",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 5600.0,
+      "fecha_cierre": "2026-07-25",
+      "rubro_requerido": "Imprenta y Papelería",
+      "unspsc_code": 82121503,
+      "url_fuente": "https://www.comprasal.gob.sv/contrataciones/cd-07-2026-mh",
+      "tipo_contratacion": "CD",
+      "tipo_contratacion_label": "Contratacion Directa"
+    },
+    {
+      "id": "opp-009",
+      "titulo": "Adquisición de ACCESS POINTS para Red Inalámbrica",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 67200.0,
+      "fecha_cierre": "2026-07-28",
+      "rubro_requerido": "Tecnología",
+      "unspsc_code": 43222600,
+      "url_fuente": "https://www.comprasal.gob.sv/licitaciones/lp-14-2026-mh",
+      "tipo_contratacion": "LP",
+      "tipo_contratacion_label": "Licitacion Publica"
+    },
+    {
+      "id": "opp-010",
+      "titulo": "Adquisición de UPS para Dirección General de Aduanas",
+      "institucion": "Ministerio de Hacienda (DGA)",
+      "monto": 18900.0,
+      "fecha_cierre": "2026-07-12",
+      "rubro_requerido": "Tecnología",
+      "unspsc_code": 39121000,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-10-2026-dga",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    },
+    {
+      "id": "opp-011",
+      "titulo": "Suscripción de Software AUTODESK AEC COLLECTION 2025",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 24500.0,
+      "fecha_cierre": "2026-07-05",
+      "rubro_requerido": "Tecnología",
+      "unspsc_code": 43230000,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-06-2026-mh",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    },
+    {
+      "id": "opp-012",
+      "titulo": "Suscripción Licencia ADOBE CREATIVE CLOUD",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 12300.0,
+      "fecha_cierre": "2026-07-03",
+      "rubro_requerido": "Tecnología",
+      "unspsc_code": 43232100,
+      "url_fuente": "https://www.comprasal.gob.sv/contrataciones/cd-04-2026-mh",
+      "tipo_contratacion": "CD",
+      "tipo_contratacion_label": "Contratacion Directa"
+    },
+    {
+      "id": "opp-013",
+      "titulo": "Servicios de Desarrollo de Sistemas",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 115000.0,
+      "fecha_cierre": "2026-08-01",
+      "rubro_requerido": "Tecnología",
+      "unspsc_code": 81111500,
+      "url_fuente": "https://www.comprasal.gob.sv/licitaciones/lp-16-2026-mh",
+      "tipo_contratacion": "LP",
+      "tipo_contratacion_label": "Licitacion Publica"
+    },
+    {
+      "id": "opp-014",
+      "titulo": "Mantenimiento Preventivo y Correctivo de Equipos Médicos",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 32600.0,
+      "fecha_cierre": "2026-07-22",
+      "rubro_requerido": "Servicios de Mantenimiento",
+      "unspsc_code": 81101500,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-16-2026-mh",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    },
+    {
+      "id": "opp-015",
+      "titulo": "Mantenimiento de Sistema de Detención de Incendios",
+      "institucion": "Ministerio de Hacienda (DGA)",
+      "monto": 15300.0,
+      "fecha_cierre": "2026-07-11",
+      "rubro_requerido": "Servicios de Mantenimiento",
+      "unspsc_code": 72101500,
+      "url_fuente": "https://www.comprasal.gob.sv/contrataciones/cd-08-2026-dga",
+      "tipo_contratacion": "CD",
+      "tipo_contratacion_label": "Contratacion Directa"
+    },
+    {
+      "id": "opp-016",
+      "titulo": "Mantenimiento de Extractores de Aire - Laboratorio DGA",
+      "institucion": "Ministerio de Hacienda (DGA)",
+      "monto": 8700.0,
+      "fecha_cierre": "2026-07-06",
+      "rubro_requerido": "Servicios de Mantenimiento",
+      "unspsc_code": 72151200,
+      "url_fuente": "https://www.comprasal.gob.sv/contrataciones/cd-06-2026-dga",
+      "tipo_contratacion": "CD",
+      "tipo_contratacion_label": "Contratacion Directa"
+    },
+    {
+      "id": "opp-017",
+      "titulo": "Recarga de Gases y Mantenimiento de Red de Gases - Laboratorio DGA",
+      "institucion": "Ministerio de Hacienda (DGA)",
+      "monto": 12400.0,
+      "fecha_cierre": "2026-07-14",
+      "rubro_requerido": "Servicios de Mantenimiento",
+      "unspsc_code": 72120000,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-11-2026-dga",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    },
+    {
+      "id": "opp-018",
+      "titulo": "Readecuación de Espacios Físicos y Reparación de Techos",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 98500.0,
+      "fecha_cierre": "2026-07-30",
+      "rubro_requerido": "Construcción y Materiales",
+      "unspsc_code": 72101500,
+      "url_fuente": "https://www.comprasal.gob.sv/licitaciones/lp-15-2026-mh",
+      "tipo_contratacion": "LP",
+      "tipo_contratacion_label": "Licitacion Publica"
+    },
+    {
+      "id": "opp-019",
+      "titulo": "Mantenimiento de Infraestructura - Edificio Central",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 28700.0,
+      "fecha_cierre": "2026-07-18",
+      "rubro_requerido": "Construcción y Materiales",
+      "unspsc_code": 72120000,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-14-2026-mh",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    },
+    {
+      "id": "opp-020",
+      "titulo": "Suministro de Consumibles para Laboratorio DGA",
+      "institucion": "Ministerio de Hacienda (DGA)",
+      "monto": 23400.0,
+      "fecha_cierre": "2026-07-09",
+      "rubro_requerido": "Suministros de Laboratorio",
+      "unspsc_code": 41100000,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-07-2026-dga",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    },
+    {
+      "id": "opp-021",
+      "titulo": "Suministro de Consumibles y Cristalería para Laboratorio",
+      "institucion": "Ministerio de Hacienda (DGA)",
+      "monto": 15100.0,
+      "fecha_cierre": "2026-07-16",
+      "rubro_requerido": "Suministros de Laboratorio",
+      "unspsc_code": 41103000,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-13-2026-dga",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    },
+    {
+      "id": "opp-022",
+      "titulo": "Adquisición de Chumpas, Gorras, Chalecos y Calzado de Seguridad",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 34200.0,
+      "fecha_cierre": "2026-07-21",
+      "rubro_requerido": "Textiles y Uniformes",
+      "unspsc_code": 53102500,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-17-2026-mh",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    },
+    {
+      "id": "opp-023",
+      "titulo": "Confección de Uniformes - Personal Operativo DGA",
+      "institucion": "Ministerio de Hacienda (DGA)",
+      "monto": 18900.0,
+      "fecha_cierre": "2026-07-13",
+      "rubro_requerido": "Textiles y Uniformes",
+      "unspsc_code": 53102700,
+      "url_fuente": "https://www.comprasal.gob.sv/contrataciones/cd-09-2026-dga",
+      "tipo_contratacion": "CD",
+      "tipo_contratacion_label": "Contratacion Directa"
+    },
+    {
+      "id": "opp-024",
+      "titulo": "Suministro de Mobiliario para Dirección General",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 45600.0,
+      "fecha_cierre": "2026-07-19",
+      "rubro_requerido": "Mobiliario y Equipo",
+      "unspsc_code": 56101500,
+      "url_fuente": "https://www.comprasal.gob.sv/licitaciones/lp-13-2026-mh",
+      "tipo_contratacion": "LP",
+      "tipo_contratacion_label": "Licitacion Publica"
+    },
+    {
+      "id": "opp-025",
+      "titulo": "Adquisición de Electrodomésticos para DGA",
+      "institucion": "Ministerio de Hacienda (DGA)",
+      "monto": 14300.0,
+      "fecha_cierre": "2026-07-07",
+      "rubro_requerido": "Mobiliario y Equipo",
+      "unspsc_code": 52141500,
+      "url_fuente": "https://www.comprasal.gob.sv/contrataciones/cd-05-2026-dga",
+      "tipo_contratacion": "CD",
+      "tipo_contratacion_label": "Contratacion Directa"
+    },
+    {
+      "id": "opp-026",
+      "titulo": "Suministro de Insumos Médicos para Clínicas Empresariales",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 28700.0,
+      "fecha_cierre": "2026-07-17",
+      "rubro_requerido": "Suministros Médicos",
+      "unspsc_code": 42140000,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-18-2026-mh",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    },
+    {
+      "id": "opp-027",
+      "titulo": "Adquisición de Botiquines para DGA",
+      "institucion": "Ministerio de Hacienda (DGA)",
+      "monto": 3200.0,
+      "fecha_cierre": "2026-07-04",
+      "rubro_requerido": "Suministros Médicos",
+      "unspsc_code": 42140000,
+      "url_fuente": "https://www.comprasal.gob.sv/contrataciones/cd-02-2026-dga",
+      "tipo_contratacion": "CD",
+      "tipo_contratacion_label": "Contratacion Directa"
+    },
+    {
+      "id": "opp-028",
+      "titulo": "Auditoría Externa del Programa de Transformación del Clima de Negocios",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 78000.0,
+      "fecha_cierre": "2026-07-29",
+      "rubro_requerido": "Servicios Profesionales",
+      "unspsc_code": 84111500,
+      "url_fuente": "https://www.comprasal.gob.sv/licitaciones/lp-12-2026-mh",
+      "tipo_contratacion": "LP",
+      "tipo_contratacion_label": "Licitacion Publica"
+    },
+    {
+      "id": "opp-029",
+      "titulo": "Adquisición de Póliza de Seguro de Responsabilidad Civil",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 42000.0,
+      "fecha_cierre": "2026-07-24",
+      "rubro_requerido": "Servicios Financieros",
+      "unspsc_code": 84131600,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-19-2026-mh",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    },
+    {
+      "id": "opp-030",
+      "titulo": "Adquisición de Papel Higiénico Jumbo y Dispensadores para DGA",
+      "institucion": "Ministerio de Hacienda (DGA)",
+      "monto": 8700.0,
+      "fecha_cierre": "2026-07-02",
+      "rubro_requerido": "Suministros de Limpieza",
+      "unspsc_code": 14111700,
+      "url_fuente": "https://www.comprasal.gob.sv/contrataciones/cd-01-2026-dga",
+      "tipo_contratacion": "CD",
+      "tipo_contratacion_label": "Contratacion Directa"
+    },
+    {
+      "id": "opp-031",
+      "titulo": "Mantenimiento de Sistema de Filtración de Agua - Aduana El Poy",
+      "institucion": "Ministerio de Hacienda (DGA)",
+      "monto": 11400.0,
+      "fecha_cierre": "2026-07-23",
+      "rubro_requerido": "Servicios Ambientales",
+      "unspsc_code": 70170000,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-20-2026-dga",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    },
+    {
+      "id": "opp-032",
+      "titulo": "Servicio de Transporte Colectivo para Empleados",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 52300.0,
+      "fecha_cierre": "2026-07-25",
+      "rubro_requerido": "Transporte y Logística",
+      "unspsc_code": 78110000,
+      "url_fuente": "https://www.comprasal.gob.sv/licitaciones/lp-18-2026-mh",
+      "tipo_contratacion": "LP",
+      "tipo_contratacion_label": "Licitacion Publica"
+    },
+    {
+      "id": "opp-033",
+      "titulo": "Servicio de Imagen y Agencia de Publicidad Institucional",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 36700.0,
+      "fecha_cierre": "2026-07-19",
+      "rubro_requerido": "Servicios de Publicidad",
+      "unspsc_code": 82140000,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-22-2026-mh",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    },
+    {
+      "id": "opp-034",
+      "titulo": "Servicio de Recolección y Traslado de Paquetería y Correspondencia",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 18900.0,
+      "fecha_cierre": "2026-07-11",
+      "rubro_requerido": "Servicios de Mensajería",
+      "unspsc_code": 78110000,
+      "url_fuente": "https://www.comprasal.gob.sv/contrataciones/cd-11-2026-mh",
+      "tipo_contratacion": "CD",
+      "tipo_contratacion_label": "Contratacion Directa"
+    },
+    {
+      "id": "opp-035",
+      "titulo": "Adquisición de Trofeos y Artículos Deportivos para Juegos Institucionales",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 12400.0,
+      "fecha_cierre": "2026-07-06",
+      "rubro_requerido": "Artículos Deportivos",
+      "unspsc_code": 49120000,
+      "url_fuente": "https://www.comprasal.gob.sv/contrataciones/cd-10-2026-mh",
+      "tipo_contratacion": "CD",
+      "tipo_contratacion_label": "Contratacion Directa"
+    },
+    {
+      "id": "opp-036",
+      "titulo": "Servicio de Suscripción de Periódicos para Oficinas de Gobierno",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 8700.0,
+      "fecha_cierre": "2026-07-26",
+      "rubro_requerido": "Medios y Suscripciones",
+      "unspsc_code": 55101500,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-23-2026-mh",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    },
+    {
+      "id": "opp-037",
+      "titulo": "Suministro de Café y Azúcar para Dependencias Gubernamentales",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 15200.0,
+      "fecha_cierre": "2026-07-08",
+      "rubro_requerido": "Alimentos y Bebidas",
+      "unspsc_code": 50200000,
+      "url_fuente": "https://www.comprasal.gob.sv/comparacion-precios/cp-03-2026-mh",
+      "tipo_contratacion": "CP",
+      "tipo_contratacion_label": "Comparacion de Precios"
+    },
+    {
+      "id": "opp-038",
+      "titulo": "Solución de Google Cloud para Modernización de Entidades del Estado",
+      "institucion": "Gobierno de El Salvador",
+      "monto": 485000.0,
+      "fecha_cierre": "2026-08-15",
+      "rubro_requerido": "Tecnología",
+      "unspsc_code": 81110000,
+      "url_fuente": "https://www.comprasal.gob.sv/alianza-estrategica/afa-01-2026-google",
+      "tipo_contratacion": "AFA",
+      "tipo_contratacion_label": "Alianza/Figura Especial"
+    },
+    {
+      "id": "opp-039",
+      "titulo": "Servicio de Almacenamiento en la Nube para Aplicativos Gubernamentales",
+      "institucion": "Gobierno de El Salvador",
+      "monto": 235000.0,
+      "fecha_cierre": "2026-08-01",
+      "rubro_requerido": "Tecnología",
+      "unspsc_code": 81110000,
+      "url_fuente": "https://www.comprasal.gob.sv/contrataciones/cd-12-2026-mh",
+      "tipo_contratacion": "CD",
+      "tipo_contratacion_label": "Contratacion Directa"
+    },
+    {
+      "id": "opp-040",
+      "titulo": "Servicio de Educación para Hijos de Empleados del Ministerio",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 98000.0,
+      "fecha_cierre": "2026-07-30",
+      "rubro_requerido": "Servicios Educativos",
+      "unspsc_code": 86130000,
+      "url_fuente": "https://www.comprasal.gob.sv/convenios/cv-01-2026-mh",
+      "tipo_contratacion": "CV",
+      "tipo_contratacion_label": "Convenio"
+    },
+    {
+      "id": "opp-041",
+      "titulo": "Servicio de Limpieza de Fosas Sépticas para DGA",
+      "institucion": "Ministerio de Hacienda (DGA)",
+      "monto": 17800.0,
+      "fecha_cierre": "2026-07-09",
+      "rubro_requerido": "Servicios de Limpieza",
+      "unspsc_code": 76120000,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-21-2026-dga",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    },
+    {
+      "id": "opp-042",
+      "titulo": "Servicio de Apoyo Operativo para Archivo y Atencion Institucional",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 16400.0,
+      "fecha_cierre": "2026-07-27",
+      "rubro_requerido": "Servicios Generales",
+      "unspsc_code": 80111600,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-24-2026-mh",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    },
+    {
+      "id": "opp-043",
+      "titulo": "Suministro y Distribucion de Insumos Varios para Oficinas Regionales",
+      "institucion": "Ministerio de Hacienda",
+      "monto": 27600.0,
+      "fecha_cierre": "2026-07-28",
+      "rubro_requerido": "Comercio y Distribución",
+      "unspsc_code": 53100000,
+      "url_fuente": "https://www.comprasal.gob.sv/libre-gestion/lg-25-2026-mh",
+      "tipo_contratacion": "LG",
+      "tipo_contratacion_label": "Libre Gestion"
+    }
+  ],
+  "proveedores": [
+    {
+      "id": "prov-001",
+      "nombre": "PRINT RUNNING, S.A. DE C.V.",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Formularios, viñetas, sobres impresos y talonarios para el Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-002",
+      "nombre": "UH INTERNACIONAL",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Formularios, viñetas, sobres impresos y talonarios para el Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-003",
+      "nombre": "IMPRESOS DOBLE G, S.A. DE C.V.",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Formularios, viñetas, sobres impresos y talonarios para el Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-004",
+      "nombre": "EDITORIAL E IMPRESORA PANAMERICANA, S.A. DE C.V.",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Formularios, viñetas, sobres impresos y talonarios para el Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-005",
+      "nombre": "LANDOS, S.A. DE C.V.",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Formularios, especies municipales forma plana, encuadernado y empastado de diarios oficiales"
+    },
+    {
+      "id": "prov-006",
+      "nombre": "MARÍA ZOILA AGUILAR PINEDA (IMPRESOS UNIDOS SALVADOREÑOS)",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Formularios, viñetas, sobres impresos y talonarios para el Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-007",
+      "nombre": "FORMULARIOS STANDARD, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Especies municipales forma plana"
+    },
+    {
+      "id": "prov-008",
+      "nombre": "RR DONNELEY DE EL SALVADOR, S.A. DE C.V.",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Especies municipales forma plana"
+    },
+    {
+      "id": "prov-009",
+      "nombre": "RZ, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Papelería y útiles de oficina para la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-010",
+      "nombre": "OLG SERVICE, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Papelería y útiles de oficina para la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-011",
+      "nombre": "PAPELERA SAN REY, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Papelería y útiles de oficina para la Secretaría de Estado"
+    },
+    {
+      "id": "prov-012",
+      "nombre": "NOE ALBERTO GUILLEN (LIBRERÍA Y PAPELERÍA LA NUEVA SAN SALVADOR)",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Papelería y útiles de oficina para la Secretaría de Estado"
+    },
+    {
+      "id": "prov-013",
+      "nombre": "DPG, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Papelería y útiles de oficina para la Secretaría de Estado"
+    },
+    {
+      "id": "prov-014",
+      "nombre": "BUSINESS CENTER, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Papelería y útiles de oficina para la Dirección General de Tesorería"
+    },
+    {
+      "id": "prov-015",
+      "nombre": "LIBRERÍA CERVANTES, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Papelería y útiles de oficina para la Dirección General de Tesorería"
+    },
+    {
+      "id": "prov-016",
+      "nombre": "LANDOS, S.A. DE C.V. (Encuadernados)",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Imprenta y Papelería",
+      "descripcion": "Servicio de encuadernado y empastado de diarios oficiales, registros de entrada y salida de documentos"
+    },
+    {
+      "id": "prov-017",
+      "nombre": "COMUNICACIONES IBW EL SALVADOR, S.A. DE C.V.",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "ACCESS POINTS para la Red Inalámbrica del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-018",
+      "nombre": "CRM SOLUTIONS, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "UPS para la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-019",
+      "nombre": "BIT OFFICE EL SALVADOR (Sandra Patricia Vásquez Hernández)",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Reloj Marcador para el registro de correspondencia"
+    },
+    {
+      "id": "prov-020",
+      "nombre": "MT2005, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Reforzamiento de memoria principal RAM para solución VMWARE HCI del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-021",
+      "nombre": "GRUPO OCTO, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Suscripción del software AUTODESK AEC COLLECTION versión 2025 o superior"
+    },
+    {
+      "id": "prov-022",
+      "nombre": "PBS EL SALVADOR, S.A. DE C.V.",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Servicios de desarrollo de sistemas y suscripción SONARQUBE ENTERPRISE"
+    },
+    {
+      "id": "prov-023",
+      "nombre": "SPC INTERNACIONAL, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Soporte de Equipos CISCO MDS del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-024",
+      "nombre": "STB COMPUTER, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Suscripción de Licencia ADOBE CREATIVE CLOUD para el departamento de formación"
+    },
+    {
+      "id": "prov-025",
+      "nombre": "INGENIERIA BIO PRO S.A.S DE C.V.",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Servicios de Mantenimiento",
+      "descripcion": "Mantenimiento preventivo y correctivo para equipos médicos de clínicas empresariales del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-026",
+      "nombre": "ISERTEC DE EL SALVADOR, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Servicios de Mantenimiento",
+      "descripcion": "Mantenimiento preventivo y correctivo, desmontaje y traslado para sistema de detención"
+    },
+    {
+      "id": "prov-027",
+      "nombre": "AIR AND ELECTRIC SERVICE, S.A. DE C.V.",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Servicios de Mantenimiento",
+      "descripcion": "Mantenimiento Preventivo y Correctivo para Extractores de Aire en Laboratorio de Merceología DGA"
+    },
+    {
+      "id": "prov-028",
+      "nombre": "INFRA DE EL SALVADOR, S.A. DE C.V.",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Servicios de Mantenimiento",
+      "descripcion": "Recarga de Gases y Mantenimiento Preventivo y Correctivo a Red de Gases del Laboratorio DGA"
+    },
+    {
+      "id": "prov-029",
+      "nombre": "ABJ INVERSORES, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Servicios de Mantenimiento",
+      "descripcion": "Mantenimiento preventivo y correctivo del sistema de detención de incendios en Laboratorio DGA"
+    },
+    {
+      "id": "prov-030",
+      "nombre": "SUPLIDORES DIVERSOS, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Servicios de Mantenimiento",
+      "descripcion": "Insumos Médicos para las 4 clínicas empresariales del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-031",
+      "nombre": "CESAR ROLANDO CONTRERAS OBISPO (CROBISPO)",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Construcción y Materiales",
+      "descripcion": "Mantenimiento preventivo y correctivo en infraestructura y readecuación de espacios físicos del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-032",
+      "nombre": "INGEREZ, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Construcción y Materiales",
+      "descripcion": "Mantenimiento preventivo y correctivo en la infraestructura del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-033",
+      "nombre": "INESERMA, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Construcción y Materiales",
+      "descripcion": "Readecuación de espacios físicos y reparación de techos en oficinas, bodegas y salones del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-034",
+      "nombre": "CONSULTORIA, MEDIO AMBIENTE Y SOLUCIONES, S.A. DE C.V.",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Construcción y Materiales",
+      "descripcion": "Mantenimiento preventivo y correctivo al sistema de filtración para remoción de hierro y manganeso - Aduana El Poy"
+    },
+    {
+      "id": "prov-035",
+      "nombre": "INSTRUQUIMICA, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Suministros de Laboratorio",
+      "descripcion": "Consumibles para el departamento de laboratorio de la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-036",
+      "nombre": "COMERCIO Y REPRESENTACIONES, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Suministros de Laboratorio",
+      "descripcion": "Consumibles para el departamento de laboratorio de la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-037",
+      "nombre": "RGH DE EL SALVADOR",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Suministros de Laboratorio",
+      "descripcion": "Consumibles para el departamento de laboratorio de la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-038",
+      "nombre": "CARLOS ORLANDO ROMERO CALLES",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Suministros de Laboratorio",
+      "descripcion": "Consumibles y Cristalería para el Laboratorio de Merceología de la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-039",
+      "nombre": "INVERSIONES VIDA, S.A. DE C.V.",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Alimentos y Bebidas",
+      "descripcion": "Botellas de agua para SEDE del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-040",
+      "nombre": "FUNDACION EMPRESARIAL PARA EL DESARROLLO EDUCATIVO (FEPADE)",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Alimentos y Bebidas",
+      "descripcion": "Servicios de Auditorio y Refrigerio para Coloquio del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-041",
+      "nombre": "MULTIPROMOCIONES, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Textiles y Uniformes",
+      "descripcion": "Chumpas, Gorras, Chalecos, Capas Impermeables, Mochilas y Calzado de seguridad para personal operativo de la DGA"
+    },
+    {
+      "id": "prov-042",
+      "nombre": "PROBIGE, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Mobiliario y Equipo",
+      "descripcion": "Mobiliario para la Dirección General del Presupuesto del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-043",
+      "nombre": "DORA ENELSA CASTRO BORJA (DIVERSUS HOME)",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Mobiliario y Equipo",
+      "descripcion": "Electrodomésticos para la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-044",
+      "nombre": "BTECH SOLUCIONES INTEGRALES, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Mobiliario y Equipo",
+      "descripcion": "Electrodomésticos para la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-045",
+      "nombre": "MURCIA Y MURCIA, S.A. DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Servicios Profesionales",
+      "descripcion": "Auditoría externa del programa para la transformación del clima de negocios de El Salvador CFA-12031"
+    },
+    {
+      "id": "prov-046",
+      "nombre": "SEGUROS FEDECREDITO, S.A.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Servicios Financieros",
+      "descripcion": "Póliza de seguro de Responsabilidad Civil para el Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-047",
+      "nombre": "NORMA ELOISA ROMERO MEDRANO (Medical Systems El Salvador)",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Suministros Médicos",
+      "descripcion": "Botiquines para la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-048",
+      "nombre": "SUPLIDORES DIVERSOS, S.A. DE C.V. (Médico)",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Suministros Médicos",
+      "descripcion": "Insumos Médicos para las 4 clínicas empresariales del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-049",
+      "nombre": "D'QUISA, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Suministros de Limpieza",
+      "descripcion": "Papel Higiénico Jumbo y dispensadores para la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-050",
+      "nombre": "CONSULTORIA, MEDIO AMBIENTE Y SOLUCIONES, S.A. DE C.V. (Ambiental)",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Servicios Ambientales",
+      "descripcion": "Mantenimiento a sistema de filtración para Remoción de Hierro y Manganeso y Suministro de Hipoclorito de sodio para Aduana El Poy"
+    },
+    {
+      "id": "prov-051",
+      "nombre": "TRANSPORTES ARGUETA, S.A. DE C.V.",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Transporte y Logística",
+      "descripcion": "Servicio de transporte colectivo y jornada extraordinaria para empleados del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-052",
+      "nombre": "TRANSPORTES ALAS S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Transporte y Logística",
+      "descripcion": "Servicio de transporte colectivo para empleados del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-053",
+      "nombre": "URBANO EXPRESS, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Transporte y Logística",
+      "descripcion": "Servicios de mensajería y paquetería"
+    },
+    {
+      "id": "prov-054",
+      "nombre": "ETS CONSULTING, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Servicio de soporte técnico para infraestructura de balanceo de aplicaciones ADC del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-055",
+      "nombre": "GBM DE EL SALVADOR, S.A. DE C.V.",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Soporte UPS, CISCO, IBM Cognos Analytics e Infosphere Information Server para Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-056",
+      "nombre": "TELEMOVIL EL SALVADOR, S.A. DE CV.",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Enlace de internet satelital para respaldo DGA y CloudFlare Application Security Advanced WAF"
+    },
+    {
+      "id": "prov-057",
+      "nombre": "AMAZON WEB SERVICES, INC",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Servicios de almacenamiento en la nube para despliegue de aplicativos gubernamentales"
+    },
+    {
+      "id": "prov-058",
+      "nombre": "GOOGLE LLC",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Google Cloud, Workspace, CrowdStrike Falcon Cloud Security para Gobierno de El Salvador"
+    },
+    {
+      "id": "prov-059",
+      "nombre": "DATAGUARDS, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Servicio de alojamiento físico para equipos TIC del centro de datos MH (colocation)"
+    },
+    {
+      "id": "prov-060",
+      "nombre": "UDP ASOCIO GRUPO PLUS-CONFICO",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Servicio de soporte técnico especializado para plataforma BPM AuraQuantic del MH"
+    },
+    {
+      "id": "prov-061",
+      "nombre": "COMPONENTES EL ORBE, S.A. DE CV.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Tecnología",
+      "descripcion": "Servicios de asistencia técnica en sitio y soporte VMWARE para infraestructura HCI del MH"
+    },
+    {
+      "id": "prov-062",
+      "nombre": "SISTEMAS C&C, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Tecnología",
+      "descripcion": "Sistemas informáticos y consultoría"
+    },
+    {
+      "id": "prov-063",
+      "nombre": "JMTELCOM (JESUS MARTINEZ Y ASOCIADOS, S.A. DE C.V.)",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Tecnología",
+      "descripcion": "Servicios de telecomunicaciones"
+    },
+    {
+      "id": "prov-064",
+      "nombre": "TECNOLOGIAS INDUSTRIALES, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Tecnología",
+      "descripcion": "Tecnologías industriales"
+    },
+    {
+      "id": "prov-065",
+      "nombre": "TECNOLOGÍAS Y SISTEMAS FRIOS, S.A. DE C.V",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Tecnología",
+      "descripcion": "Sistemas de refrigeración industrial"
+    },
+    {
+      "id": "prov-066",
+      "nombre": "MAPFRE SEGUROS EL SALVADOR, S.A. DE CV",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Servicios Financieros",
+      "descripcion": "Pólizas de seguro y fianzas de fidelidad para el Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-067",
+      "nombre": "LA CENTRAL DE SEGUROS Y FIANZAS, S.A. DE CV.",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Servicios Financieros",
+      "descripcion": "Pólizas de seguro y fianzas para el Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-068",
+      "nombre": "MAPRECO, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Servicios de Limpieza",
+      "descripcion": "Servicio de limpieza de fosas sépticas para la Dirección General de Aduanas"
+    },
+    {
+      "id": "prov-069",
+      "nombre": "LEMUSIMUN PUBLICIDAD, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Servicios de Publicidad",
+      "descripcion": "Servicios de imagen y agencia de publicidad para el Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-070",
+      "nombre": "CORPORACIÓN HERMANOS MARISTAS DE EL SALVADOR",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Servicios Educativos",
+      "descripcion": "Servicio de educación para los hijos de empleados del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-071",
+      "nombre": "DIARIO EL SALVADOR (El Diario Nacional, S.A. de C.V.)",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Medios y Suscripciones",
+      "descripcion": "Servicio de suscripción para periódicos en físico para oficinas del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-072",
+      "nombre": "EDITORA EL MUNDO, S.A.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Medios y Suscripciones",
+      "descripcion": "Publicaciones y medios impresos"
+    },
+    {
+      "id": "prov-073",
+      "nombre": "SERVICIO SALVADOREÑO DE PROTECCIÓN, S.A. DE C.V.",
+      "clasificacion": "Gran Empresa",
+      "rubro": "Servicios de Mensajería",
+      "descripcion": "Servicio de recolección y traslado de paquetería liviana y entrega de correspondencia"
+    },
+    {
+      "id": "prov-074",
+      "nombre": "NETO SPORT, S.A DE C.V.",
+      "clasificacion": "Pequeña Empresa",
+      "rubro": "Artículos Deportivos",
+      "descripcion": "Adquisición de trofeos y artículos deportivos para juegos deportivos del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-075",
+      "nombre": "LISETH MARGARITA GARCÍA DE HIDALGO",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Servicios Profesionales",
+      "descripcion": "Consultoría de especialista financiero UGP-CAF con fondos de la Corporación Andina de Fomento"
+    },
+    {
+      "id": "prov-076",
+      "nombre": "AENOR CENTROAMERICA, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Servicios Profesionales",
+      "descripcion": "Servicios de certificación y normalización"
+    },
+    {
+      "id": "prov-077",
+      "nombre": "RYASA (R.Y.A. SERVICIOS PROFESIONALES, S.A. DE C.V.)",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Servicios Profesionales",
+      "descripcion": "Servicios profesionales integrados"
+    },
+    {
+      "id": "prov-078",
+      "nombre": "SERCOMCA, S.A. DE C.V.",
+      "clasificacion": "Mediana Empresa",
+      "rubro": "Servicios de Mantenimiento",
+      "descripcion": "Mantenimiento preventivo y correctivo de contadoras de billetes y monedas para Tesorería"
+    },
+    {
+      "id": "prov-079",
+      "nombre": "O & M MANTENIMIENTO Y SERVICIOS, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Servicios de Mantenimiento",
+      "descripcion": "Mantenimiento y servicios generales"
+    },
+    {
+      "id": "prov-080",
+      "nombre": "ASECOMER, S.A. DE C.V.",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Alimentos y Bebidas",
+      "descripcion": "Suministro de café y azúcar para las dependencias del Ministerio de Hacienda"
+    },
+    {
+      "id": "prov-081",
+      "nombre": "PLANTA DE TORREFACCIÓN DE CAFÉ",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Alimentos y Bebidas",
+      "descripcion": "Torrefacción y suministro de café"
+    },
+    {
+      "id": "prov-082",
+      "nombre": "PARCELADORA SALVADOREÑA / RESTAURANTE CASA DE PIEDRA",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Alimentos y Bebidas",
+      "descripcion": "Servicios de restaurante y alimentación"
+    },
+    {
+      "id": "prov-083",
+      "nombre": "IMPORTACIONES Y SERVICIOS DIVERSOS, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Comercio y Distribución",
+      "descripcion": "Importaciones y servicios comerciales diversos"
+    },
+    {
+      "id": "prov-084",
+      "nombre": "DISTRIBUIDORA SALVADOREÑA (María Susana Mejía Argueta)",
+      "clasificacion": "Micro Empresa",
+      "rubro": "Comercio y Distribución",
+      "descripcion": "Distribución de insumos y productos comerciales"
+    },
+    {
+      "id": "prov-085",
+      "nombre": "INTERTOURS, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Servicios de Viajes",
+      "descripcion": "Servicios de turismo y viajes"
+    },
+    {
+      "id": "prov-086",
+      "nombre": "FERRETERIA GUARDADO, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Construcción y Materiales",
+      "descripcion": "Suministro de materiales de ferretería y construcción"
+    },
+    {
+      "id": "prov-087",
+      "nombre": "ANALI (ANALITICA SALVADOREÑA, S.A. DE C.V.)",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Suministros de Laboratorio",
+      "descripcion": "Servicios de analítica y laboratorio"
+    },
+    {
+      "id": "prov-088",
+      "nombre": "BASCULAS Y BALANZAS, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Mobiliario y Equipo",
+      "descripcion": "Equipos de medición, básculas y balanzas"
+    },
+    {
+      "id": "prov-089",
+      "nombre": "CENTRO DE SERVICIO DOÑO, S.A. DE C.V.",
+      "clasificacion": "Sin clasificar",
+      "rubro": "Servicios Generales",
+      "descripcion": "Servicios generales, apoyo operativo y atencion institucional"
+    }
+  ],
+  "rubros_cerrados": [
+    "Alimentos y Bebidas",
+    "Artículos Deportivos",
+    "Comercio y Distribución",
+    "Construcción y Materiales",
+    "Imprenta y Papelería",
+    "Medios y Suscripciones",
+    "Mobiliario y Equipo",
+    "Servicios Ambientales",
+    "Servicios Educativos",
+    "Servicios Financieros",
+    "Servicios Generales",
+    "Servicios Profesionales",
+    "Servicios de Limpieza",
+    "Servicios de Mantenimiento",
+    "Servicios de Mensajería",
+    "Servicios de Publicidad",
+    "Servicios de Viajes",
+    "Suministros Médicos",
+    "Suministros de Laboratorio",
+    "Suministros de Limpieza",
+    "Tecnología",
+    "Textiles y Uniformes",
+    "Transporte y Logística"
+  ],
+  "decisiones_fallback": {
+    "preguntas": [
+      {
+        "pregunta": "Ya calculo cuanto le cuesta producir cada almuerzo con los precios actuales de los ingredientes?",
+        "intencion": "Evaluacion de costos reales",
+        "palabras_clave": [
+          "costo",
+          "producir",
+          "almuerzo",
+          "ingredientes"
+        ]
+      },
+      {
+        "pregunta": "Tiene flujo de caja para aguantar 60 a 90 dias antes del pago del Estado?",
+        "intencion": "Evaluacion de liquidez y ciclo de pago estatal",
+        "palabras_clave": [
+          "flujo",
+          "pago",
+          "esperar",
+          "plazo"
+        ]
+      },
+      {
+        "pregunta": "Que plan B tiene si gana y no puede cumplir con la cantidad completa?",
+        "intencion": "Evaluacion de capacidad operativa y riesgo de incumplimiento",
+        "palabras_clave": [
+          "capacidad",
+          "cumplir",
+          "plan",
+          "riesgo"
+        ]
+      }
+    ],
+    "_fallback": true,
+    "_fallback_reason": "OpenAI/Codex API unavailable; serving hardcoded fallback questions"
+  }
+}
