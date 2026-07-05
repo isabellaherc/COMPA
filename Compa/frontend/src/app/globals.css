@@ -1,0 +1,135 @@
+﻿@import "tailwindcss";
+
+@theme {
+  --color-red: #c1272d;
+  --color-red-dark: #8f1a1f;
+  --color-green: #2e5339;
+  --color-pink: #ffc5d3;
+  --color-pink-deep: #ff6f91;
+  --color-pink-deep-dark: #d94971;
+  --color-ink: #241512;
+  --color-forest-900: #16241b;
+  --color-muted: #7a6a5d;
+  --color-border: #e4d5bd;
+  --color-surface: #f0e3cf;
+  --color-paper: #fffbf3;
+  --color-cream: #f6ecdd;
+  --font-display: "Space Grotesk", Inter, Arial, sans-serif;
+  --font-sans: Inter, Arial, sans-serif;
+  --shadow-soft: 0 1px 2px rgba(36, 21, 18, .05), 0 12px 32px -12px rgba(36, 21, 18, .16);
+  --shadow-red-soft: 0 10px 24px -10px rgba(193, 39, 45, .55);
+  --shadow-pink-soft: 0 10px 24px -10px rgba(255, 111, 145, .55);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100dvh;
+  overflow-x: hidden;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: Inter, Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  text-decoration: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+.eyebrow {
+  margin-bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-red);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--color-pink-deep);
+  box-shadow: 0 0 0 4px rgba(255, 111, 145, .28);
+}
+
+.eyebrow.on-dark {
+  color: var(--color-pink);
+}
+
+.micro-label {
+  display: block;
+  color: var(--color-muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+@keyframes leaf-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -10vh, 0) rotate(0deg);
+  }
+  8%,
+  92% {
+    opacity: .42;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--leaf-sway), 112vh, 0) rotate(340deg);
+  }
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: scaleY(.72);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.leaf-fall {
+  animation: leaf-fall linear infinite;
+  will-change: transform, opacity;
+}
+
+.animate-wave {
+  animation: wave 1.15s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+
