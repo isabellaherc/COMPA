@@ -23,28 +23,57 @@
     },
     {
       "parameters": {
-        "operation": "executeQuery",
-        "query": "SELECT\n  p.id::text AS productor_id,\n  p.nombre AS nombre_productor,\n  p.rubro AS rubro_negocio,\n  p.capacidad AS capacidad_productor,\n  p.telefono,\n  m.oportunidad_id::text AS oportunidad_id,\n  m.titulo AS oportunidad_titulo,\n  m.institucion AS oportunidad_institucion,\n  m.monto AS oportunidad_monto,\n  m.fecha_cierre::text AS oportunidad_cierre,\n  m.rubro_requerido,\n  m.unspsc_code,\n  m.url_fuente,\n  m.tipo_contratacion,\n  m.score\nFROM productores p\nJOIN LATERAL matching_oportunidades(p.id, 5) m ON true\nWHERE p.nombre = 'Vilma Jeanneth Guardado de Ayala'\nORDER BY m.score DESC, m.monto DESC\nLIMIT 1;",
-        "options": {}
+        "method": "GET",
+        "url": "https://cuzrbvnjjsjeicoourtx.supabase.co/rest/v1/productores?nombre=eq.Vilma%20Jeanneth%20Guardado%20de%20Ayala&select=id,nombre,rubro,capacidad,telefono&limit=1",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "{{SUPABASE_SERVICE_KEY}}" },
+            { "name": "Authorization", "value": "Bearer {{SUPABASE_SERVICE_KEY}}" }
+          ]
+        },
+        "options": { "timeout": 10000 }
       },
-      "id": "query-vilma-match",
-      "name": "Query Vilma Top Match",
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.4,
+      "id": "get-productor-vilma",
+      "name": "Get Productor Vilma",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
       "position": [260, 90],
-      "credentials": {
-        "postgres": { "id": "REPLACE_SUPABASE_POSTGRES_CREDENTIAL_ID", "name": "Supabase Postgres" }
-      }
+      "alwaysOutputData": true
     },
     {
       "parameters": {
-        "jsCode": "const items = $input.all();\nreturn items.map((item) => {\n  const row = item.json;\n  const monto = Number(row.oportunidad_monto || 0);\n  const oportunidadDetectada = `${row.oportunidad_titulo} de ${row.oportunidad_institucion} por $${monto.toLocaleString('en-US')} con cierre ${row.oportunidad_cierre}.`;\n  return {\n    json: {\n      agent_id: $env.ELEVENLABS_AGENT_ID || 'REPLACE_ELEVENLABS_AGENT_ID',\n      phone_number: row.telefono,\n      dynamic_variables: {\n        productor_id: row.productor_id,\n        oportunidad_id: row.oportunidad_id,\n        nombre_productor: row.nombre_productor,\n        rubro_negocio: row.rubro_negocio,\n        capacidad_productor: row.capacidad_productor,\n        oportunidad_detectada: oportunidadDetectada,\n        oportunidad_titulo: row.oportunidad_titulo,\n        oportunidad_institucion: row.oportunidad_institucion,\n        oportunidad_monto: monto,\n        oportunidad_cierre: row.oportunidad_cierre,\n        unspsc_code: row.unspsc_code,\n        url_fuente: row.url_fuente,\n        score_match: Number(row.score || 0)\n      },\n      metadata: {\n        productor_id: row.productor_id,\n        oportunidad_id: row.oportunidad_id,\n        source: 'compa-fase-3-n8n'\n      },\n      first_message: `Doña ${row.nombre_productor.split(' ')[0]}, como esta? Habla Compa. Vi una oportunidad para su negocio: ${oportunidadDetectada} Tiene un momento para revisarla?`\n    }\n  };\n});\n"
+        "method": "POST",
+        "url": "https://cuzrbvnjjsjeicoourtx.supabase.co/rest/v1/rpc/matching_oportunidades",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "{{SUPABASE_SERVICE_KEY}}" },
+            { "name": "Authorization", "value": "Bearer {{SUPABASE_SERVICE_KEY}}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ p_productor_id: $json.id, p_limit: 5 }) }}",
+        "options": { "timeout": 10000 }
+      },
+      "id": "get-matches",
+      "name": "Get Matching Oportunidades",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [520, 90],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const productor = $items('Get Productor Vilma')[0].json;\nif (!productor || !productor.id) {\n  throw new Error('Productor Vilma no encontrado en Supabase');\n}\nconst matches = $input.all().map((i) => i.json).filter((m) => m && m.oportunidad_id);\nif (!matches.length) {\n  throw new Error('Sin oportunidades match para el productor');\n}\nmatches.sort((a, b) => (Number(b.score) || 0) - (Number(a.score) || 0) || (Number(b.monto) || 0) - (Number(a.monto) || 0));\nconst row = matches[0];\nconst monto = Number(row.monto || 0);\nconst oportunidadDetectada = `${row.titulo} de ${row.institucion} por $${monto.toLocaleString('en-US')} con cierre ${row.fecha_cierre}.`;\nreturn [{\n  json: {\n    agent_id: 'agent_9801kwr61ctre7x8c944ze53p95w',\n    phone_number: productor.telefono,\n    dynamic_variables: {\n      productor_id: productor.id,\n      oportunidad_id: row.oportunidad_id,\n      nombre_productor: productor.nombre,\n      rubro_negocio: productor.rubro,\n      capacidad_productor: productor.capacidad,\n      oportunidad_detectada: oportunidadDetectada,\n      oportunidad_titulo: row.titulo,\n      oportunidad_institucion: row.institucion,\n      oportunidad_monto: monto,\n      oportunidad_cierre: row.fecha_cierre,\n      unspsc_code: row.unspsc_code || '',\n      url_fuente: row.url_fuente || '',\n      score_match: Number(row.score || 0)\n    },\n    metadata: {\n      productor_id: productor.id,\n      oportunidad_id: row.oportunidad_id,\n      source: 'compa-fase-3-n8n'\n    },\n    first_message: `Doña ${productor.nombre.split(' ')[0]}, como esta? Habla Compa. Vi una oportunidad para su negocio: ${oportunidadDetectada} Tiene un momento para revisarla?`\n  }\n}];\n"
       },
       "id": "build-elevenlabs-payload",
       "name": "Build ElevenLabs Payload",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [520, 90]
+      "position": [780, 90]
     },
     {
       "parameters": {
@@ -52,30 +81,31 @@
         "url": "https://api.elevenlabs.io/v1/convai/conversation",
         "sendHeaders": true,
         "headerParameters": {
-          "parameters": [{ "name": "xi-api-key", "value": "={{ $env.ELEVENLABS_API_KEY }}" }]
+          "parameters": [{ "name": "xi-api-key", "value": "{{ELEVENLABS_API_KEY}}" }]
         },
         "sendBody": true,
         "specifyBody": "json",
         "jsonBody": "={{ JSON.stringify($json) }}",
-        "options": { "timeout": 5000 }
+        "options": { "timeout": 10000 }
       },
       "id": "post-elevenlabs",
       "name": "POST to ElevenLabs",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [790, 90]
+      "position": [1040, 90]
     }
   ],
   "connections": {
-    "Manual Trigger": { "main": [[{ "node": "Query Vilma Top Match", "type": "main", "index": 0 }]] },
-    "Schedule Every 6 Hours": { "main": [[{ "node": "Query Vilma Top Match", "type": "main", "index": 0 }]] },
-    "Query Vilma Top Match": { "main": [[{ "node": "Build ElevenLabs Payload", "type": "main", "index": 0 }]] },
+    "Manual Trigger": { "main": [[{ "node": "Get Productor Vilma", "type": "main", "index": 0 }]] },
+    "Schedule Every 6 Hours": { "main": [[{ "node": "Get Productor Vilma", "type": "main", "index": 0 }]] },
+    "Get Productor Vilma": { "main": [[{ "node": "Get Matching Oportunidades", "type": "main", "index": 0 }]] },
+    "Get Matching Oportunidades": { "main": [[{ "node": "Build ElevenLabs Payload", "type": "main", "index": 0 }]] },
     "Build ElevenLabs Payload": { "main": [[{ "node": "POST to ElevenLabs", "type": "main", "index": 0 }]] }
   },
   "settings": { "executionOrder": "v1", "timezone": "America/El_Salvador" },
   "staticData": null,
   "pinData": {},
-  "versionId": "compa-fase-3-oportunidades",
+  "versionId": "compa-fase-3-oportunidades-rest",
   "triggerCount": 2,
   "tags": [{ "name": "compa" }, { "name": "fase-3" }]
 }

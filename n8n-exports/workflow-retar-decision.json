@@ -17,7 +17,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const incoming = $input.first().json;\nconst headers = incoming.headers || {};\nconst payload = incoming.body || incoming;\nconst contexto = payload.contexto || {};\nconst expectedSecret = $env.COMPA_WEBHOOK_SECRET || 'whsec_compa_buildathon_2026';\nconst receivedSecret = headers['x-compa-webhook-secret'] || headers['X-Compa-Webhook-Secret'] || '';\nconst authorization = headers.authorization || headers.Authorization || '';\nconst bearerSecret = authorization.startsWith('Bearer ') ? authorization.slice(7) : '';\nif (!payload._skip_auth && receivedSecret !== expectedSecret && bearerSecret !== expectedSecret) {\n  throw new Error('Unauthorized: invalid webhook secret');\n}\nconst decisionDescrita = payload.decision_descrita;\nif (!decisionDescrita || typeof decisionDescrita !== 'string' || decisionDescrita.trim().length < 10) {\n  throw new Error('Validation error: decision_descrita is required and must be at least 10 characters');\n}\nconst uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;\nconst productorId = payload.productor_id || contexto.productor_id;\nconst oportunidadId = payload.oportunidad_id || contexto.oportunidad_id;\nif (!uuidRegex.test(productorId || '')) throw new Error('Validation error: productor_id must be a Supabase UUID');\nif (!uuidRegex.test(oportunidadId || '')) throw new Error('Validation error: oportunidad_id must be a Supabase UUID');\nreturn [{\n  json: {\n    decision_descrita: decisionDescrita.trim(),\n    productor_id: productorId,\n    oportunidad_id: oportunidadId,\n    conversation_id: payload.conversation_id || payload.trace_id || `conv_${Date.now()}`,\n    nombre_productor: payload.nombre_productor || contexto.nombre_productor || 'Productor',\n    rubro_negocio: payload.rubro_negocio || contexto.rubro || 'general',\n    capacidad_productor: payload.capacidad_productor || contexto.capacidad_productor || 'no especificada',\n    experiencia_estado: payload.experiencia_estado || contexto.experiencia_estado || 'no especificada',\n    oportunidad_titulo: payload.oportunidad_titulo || contexto.oportunidad_titulo || 'Oportunidad publica',\n    oportunidad_institucion: payload.oportunidad_institucion || contexto.institucion || 'Institucion publica',\n    oportunidad_monto: Number(payload.oportunidad_monto || contexto.monto_oportunidad || 0),\n    oportunidad_cierre: payload.oportunidad_cierre || contexto.oportunidad_cierre || '',\n    recibido_en: new Date().toISOString()\n  }\n}];\n"
+        "jsCode": "const incoming = $input.first().json;\nconst headers = incoming.headers || {};\nconst payload = incoming.body || incoming;\nconst contexto = payload.contexto || {};\nconst expectedSecret = 'whsec_compa_buildathon_2026';\nconst receivedSecret = headers['x-compa-webhook-secret'] || headers['X-Compa-Webhook-Secret'] || '';\nconst authorization = headers.authorization || headers.Authorization || '';\nconst bearerSecret = authorization.startsWith('Bearer ') ? authorization.slice(7) : '';\nif (!payload._skip_auth && receivedSecret !== expectedSecret && bearerSecret !== expectedSecret) {\n  throw new Error('Unauthorized: invalid webhook secret');\n}\nconst decisionDescrita = payload.decision_descrita;\nif (!decisionDescrita || typeof decisionDescrita !== 'string' || decisionDescrita.trim().length < 10) {\n  throw new Error('Validation error: decision_descrita is required and must be at least 10 characters');\n}\nconst uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;\nconst productorId = payload.productor_id || contexto.productor_id;\nconst oportunidadId = payload.oportunidad_id || contexto.oportunidad_id;\nif (!uuidRegex.test(productorId || '')) throw new Error('Validation error: productor_id must be a Supabase UUID');\nif (!uuidRegex.test(oportunidadId || '')) throw new Error('Validation error: oportunidad_id must be a Supabase UUID');\nreturn [{\n  json: {\n    decision_descrita: decisionDescrita.trim(),\n    productor_id: productorId,\n    oportunidad_id: oportunidadId,\n    conversation_id: payload.conversation_id || payload.trace_id || `conv_${Date.now()}`,\n    nombre_productor: payload.nombre_productor || contexto.nombre_productor || 'Productor',\n    rubro_negocio: payload.rubro_negocio || contexto.rubro || 'general',\n    capacidad_productor: payload.capacidad_productor || contexto.capacidad_productor || 'no especificada',\n    experiencia_estado: payload.experiencia_estado || contexto.experiencia_estado || 'no especificada',\n    oportunidad_titulo: payload.oportunidad_titulo || contexto.oportunidad_titulo || 'Oportunidad publica',\n    oportunidad_institucion: payload.oportunidad_institucion || contexto.institucion || 'Institucion publica',\n    oportunidad_monto: Number(payload.oportunidad_monto || contexto.monto_oportunidad || 0),\n    oportunidad_cierre: payload.oportunidad_cierre || contexto.oportunidad_cierre || '',\n    recibido_en: new Date().toISOString()\n  }\n}];\n"
       },
       "id": "validate-payload",
       "name": "Validate Payload",
@@ -42,7 +42,7 @@
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
-            { "name": "Authorization", "value": "={{ 'Bearer ' + $env.OPENAI_API_KEY }}" },
+            { "name": "Authorization", "value": "Bearer {{OPENAI_API_KEY}}" },
             { "name": "Content-Type", "value": "application/json" }
           ]
         },
@@ -70,28 +70,28 @@
     },
     {
       "parameters": {
-        "jsCode": "const data = $input.first().json;\nfunction sqlString(value) {\n  return `'${String(value ?? '').replace(/'/g, \"''\")}'`;\n}\nconst preguntasJson = JSON.stringify(data.preguntas_generadas || data.preguntas || []);\nconst rawJson = JSON.stringify(data.respuesta_raw || {});\nconst query = `INSERT INTO decisiones (\n  productor_id,\n  oportunidad_id,\n  decision_descrita,\n  conversation_id,\n  preguntas_json,\n  preguntas_generadas,\n  reasoning_trace,\n  respuesta_raw,\n  es_fallback,\n  creado_en\n) VALUES (\n  ${sqlString(data.productor_id)}::uuid,\n  ${sqlString(data.oportunidad_id)}::uuid,\n  ${sqlString(data.decision_descrita)},\n  ${sqlString(data.conversation_id)},\n  ${sqlString(preguntasJson)}::jsonb,\n  ${sqlString(preguntasJson)}::jsonb,\n  ${sqlString(data.reasoning_trace)},\n  ${sqlString(rawJson)}::jsonb,\n  ${data.es_fallback ? 'true' : 'false'},\n  now()\n) RETURNING id::text AS decision_id;`;\nreturn [{ json: { ...data, insert_query: query } }];\n"
-      },
-      "id": "build-insert-sql",
-      "name": "Build Insert SQL",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [1310, 0]
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "={{ $json.insert_query }}",
-        "options": {}
+        "method": "POST",
+        "url": "https://cuzrbvnjjsjeicoourtx.supabase.co/rest/v1/decisiones",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "{{SUPABASE_SERVICE_KEY}}" },
+            { "name": "Authorization", "value": "Bearer {{SUPABASE_SERVICE_KEY}}" },
+            { "name": "Content-Type", "value": "application/json" },
+            { "name": "Prefer", "value": "return=representation" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ productor_id: $json.productor_id, oportunidad_id: $json.oportunidad_id, decision_descrita: $json.decision_descrita, conversation_id: $json.conversation_id, preguntas_json: $json.preguntas_generadas, preguntas_generadas: $json.preguntas_generadas, reasoning_trace: $json.reasoning_trace, respuesta_raw: $json.respuesta_raw, es_fallback: $json.es_fallback, creado_en: $json.procesado_en }) }}",
+        "options": { "timeout": 10000 }
       },
       "id": "insert-decision",
       "name": "Insert Decision",
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.4,
-      "position": [1570, 0],
-      "credentials": {
-        "postgres": { "id": "REPLACE_SUPABASE_POSTGRES_CREDENTIAL_ID", "name": "Supabase Postgres" }
-      }
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1310, 0],
+      "continueOnFail": true
     },
     {
       "parameters": {
@@ -103,7 +103,7 @@
       "name": "Respond Preguntas",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
-      "position": [1830, 0]
+      "position": [1570, 0]
     }
   ],
   "connections": {
@@ -111,14 +111,13 @@
     "Validate Payload": { "main": [[{ "node": "Build OpenAI Request", "type": "main", "index": 0 }]] },
     "Build OpenAI Request": { "main": [[{ "node": "POST to OpenAI", "type": "main", "index": 0 }]] },
     "POST to OpenAI": { "main": [[{ "node": "Parse OpenAI or Fallback", "type": "main", "index": 0 }]] },
-    "Parse OpenAI or Fallback": { "main": [[{ "node": "Build Insert SQL", "type": "main", "index": 0 }]] },
-    "Build Insert SQL": { "main": [[{ "node": "Insert Decision", "type": "main", "index": 0 }]] },
+    "Parse OpenAI or Fallback": { "main": [[{ "node": "Insert Decision", "type": "main", "index": 0 }]] },
     "Insert Decision": { "main": [[{ "node": "Respond Preguntas", "type": "main", "index": 0 }]] }
   },
   "settings": { "executionOrder": "v1", "timezone": "America/El_Salvador" },
   "staticData": null,
   "pinData": {},
-  "versionId": "compa-fase-3-retar-decision",
+  "versionId": "compa-fase-3-retar-decision-rest",
   "triggerCount": 1,
   "tags": [{ "name": "compa" }, { "name": "fase-3" }]
 }

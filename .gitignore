@@ -11,3 +11,10 @@ __pycache__/
 
 # Local
 .playwright-mcp/
+
+# n8n exports con secretos embebidos — solo local
+n8n-ready/
+
+# n8n local (instancia de prueba)
+.n8n-local-install/
+.n8n-local/

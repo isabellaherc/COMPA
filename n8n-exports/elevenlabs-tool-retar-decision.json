@@ -20,7 +20,7 @@
     "required": ["decision_descrita", "productor_id", "oportunidad_id", "nombre_productor", "rubro_negocio"]
   },
   "api": {
-    "url": "https://{WORKSPACE}.app.n8n.cloud/webhook/retar-decision",
+    "url": "https://wilbe.app.n8n.cloud/webhook/retar-decision",
     "method": "POST",
     "headers": {
       "Content-Type": "application/json",
