@@ -1,0 +1,312 @@
+[
+  {
+    "id": "opp-001",
+    "titulo": "Servicio de Alimentacion Escolar - Distrito 04-25",
+    "institucion": "MINEDUCYT",
+    "monto": 48750.0,
+    "fecha_cierre": "2026-07-18",
+    "rubro_requerido": "Alimentos y Bebidas",
+    "unspsc_code": "50200000",
+    "tipo_contratacion": "LP"
+  },
+  {
+    "id": "opp-002",
+    "titulo": "Servicio de Cafeteria - Edificio Central ANDA",
+    "institucion": "ANDA",
+    "monto": 28400.0,
+    "fecha_cierre": "2026-07-22",
+    "rubro_requerido": "Alimentos y Bebidas",
+    "unspsc_code": "50200000",
+    "tipo_contratacion": "LG"
+  },
+  {
+    "id": "opp-003",
+    "titulo": "Suministro de Botellas de Agua para SEDE",
+    "institucion": "Ministerio de Hacienda",
+    "monto": 8750.0,
+    "fecha_cierre": "2026-07-10",
+    "rubro_requerido": "Alimentos y Bebidas",
+    "unspsc_code": "50202301",
+    "tipo_contratacion": "LG"
+  },
+  {
+    "id": "opp-004",
+    "titulo": "Servicio de Catering para Eventos Institucionales",
+    "institucion": "Ministerio de Hacienda",
+    "monto": 4200.0,
+    "fecha_cierre": "2026-07-05",
+    "rubro_requerido": "Alimentos y Bebidas",
+    "unspsc_code": "90101601",
+    "tipo_contratacion": "CD"
+  },
+  {
+    "id": "opp-005",
+    "titulo": "Adquisicion de Formularios, Vinetas y Sobres Impresos",
+    "institucion": "Ministerio de Hacienda",
+    "monto": 45200.0,
+    "fecha_cierre": "2026-07-15",
+    "rubro_requerido": "Imprenta y Papeleria",
+    "unspsc_code": "82121501",
+    "tipo_contratacion": "LP"
+  },
+  {
+    "id": "opp-006",
+    "titulo": "Suministro de Especies Municipales Forma Plana",
+    "institucion": "Ministerio de Hacienda",
+    "monto": 38500.0,
+    "fecha_cierre": "2026-07-20",
+    "rubro_requerido": "Imprenta y Papeleria",
+    "unspsc_code": "82121502",
+    "tipo_contratacion": "LG"
+  },
+  {
+    "id": "opp-007",
+    "titulo": "Suministro de Papeleria y Utiles de Oficina",
+    "institucion": "Ministerio de Hacienda",
+    "monto": 22100.0,
+    "fecha_cierre": "2026-07-08",
+    "rubro_requerido": "Imprenta y Papeleria",
+    "unspsc_code": "14111500",
+    "tipo_contratacion": "LG"
+  },
+  {
+    "id": "opp-008",
+    "titulo": "Servicio de Encuadernado y Empastado de Diarios Oficiales",
+    "institucion": "Ministerio de Hacienda",
+    "monto": 5600.0,
+    "fecha_cierre": "2026-07-25",
+    "rubro_requerido": "Imprenta y Papeleria",
+    "unspsc_code": "82121503",
+    "tipo_contratacion": "CD"
+  },
+  {
+    "id": "opp-009",
+    "titulo": "Adquisicion de ACCESS POINTS para Red Inalambrica",
+    "institucion": "Ministerio de Hacienda",
+    "monto": 67200.0,
+    "fecha_cierre": "2026-07-28",
+    "rubro_requerido": "Tecnologia",
+    "unspsc_code": "43222600",
+    "tipo_contratacion": "LP"
+  },
+  {
+    "id": "opp-010",
+    "titulo": "Adquisicion de UPS para Direccion General de Aduanas",
+    "institucion": "Ministerio de Hacienda (DGA)",
+    "monto": 18900.0,
+    "fecha_cierre": "2026-07-12",
+    "rubro_requerido": "Tecnologia",
+    "unspsc_code": "39121000",
+    "tipo_contratacion": "LG"
+  },
+  {
+    "id": "opp-011",
+    "titulo": "Suscripcion de Software AUTODESK AEC COLLECTION 2025",
+    "institucion": "Ministerio de Hacienda",
+    "monto": 24500.0,
+    "fecha_cierre": "2026-07-05",
+    "rubro_requerido": "Tecnologia",
+    "unspsc_code": "43230000",
+    "tipo_contratacion": "LG"
+  },
+  {
+    "id": "opp-012",
+    "titulo": "Suscripcion Licencia ADOBE CREATIVE CLOUD",
+    "institucion": "Ministerio de Hacienda",
+    "monto": 12300.0,
+    "fecha_cierre": "2026-07-03",
+    "rubro_requerido": "Tecnologia",
+    "unspsc_code": "43232100",
+    "tipo_contratacion": "CD"
+  },
+  {
+    "id": "opp-013",
+    "titulo": "Servicios de Desarrollo de Sistemas",
+    "institucion": "Ministerio de Hacienda",
+    "monto": 115000.0,
+    "fecha_cierre": "2026-08-01",
+    "rubro_requerido": "Tecnologia",
+    "unspsc_code": "81111500",
+    "tipo_contratacion": "LP"
+  },
+  {
+    "id": "opp-014",
+    "titulo": "Mantenimiento Preventivo y Correctivo de Equipos Medicos",
+    "institucion": "Ministerio de Hacienda",
+    "monto": 32600.0,
+    "fecha_cierre": "2026-07-22",
+    "rubro_requerido": "Servicios de Mantenimiento",
+    "unspsc_code": "81101500",
+    "tipo_contratacion": "LG"
+  },
+  {
+    "id": "opp-015",
+    "titulo": "Mantenimiento de Sistema de Detencion de Incendios",
+    "institucion": "Ministerio de Hacienda (DGA)",
+    "monto": 15300.0,
+    "fecha_cierre": "2026-07-11",
+    "rubro_requerido": "Servicios de Mantenimiento",
+    "unspsc_code": "72101500",
+    "tipo_contratacion": "CD"
+  },
+  {
+    "id": "opp-016",
+    "titulo": "Mantenimiento de Extractores de Aire - Laboratorio DGA",
+    "institucion": "Ministerio de Hacienda (DGA)",
+    "monto": 8700.0,
+    "fecha_cierre": "2026-07-06",
+    "rubro_requerido": "Servicios de Mantenimiento",
+    "unspsc_code": "72151200",
+    "tipo_contratacion": "CD"
+  },
+  {
+    "id": "opp-017",
+    "titulo": "Recarga de Gases y Mantenimiento de Red de Gases - Laboratorio DGA",
+    "institucion": "Ministerio de Hacienda (DGA)",
+    "monto": 12400.0,
+    "fecha_cierre": "2026-07-14",
+    "rubro_requerido": "Servicios de Mantenimiento",
+    "unspsc_code": "72120000",
+    "tipo_contratacion": "LG"
+  },
+  {
+    "id": "opp-018",
+    "titulo": "Readecuacion de Espacios Fisicos y Reparacion de Techos",
+    "institucion": "Ministerio de Hacienda",
+    "monto": 98500.0,
+    "fecha_cierre": "2026-07-30",
+    "rubro_requerido": "Construccion y Materiales",
+    "unspsc_code": "72101500",
+    "tipo_contratacion": "LP"
+  },
+  {
+    "id": "opp-019",
+    "titulo": "Mantenimiento de Infraestructura - Edificio Central",
+    "institucion": "Ministerio de Hacienda",
+    "monto": 28700.0,
+    "fecha_cierre": "2026-07-18",
+    "rubro_requerido": "Construccion y Materiales",
+    "unspsc_code": "72120000",
+    "tipo_contratacion": "LG"
+  },
+  {
+    "id": "opp-020",
+    "titulo": "Suministro de Consumibles para Laboratorio DGA",
+    "institucion": "Ministerio de Hacienda (DGA)",
+    "monto": 23400.0,
+    "fecha_cierre": "2026-07-09",
+    "rubro_requerido": "Suministros de Laboratorio",
+    "unspsc_code": "41100000",
+    "tipo_contratacion": "LG"
+  },
+  {
+    "id": "opp-021",
+    "titulo": "Suministro de Consumibles y Cristaleria para Laboratorio",
+    "institucion": "Ministerio de Hacienda (DGA)",
+    "monto": 15100.0,
+    "fecha_cierre": "2026-07-16",
+    "rubro_requerido": "Suministros de Laboratorio",
+    "unspsc_code": "41103000",
+    "tipo_contratacion": "LG"
+  },
+  {
+    "id": "opp-022",
+    "titulo": "Adquisicion de Chumpas, Gorras, Chalecos y Calzado de Seguridad",
+    "institucion": "Ministerio de Hacienda",
+    "monto": 34200.0,
+    "fecha_cierre": "2026-07-21",
+    "rubro_requerido": "Textiles y Uniformes",
+    "unspsc_code": "53102500",
+    "tipo_contratacion": "LG"
+  },
+  {
+    "id": "opp-023",
+    "titulo": "Confeccion de Uniformes - Personal Operativo DGA",
+    "institucion": "Ministerio de Hacienda (DGA)",
+    "monto": 18900.0,
+    "fecha_cierre": "2026-07-13",
+    "rubro_requerido": "Textiles y Uniformes",
+    "unspsc_code": "53102700",
+    "tipo_contratacion": "CD"
+  },
+  {
+    "id": "opp-024",
+    "titulo": "Suministro de Mobiliario para Direccion General",
+    "institucion": "Ministerio de Hacienda",
+    "monto": 45600.0,
+    "fecha_cierre": "2026-07-19",
+    "rubro_requerido": "Mobiliario y Equipo",
+    "unspsc_code": "56101500",
+    "tipo_contratacion": "LP"
+  },
+  {
+    "id": "opp-025",
+    "titulo": "Adquisicion de Electrodomesticos para DGA",
+    "institucion": "Ministerio de Hacienda (DGA)",
+    "monto": 14300.0,
+    "fecha_cierre": "2026-07-07",
+    "rubro_requerido": "Mobiliario y Equipo",
+    "unspsc_code": "52141500",
+    "tipo_contratacion": "CD"
+  },
+  {
+    "id": "opp-026",
+    "titulo": "Suministro de Insumos Medicos para Clinicas Empresariales",
+    "institucion": "Ministerio de Hacienda",
+    "monto": 28700.0,
+    "fecha_cierre": "2026-07-17",
+    "rubro_requerido": "Suministros Medicos",
+    "unspsc_code": "42140000",
+    "tipo_contratacion": "LG"
+  },
+  {
+    "id": "opp-027",
+    "titulo": "Adquisicion de Botiquines para DGA",
+    "institucion": "Ministerio de Hacienda (DGA)",
+    "monto": 3200.0,
+    "fecha_cierre": "2026-07-04",
+    "rubro_requerido": "Suministros Medicos",
+    "unspsc_code": "42140000",
+    "tipo_contratacion": "CD"
+  },
+  {
+    "id": "opp-028",
+    "titulo": "Auditoria Externa del Programa de Transformacion del Clima de Negocios",
+    "institucion": "Ministerio de Hacienda",
+    "monto": 78000.0,
+    "fecha_cierre": "2026-07-29",
+    "rubro_requerido": "Servicios Profesionales",
+    "unspsc_code": "84111500",
+    "tipo_contratacion": "LP"
+  },
+  {
+    "id": "opp-029",
+    "titulo": "Adquisicion de Poliza de Seguro de Responsabilidad Civil",
+    "institucion": "Ministerio de Hacienda",
+    "monto": 42000.0,
+    "fecha_cierre": "2026-07-24",
+    "rubro_requerido": "Servicios Financieros",
+    "unspsc_code": "84131600",
+    "tipo_contratacion": "LG"
+  },
+  {
+    "id": "opp-030",
+    "titulo": "Adquisicion de Papel Higienico Jumbo y Dispensadores para DGA",
+    "institucion": "Ministerio de Hacienda (DGA)",
+    "monto": 8700.0,
+    "fecha_cierre": "2026-07-02",
+    "rubro_requerido": "Suministros de Limpieza",
+    "unspsc_code": "14111700",
+    "tipo_contratacion": "CD"
+  },
+  {
+    "id": "opp-031",
+    "titulo": "Mantenimiento de Sistema de Filtracion de Agua - Aduana El Poy",
+    "institucion": "Ministerio de Hacienda (DGA)",
+    "monto": 11400.0,
+    "fecha_cierre": "2026-07-23",
+    "rubro_requerido": "Servicios Ambientales",
+    "unspsc_code": "70170000",
+    "tipo_contratacion": "LG"
+  }
+]
