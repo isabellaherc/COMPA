@@ -59,7 +59,7 @@
     ]
   },
   "api": {
-    "url": "https://{WORKSPACE}.app.n8n.cloud/webhook/retar-decision",
+    "url": "https://wilbe.app.n8n.cloud/webhook-test/retar-decision",
     "method": "POST",
     "headers": {
       "Content-Type": "application/json",
