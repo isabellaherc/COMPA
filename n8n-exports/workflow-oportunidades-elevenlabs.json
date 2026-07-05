@@ -1,0 +1,81 @@
+{
+  "name": "COMPA - Fase 3 - Oportunidades a ElevenLabs",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "hours", "hoursInterval": 6 }]
+        }
+      },
+      "id": "schedule-trigger",
+      "name": "Schedule Every 6 Hours",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 180]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT\n  p.id::text AS productor_id,\n  p.nombre AS nombre_productor,\n  p.rubro AS rubro_negocio,\n  p.capacidad AS capacidad_productor,\n  p.telefono,\n  m.oportunidad_id::text AS oportunidad_id,\n  m.titulo AS oportunidad_titulo,\n  m.institucion AS oportunidad_institucion,\n  m.monto AS oportunidad_monto,\n  m.fecha_cierre::text AS oportunidad_cierre,\n  m.rubro_requerido,\n  m.unspsc_code,\n  m.url_fuente,\n  m.tipo_contratacion,\n  m.score\nFROM productores p\nJOIN LATERAL matching_oportunidades(p.id, 5) m ON true\nWHERE p.nombre = 'Vilma Jeanneth Guardado de Ayala'\nORDER BY m.score DESC, m.monto DESC\nLIMIT 1;",
+        "options": {}
+      },
+      "id": "query-vilma-match",
+      "name": "Query Vilma Top Match",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [260, 90],
+      "credentials": {
+        "postgres": { "id": "REPLACE_SUPABASE_POSTGRES_CREDENTIAL_ID", "name": "Supabase Postgres" }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nreturn items.map((item) => {\n  const row = item.json;\n  const monto = Number(row.oportunidad_monto || 0);\n  const oportunidadDetectada = `${row.oportunidad_titulo} de ${row.oportunidad_institucion} por $${monto.toLocaleString('en-US')} con cierre ${row.oportunidad_cierre}.`;\n  return {\n    json: {\n      agent_id: $env.ELEVENLABS_AGENT_ID || 'REPLACE_ELEVENLABS_AGENT_ID',\n      phone_number: row.telefono,\n      dynamic_variables: {\n        productor_id: row.productor_id,\n        oportunidad_id: row.oportunidad_id,\n        nombre_productor: row.nombre_productor,\n        rubro_negocio: row.rubro_negocio,\n        capacidad_productor: row.capacidad_productor,\n        oportunidad_detectada: oportunidadDetectada,\n        oportunidad_titulo: row.oportunidad_titulo,\n        oportunidad_institucion: row.oportunidad_institucion,\n        oportunidad_monto: monto,\n        oportunidad_cierre: row.oportunidad_cierre,\n        unspsc_code: row.unspsc_code,\n        url_fuente: row.url_fuente,\n        score_match: Number(row.score || 0)\n      },\n      metadata: {\n        productor_id: row.productor_id,\n        oportunidad_id: row.oportunidad_id,\n        source: 'compa-fase-3-n8n'\n      },\n      first_message: `Doña ${row.nombre_productor.split(' ')[0]}, como esta? Habla Compa. Vi una oportunidad para su negocio: ${oportunidadDetectada} Tiene un momento para revisarla?`\n    }\n  };\n});\n"
+      },
+      "id": "build-elevenlabs-payload",
+      "name": "Build ElevenLabs Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [520, 90]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.elevenlabs.io/v1/convai/conversation",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{ "name": "xi-api-key", "value": "={{ $env.ELEVENLABS_API_KEY }}" }]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": { "timeout": 5000 }
+      },
+      "id": "post-elevenlabs",
+      "name": "POST to ElevenLabs",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [790, 90]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": { "main": [[{ "node": "Query Vilma Top Match", "type": "main", "index": 0 }]] },
+    "Schedule Every 6 Hours": { "main": [[{ "node": "Query Vilma Top Match", "type": "main", "index": 0 }]] },
+    "Query Vilma Top Match": { "main": [[{ "node": "Build ElevenLabs Payload", "type": "main", "index": 0 }]] },
+    "Build ElevenLabs Payload": { "main": [[{ "node": "POST to ElevenLabs", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1", "timezone": "America/El_Salvador" },
+  "staticData": null,
+  "pinData": {},
+  "versionId": "compa-fase-3-oportunidades",
+  "triggerCount": 2,
+  "tags": [{ "name": "compa" }, { "name": "fase-3" }]
+}

@@ -1,0 +1,106 @@
+{
+  "name": "COMPA - Fase 4 - generar_documento",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "generar-documento-dinac",
+        "responseMode": "responseNode",
+        "options": { "responseData": "allEntries" }
+      },
+      "id": "webhook-generar-documento",
+      "name": "Webhook generar-documento-dinac",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "compa-generar-documento-dinac"
+    },
+    {
+      "parameters": {
+        "jsCode": "const incoming = $input.first().json;\nconst headers = incoming.headers || {};\nconst payload = incoming.body || incoming;\nconst expectedSecret = $env.COMPA_WEBHOOK_SECRET || 'whsec_compa_buildathon_2026';\nconst receivedSecret = headers['x-compa-webhook-secret'] || headers['X-Compa-Webhook-Secret'] || '';\nconst authorization = headers.authorization || headers.Authorization || '';\nconst bearerSecret = authorization.startsWith('Bearer ') ? authorization.slice(7) : '';\nif (!payload._skip_auth && receivedSecret !== expectedSecret && bearerSecret !== expectedSecret) {\n  throw new Error('Unauthorized: invalid webhook secret');\n}\nconst uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;\nif (!uuidRegex.test(payload.productor_id || '')) throw new Error('productor_id must be a Supabase UUID');\nif (!payload.tipo_documento || typeof payload.tipo_documento !== 'string') throw new Error('tipo_documento is required');\nfunction sqlString(value) {\n  return `'${String(value ?? '').replace(/'/g, \"''\")}'`;\n}\nconst query = `SELECT\n  to_jsonb(p) AS productor,\n  to_jsonb(pl) AS plantilla\nFROM productores p\nCROSS JOIN plantillas_documentos pl\nWHERE p.id = ${sqlString(payload.productor_id)}::uuid\n  AND pl.tipo = ${sqlString(payload.tipo_documento)}\nLIMIT 1;`;\nreturn [{ json: { ...payload, datos_adicionales: payload.datos_adicionales || {}, select_query: query } }];\n"
+      },
+      "id": "validate-request",
+      "name": "Validate Request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "={{ $json.select_query }}",
+        "options": {}
+      },
+      "id": "query-productor-plantilla",
+      "name": "Query Productor and Template",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [520, 0],
+      "credentials": {
+        "postgres": { "id": "REPLACE_SUPABASE_POSTGRES_CREDENTIAL_ID", "name": "Supabase Postgres" }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const request = $items('Validate Request')[0].json;\nconst row = $input.first().json;\nif (!row.productor || !row.plantilla) {\n  return [{ json: { estado: 'error', error: 'productor_o_plantilla_no_encontrado', mensaje: 'No encontre el productor o la plantilla solicitada.', request } }];\n}\nconst productor = row.productor;\nconst plantilla = row.plantilla;\nconst datosProductor = {\n  nombre: productor.nombre || '',\n  nombre_empresa: productor.nombre || '',\n  nombre_representante: productor.nombre || '',\n  dui: productor.dui || '',\n  dui_representante: productor.dui || '',\n  nit: productor.nit || '',\n  direccion: productor.ubicacion || '',\n  telefono: productor.telefono || '',\n  rubro: productor.rubro || ''\n};\nconst datosCompletos = { ...datosProductor, ...request.datos_adicionales };\nconst camposRequeridos = Array.isArray(plantilla.campos_requeridos) ? plantilla.campos_requeridos : JSON.parse(plantilla.campos_requeridos || '[]');\nconst camposFaltantes = camposRequeridos.filter((campo) => !datosCompletos[campo]);\nif (camposFaltantes.length > 0) {\n  return [{ json: { estado: 'incompleto', campos_faltantes: camposFaltantes, mensaje: `Necesito estos datos para completar el borrador: ${camposFaltantes.join(', ')}.`, productor_id: request.productor_id, plantilla_id: plantilla.id, tipo_documento: plantilla.tipo } }];\n}\nconst archivoNombre = `${plantilla.tipo}_${Date.now()}.docx`;\nconst archivoUrl = `simulado://documentos-dinac/${archivoNombre}`;\nreturn [{\n  json: {\n    estado: 'borrador',\n    productor_id: request.productor_id,\n    plantilla_id: plantilla.id,\n    tipo_documento: plantilla.tipo,\n    path_template: plantilla.path_template,\n    datos_usados: datosCompletos,\n    archivo_nombre: archivoNombre,\n    archivo_url: archivoUrl,\n    mensaje: 'Borrador preparado en modo demo. Debe revisarse, completarse con la plantilla oficial y firmarse por el productor.'\n  }\n}];\n"
+      },
+      "id": "validate-fields-and-simulate-draft",
+      "name": "Validate Fields and Simulate Draft",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [780, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $input.first().json;\nif (data.estado !== 'borrador') {\n  return [{ json: { ...data, insert_query: 'SELECT NULL::text AS documento_id;' } }];\n}\nfunction sqlString(value) {\n  return `'${String(value ?? '').replace(/'/g, \"''\")}'`;\n}\nconst query = `INSERT INTO documentos_generados (productor_id, plantilla_id, datos_usados, archivo_url, estado)\nVALUES (\n  ${sqlString(data.productor_id)}::uuid,\n  ${sqlString(data.plantilla_id)}::uuid,\n  ${sqlString(JSON.stringify(data.datos_usados))}::jsonb,\n  ${sqlString(data.archivo_url)},\n  'borrador'\n)\nRETURNING id::text AS documento_id, archivo_url, estado;`;\nreturn [{ json: { ...data, insert_query: query } }];\n"
+      },
+      "id": "build-audit-insert",
+      "name": "Build Audit Insert",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1040, 0]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "={{ $json.insert_query }}",
+        "options": {}
+      },
+      "id": "insert-documento-generado",
+      "name": "Insert Documento Generado",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [1300, 0],
+      "credentials": {
+        "postgres": { "id": "REPLACE_SUPABASE_POSTGRES_CREDENTIAL_ID", "name": "Supabase Postgres" }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $items('Validate Fields and Simulate Draft')[0].json }}",
+        "options": { "responseCode": 200 }
+      },
+      "id": "respond-documento",
+      "name": "Respond Documento",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1560, 0]
+    }
+  ],
+  "connections": {
+    "Webhook generar-documento-dinac": { "main": [[{ "node": "Validate Request", "type": "main", "index": 0 }]] },
+    "Validate Request": { "main": [[{ "node": "Query Productor and Template", "type": "main", "index": 0 }]] },
+    "Query Productor and Template": { "main": [[{ "node": "Validate Fields and Simulate Draft", "type": "main", "index": 0 }]] },
+    "Validate Fields and Simulate Draft": { "main": [[{ "node": "Build Audit Insert", "type": "main", "index": 0 }]] },
+    "Build Audit Insert": { "main": [[{ "node": "Insert Documento Generado", "type": "main", "index": 0 }]] },
+    "Insert Documento Generado": { "main": [[{ "node": "Respond Documento", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1", "timezone": "America/El_Salvador" },
+  "staticData": null,
+  "pinData": {},
+  "versionId": "compa-fase-4-generar-documento",
+  "triggerCount": 1,
+  "tags": [{ "name": "compa" }, { "name": "fase-4" }, { "name": "legal" }]
+}
