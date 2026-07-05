@@ -1,4 +1,7 @@
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
+"use client";
+
+import Link from "next/link";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 type ButtonVariant = "primary" | "pink" | "outline" | "ghost";
 
@@ -15,29 +18,33 @@ type SharedButtonProps = {
   className?: string;
 };
 
-type AnchorButtonProps = SharedButtonProps &
-  AnchorHTMLAttributes<HTMLAnchorElement> & {
-    href: string;
-  };
+type LinkButtonProps = SharedButtonProps & {
+  href: string;
+};
 
 type NativeButtonProps = SharedButtonProps &
   ButtonHTMLAttributes<HTMLButtonElement> & {
     href?: never;
   };
 
-export function Button(props: AnchorButtonProps | NativeButtonProps) {
+export function Button(props: LinkButtonProps | NativeButtonProps) {
   const { children, variant = "primary", className = "", ...rest } = props;
   const classes = [
-    "inline-flex h-11 items-center justify-center rounded-full border px-5 text-sm font-semibold transition focus:outline-none focus-visible:ring-4 focus-visible:ring-red/15 active:translate-y-px",
+    "pressable inline-flex h-11 items-center justify-center rounded-full border px-5 text-sm font-semibold whitespace-nowrap focus:outline-none focus-visible:ring-4 focus-visible:ring-red/15 disabled:pointer-events-none",
     variantClasses[variant],
     className,
   ].join(" ");
 
-  if ("href" in props) {
+  if ("href" in props && props.href) {
+    const { href, ...linkRest } = props as LinkButtonProps;
     return (
-      <a className={classes} {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)} href={props.href}>
+      <Link
+        href={href}
+        className={classes}
+        {...(linkRest as Omit<LinkButtonProps, "href" | "variant" | "className">)}
+      >
         {children}
-      </a>
+      </Link>
     );
   }
 
