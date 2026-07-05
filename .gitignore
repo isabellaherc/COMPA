@@ -1,0 +1,20 @@
+# Secrets — nunca subir
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Local
+.playwright-mcp/
+
+# n8n exports con secretos embebidos — solo local
+n8n-ready/
+
+# n8n local (instancia de prueba)
+.n8n-local-install/
+.n8n-local/

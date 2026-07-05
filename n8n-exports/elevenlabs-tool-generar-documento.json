@@ -1,0 +1,35 @@
+{
+  "type": "webhook",
+  "name": "generar_documento",
+  "description": "Prepara un BORRADOR de documento oficial usando plantillas de Documentacion-usuario. No firma, no presenta y no sustituye revision humana.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "tipo_documento": {
+        "type": "string",
+        "description": "Tipo de plantilla generable.",
+        "enum": [
+          "declaracion_jurada_persona_natural",
+          "declaracion_jurada_apoderado_persona_natural",
+          "declaracion_jurada_persona_juridica",
+          "declaracion_jurada_apoderado_persona_juridica",
+          "documento_estandar_contratacion_directa",
+          "documento_estandar_comparacion_precios_bienes_servicios",
+          "carta_compromiso",
+          "desglose_precios"
+        ]
+      },
+      "productor_id": { "type": "string", "description": "UUID real del productor en Supabase." },
+      "datos_adicionales": { "type": "object", "description": "Datos faltantes conversados con el usuario." }
+    },
+    "required": ["tipo_documento", "productor_id"]
+  },
+  "api": {
+    "url": "https://wilbe.app.n8n.cloud/webhook/generar-documento-dinac",
+    "method": "POST",
+    "headers": {
+      "Content-Type": "application/json",
+      "X-Compa-Webhook-Secret": "whsec_compa_buildathon_2026"
+    }
+  }
+}

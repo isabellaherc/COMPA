@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ejemplo — Bosques de El Salvador</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-red: #c1272d;
+    --color-red-dark: #8f1a1f;
+    --color-green: #2e5339;
+    --color-pink: #ffc5d3;
+    --color-pink-deep: #ff6f91;
+    --color-pink-deep-dark: #d94971;
+    --color-ink: #241512;
+    --color-forest-900: #16241b;
+    --color-muted: #7a6a5d;
+    --color-border: #e4d5bd;
+    --color-surface: #f0e3cf;
+    --color-paper: #fffbf3;
+    --color-cream: #f6ecdd;
+    --font-display: "Space Grotesk", "Inter", sans-serif;
+    --font-body: "Inter", sans-serif;
+    --radius-lg: 22px;
+    --shadow-soft: 0 1px 2px rgba(36,21,18,.05), 0 12px 32px -12px rgba(36,21,18,.16);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); color: var(--color-ink); background: var(--color-cream); line-height: 1.5; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  /* canopy */
+  .canopy { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+  .leaf { position: absolute; top: -8%; opacity: 0; animation: leaf-fall linear infinite; will-change: transform, opacity; }
+  .leaf svg { width: 100%; height: 100%; display: block; }
+  @keyframes leaf-fall {
+    0% { transform: translate3d(0,-10vh,0) rotate(0deg); opacity: 0; }
+    8% { opacity: .45; }
+    92% { opacity: .45; }
+    100% { transform: translate3d(var(--sway,24px), 112vh, 0) rotate(340deg); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { .leaf { animation-play-state: paused; opacity: .4; } }
+
+  /* eyebrow */
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--color-red); margin-bottom: 14px; }
+  .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--color-pink-deep); box-shadow: 0 0 0 4px rgba(255,111,145,.28); }
+  .eyebrow.on-dark { color: var(--color-pink); }
+
+  /* nav */
+  .nav { position: sticky; top: 0; z-index: 40; background: rgba(246,236,221,.86); backdrop-filter: blur(10px); border-bottom: 1px solid var(--color-border); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 18px; }
+  .brand-mark { width: 30px; height: 30px; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { font-size: 14.5px; font-weight: 500; opacity: .72; }
+  .nav-links a:hover { opacity: 1; }
+  @media (max-width: 780px) { .nav-links { display: none; } }
+
+  /* buttons */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 46px; padding: 0 22px; border-radius: 999px; font-weight: 600; font-size: 14.5px; border: 1px solid transparent; cursor: pointer; transition: transform .15s, box-shadow .15s, background .15s; white-space: nowrap; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--color-red); color: var(--color-paper); box-shadow: 0 10px 24px -10px rgba(193,39,45,.55); }
+  .btn-primary:hover { background: var(--color-red-dark); }
+  .btn-pink { background: var(--color-pink-deep); color: var(--color-ink); box-shadow: 0 10px 24px -10px rgba(255,111,145,.55); }
+  .btn-pink:hover { background: var(--color-pink-deep-dark); }
+  .btn-outline { background: transparent; border-color: var(--color-border); color: var(--color-ink); }
+  .btn-outline:hover { border-color: var(--color-red); color: var(--color-red); }
+  .btn-outline.on-dark { border-color: rgba(255,251,243,.28); color: var(--color-paper); }
+  .btn-outline.on-dark:hover { border-color: var(--color-pink); color: var(--color-pink); }
+
+  section { padding: 108px 0; border-bottom: 1px solid var(--color-border); }
+  @media (max-width: 720px) { section { padding: 72px 0; } .wrap { padding: 0 20px; } }
+  .section-head { max-width: 620px; margin: 0 0 56px; }
+  .section-head h2 { font-family: var(--font-display); font-size: clamp(28px,3.4vw,40px); font-weight: 700; letter-spacing: -.01em; margin-bottom: 14px; }
+  .section-head p { color: var(--color-muted); font-size: 16.5px; line-height: 1.6; }
+
+  /* hero */
+  .hero { padding-top: 96px; padding-bottom: 100px; text-align: center; }
+  .hero-inner { max-width: 780px; margin: 0 auto; }
+  .hero h1 { font-family: var(--font-display); font-size: clamp(38px,6vw,66px); font-weight: 700; line-height: 1.06; letter-spacing: -.02em; margin-bottom: 22px; }
+  .hero h1 .accent { color: var(--color-red); }
+  .hero p.lead { font-size: 18px; color: var(--color-muted); max-width: 560px; margin: 0 auto 34px; line-height: 1.65; }
+  .hero-actions { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+
+  /* cards */
+  .card-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+  @media (max-width: 900px) { .card-grid { grid-template-columns: 1fr; } }
+  .ui-card { border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 24px; background: var(--color-paper); box-shadow: var(--shadow-soft); }
+  .ui-card .icon { width: 40px; height: 40px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; color: var(--color-paper); margin-bottom: 16px; font-size: 16px; }
+  .ui-card h3 { font-family: var(--font-display); font-size: 16.5px; margin-bottom: 8px; }
+  .ui-card p { font-size: 13.75px; color: var(--color-muted); line-height: 1.55; }
+
+  /* dark cta */
+  .cta-dark { position: relative; background: var(--color-forest-900); color: var(--color-paper); border-bottom: none; overflow: hidden; text-align: center; }
+  .cta-dark::before { content: ""; position: absolute; inset: -20%; background:
+      radial-gradient(600px 400px at 20% 0%, rgba(193,39,45,.5), transparent 60%),
+      radial-gradient(500px 380px at 85% 100%, rgba(255,197,211,.24), transparent 60%),
+      radial-gradient(400px 300px at 90% 10%, rgba(255,111,145,.24), transparent 60%);
+    pointer-events: none; }
+  .cta-dark-inner { position: relative; z-index: 1; max-width: 620px; margin: 0 auto; }
+  .cta-dark h2 { font-family: var(--font-display); font-size: clamp(28px,4vw,42px); font-weight: 700; margin-bottom: 16px; }
+  .cta-dark p { color: rgba(255,251,243,.7); font-size: 16.5px; margin-bottom: 32px; line-height: 1.6; }
+  .cta-dark-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* footer */
+  .footer { padding: 40px 0; background: var(--color-forest-900); color: rgba(255,251,243,.6); }
+  .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 13.5px; }
+  .footer .brand { color: var(--color-paper); }
+</style>
+</head>
+<body>
+
+  <div class="canopy" id="canopy" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#C1272D" transform="rotate(0 16 16)"/>
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#FFC5D3" transform="rotate(72 16 16)"/>
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#C1272D" transform="rotate(144 16 16)"/>
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#FFC5D3" transform="rotate(216 16 16)"/>
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#C1272D" transform="rotate(288 16 16)"/>
+          <circle cx="16" cy="16" r="4" fill="#FF6F91"/>
+        </svg>
+        Bosque Co.
+      </div>
+      <nav class="nav-links">
+        <a href="#producto">Producto</a>
+        <a href="#precios">Precios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a href="#precios" class="btn btn-outline" style="height:38px;padding:0 16px;font-size:13.5px;">Empezar</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="eyebrow">Nuevo · construido con el sistema</div>
+        <h1>Ejemplo de página armada con <span class="accent">la guía de marca</span></h1>
+        <p class="lead">
+          Esta página completa — nav, hero, tarjetas, CTA y footer — sigue el orden de seis
+          pasos del brandbook: un botón sólido por sección, verde oscuro solo al cierre, rosa
+          profundo racionado a un único acento.
+        </p>
+        <div class="hero-actions">
+          <a href="#producto" class="btn btn-primary">Ver producto</a>
+          <a href="#precios" class="btn btn-outline">Ver precios</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="producto">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Contenido / prueba</div>
+          <h2>Tres cosas que hacemos bien</h2>
+          <p>Un color de ícono por tarjeta — nunca mezclar rojo y rosa profundo en la misma.</p>
+        </div>
+        <div class="card-grid">
+          <div class="ui-card">
+            <div class="icon" style="background:var(--color-red)">A</div>
+            <h3>Primario</h3>
+            <p>Ícono rojo para la variante por defecto, de mayor énfasis.</p>
+          </div>
+          <div class="ui-card">
+            <div class="icon" style="background:var(--color-green)">B</div>
+            <h3>Secundario</h3>
+            <p>Follaje como base sobria para contenido informativo.</p>
+          </div>
+          <div class="ui-card">
+            <div class="icon" style="background:var(--color-pink-deep)">C</div>
+            <h3>Énfasis</h3>
+            <p>Rosa profundo — el protagonista, un solo uso por sección.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-dark" id="precios">
+      <div class="wrap cta-dark-inner">
+        <div class="eyebrow on-dark">CTA final</div>
+        <h2>Único fondo oscuro del recorrido</h2>
+        <p>Botón rosa profundo + uno outline claro. El footer sigue con el mismo verde, sin borde duro.</p>
+        <div class="cta-dark-actions">
+          <a href="#" class="btn btn-pink">Empezar ahora</a>
+          <a href="#" class="btn btn-outline on-dark">Hablar con ventas</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacto">
+    <div class="wrap footer-inner">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#C1272D" transform="rotate(0 16 16)"/>
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#FFC5D3" transform="rotate(72 16 16)"/>
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#C1272D" transform="rotate(144 16 16)"/>
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#FFC5D3" transform="rotate(216 16 16)"/>
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#C1272D" transform="rotate(288 16 16)"/>
+          <circle cx="16" cy="16" r="4" fill="#FF6F91"/>
+        </svg>
+        Bosque Co.
+      </div>
+      <div>© 2026 Bosque Co. Ejemplo construido con el brandbook.</div>
+    </div>
+  </footer>
+
+  <script>
+    const LEAF_COLORS = ["#FFC5D3", "#FF6F91", "#C1272D"];
+    const canopy = document.getElementById('canopy');
+    const leafPath = 'M10 0C15 6 20 11 10 24C0 11 5 6 10 0Z';
+    for (let i = 0; i < 16; i++) {
+      const size = 10 + (i % 4) * 5;
+      const sway = (i % 2 === 0 ? 1 : -1) * (24 + (i % 3) * 14);
+      const span = document.createElement('span');
+      span.className = 'leaf';
+      span.style.left = `${(i * 61) % 100}%`;
+      span.style.width = size + 'px';
+      span.style.height = (size * 1.2) + 'px';
+      span.style.animationDuration = `${16 + (i % 6) * 3}s`;
+      span.style.animationDelay = `${-((i * 2.3) % 20).toFixed(1)}s`;
+      span.style.setProperty('--sway', sway + 'px');
+      span.innerHTML = `<svg viewBox="0 0 20 24"><path d="${leafPath}" fill="${LEAF_COLORS[i % LEAF_COLORS.length]}"/></svg>`;
+      canopy.appendChild(span);
+    }
+  </script>
+</body>
+</html>

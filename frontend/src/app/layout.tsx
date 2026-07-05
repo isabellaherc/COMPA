@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter } from "next/font/google";
 import { Canopy } from "@/components/layout/Canopy";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
+import { CompaWidget } from "@/components/voice/CompaWidget";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -39,6 +40,7 @@ export default function RootLayout({
         <Nav />
         <main className="min-h-[60dvh]">{children}</main>
         <Footer />
+        <CompaWidget />
       </body>
     </html>
   );

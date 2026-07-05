@@ -1,0 +1,123 @@
+{
+  "name": "COMPA - Fase 3 - retar_decision",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "retar-decision",
+        "responseMode": "responseNode",
+        "options": { "responseData": "allEntries" }
+      },
+      "id": "webhook-retar-decision",
+      "name": "Webhook retar-decision",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "compa-retar-decision"
+    },
+    {
+      "parameters": {
+        "jsCode": "const incoming = $input.first().json;\nconst headers = incoming.headers || {};\nconst payload = incoming.body || incoming;\nconst contexto = payload.contexto || {};\nconst expectedSecret = 'whsec_compa_buildathon_2026';\nconst receivedSecret = headers['x-compa-webhook-secret'] || headers['X-Compa-Webhook-Secret'] || '';\nconst authorization = headers.authorization || headers.Authorization || '';\nconst bearerSecret = authorization.startsWith('Bearer ') ? authorization.slice(7) : '';\nif (!payload._skip_auth && receivedSecret !== expectedSecret && bearerSecret !== expectedSecret) {\n  throw new Error('Unauthorized: invalid webhook secret');\n}\nconst decisionDescrita = payload.decision_descrita;\nif (!decisionDescrita || typeof decisionDescrita !== 'string' || decisionDescrita.trim().length < 10) {\n  throw new Error('Validation error: decision_descrita is required and must be at least 10 characters');\n}\nconst uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;\nconst productorId = payload.productor_id || contexto.productor_id;\nconst oportunidadId = payload.oportunidad_id || contexto.oportunidad_id;\nif (!uuidRegex.test(productorId || '')) throw new Error('Validation error: productor_id must be a Supabase UUID');\nif (!uuidRegex.test(oportunidadId || '')) throw new Error('Validation error: oportunidad_id must be a Supabase UUID');\nreturn [{\n  json: {\n    decision_descrita: decisionDescrita.trim(),\n    productor_id: productorId,\n    oportunidad_id: oportunidadId,\n    conversation_id: payload.conversation_id || payload.trace_id || `conv_${Date.now()}`,\n    nombre_productor: payload.nombre_productor || contexto.nombre_productor || 'Productor',\n    rubro_negocio: payload.rubro_negocio || contexto.rubro || 'general',\n    capacidad_productor: payload.capacidad_productor || contexto.capacidad_productor || 'no especificada',\n    experiencia_estado: payload.experiencia_estado || contexto.experiencia_estado || 'no especificada',\n    oportunidad_titulo: payload.oportunidad_titulo || contexto.oportunidad_titulo || 'Oportunidad publica',\n    oportunidad_institucion: payload.oportunidad_institucion || contexto.institucion || 'Institucion publica',\n    oportunidad_monto: Number(payload.oportunidad_monto || contexto.monto_oportunidad || 0),\n    oportunidad_cierre: payload.oportunidad_cierre || contexto.oportunidad_cierre || '',\n    recibido_en: new Date().toISOString()\n  }\n}];\n"
+      },
+      "id": "validate-payload",
+      "name": "Validate Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $input.first().json;\nreturn [{\n  json: {\n    ...data,\n    openai_request: {\n      model: 'gpt-4o-mini',\n      temperature: 0.2,\n      response_format: { type: 'json_object' },\n      messages: [\n        {\n          role: 'system',\n          content: 'Sos Compa, cofundador de IA para MIPYMES salvadorenas. Responde solo JSON valido con exactly 3 preguntas criticas y un reasoning_trace breve.'\n        },\n        {\n          role: 'user',\n          content: `Productor: ${data.nombre_productor}\\nRubro: ${data.rubro_negocio}\\nCapacidad: ${data.capacidad_productor}\\nOportunidad: ${data.oportunidad_titulo} / ${data.oportunidad_institucion} / $${data.oportunidad_monto}\\nDecision: ${data.decision_descrita}\\n\\nGenera JSON: {\"preguntas\":[\"...\",\"...\",\"...\"],\"reasoning_trace\":\"...\"}`\n        }\n      ]\n    }\n  }\n}];\n"
+      },
+      "id": "build-openai-request",
+      "name": "Build OpenAI Request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [520, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{OPENAI_API_KEY}}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.openai_request) }}",
+        "options": { "timeout": 15000 }
+      },
+      "id": "post-openai",
+      "name": "POST to OpenAI",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [790, 0],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const original = $items('Build OpenAI Request')[0].json;\nconst response = $input.first().json;\nconst fallback = [\n  'Ya calculo cuanto le cuesta producir cada unidad con los precios actuales?',\n  'Tiene flujo de caja para aguantar 60 a 90 dias antes del pago del Estado?',\n  'Que plan B tiene si gana y no puede cumplir con la cantidad completa?'\n];\nlet preguntas = fallback;\nlet reasoningTrace = 'Fallback Fase 3: OpenAI no devolvio JSON valido o no estuvo disponible.';\nlet esFallback = true;\ntry {\n  if (response.error) throw new Error(JSON.stringify(response.error));\n  const content = response.choices?.[0]?.message?.content || response.body?.choices?.[0]?.message?.content;\n  if (!content) throw new Error('empty OpenAI content');\n  const parsed = typeof content === 'string' ? JSON.parse(content) : content;\n  if (!Array.isArray(parsed.preguntas) || parsed.preguntas.length !== 3) throw new Error('expected 3 preguntas');\n  preguntas = parsed.preguntas.map((p) => String(p).trim()).filter(Boolean);\n  if (preguntas.length !== 3) throw new Error('empty pregunta');\n  reasoningTrace = String(parsed.reasoning_trace || 'OpenAI genero 3 preguntas criticas para la decision.');\n  esFallback = false;\n} catch (error) {\n  reasoningTrace = `${reasoningTrace} Error: ${error.message}`;\n}\nconst respuestaRaw = { preguntas, reasoning_trace: reasoningTrace, fallback: esFallback };\nreturn [{\n  json: {\n    ...original,\n    preguntas,\n    preguntas_generadas: preguntas,\n    reasoning_trace: reasoningTrace,\n    respuesta_raw: respuestaRaw,\n    es_fallback: esFallback,\n    procesado_en: new Date().toISOString()\n  }\n}];\n"
+      },
+      "id": "parse-openai-or-fallback",
+      "name": "Parse OpenAI or Fallback",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1050, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://cuzrbvnjjsjeicoourtx.supabase.co/rest/v1/decisiones",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "{{SUPABASE_SERVICE_KEY}}" },
+            { "name": "Authorization", "value": "Bearer {{SUPABASE_SERVICE_KEY}}" },
+            { "name": "Content-Type", "value": "application/json" },
+            { "name": "Prefer", "value": "return=representation" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ productor_id: $json.productor_id, oportunidad_id: $json.oportunidad_id, decision_descrita: $json.decision_descrita, conversation_id: $json.conversation_id, preguntas_json: $json.preguntas_generadas, preguntas_generadas: $json.preguntas_generadas, reasoning_trace: $json.reasoning_trace, respuesta_raw: $json.respuesta_raw, es_fallback: $json.es_fallback, creado_en: $json.procesado_en }) }}",
+        "options": { "timeout": 10000 }
+      },
+      "id": "insert-decision",
+      "name": "Insert Decision",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1310, 0],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { preguntas: $items('Parse OpenAI or Fallback')[0].json.preguntas, reasoning_trace: $items('Parse OpenAI or Fallback')[0].json.reasoning_trace, _fallback: $items('Parse OpenAI or Fallback')[0].json.es_fallback, conversation_id: $items('Parse OpenAI or Fallback')[0].json.conversation_id } }}",
+        "options": { "responseCode": 200 }
+      },
+      "id": "respond-success",
+      "name": "Respond Preguntas",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1570, 0]
+    }
+  ],
+  "connections": {
+    "Webhook retar-decision": { "main": [[{ "node": "Validate Payload", "type": "main", "index": 0 }]] },
+    "Validate Payload": { "main": [[{ "node": "Build OpenAI Request", "type": "main", "index": 0 }]] },
+    "Build OpenAI Request": { "main": [[{ "node": "POST to OpenAI", "type": "main", "index": 0 }]] },
+    "POST to OpenAI": { "main": [[{ "node": "Parse OpenAI or Fallback", "type": "main", "index": 0 }]] },
+    "Parse OpenAI or Fallback": { "main": [[{ "node": "Insert Decision", "type": "main", "index": 0 }]] },
+    "Insert Decision": { "main": [[{ "node": "Respond Preguntas", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1", "timezone": "America/El_Salvador" },
+  "staticData": null,
+  "pinData": {},
+  "versionId": "compa-fase-3-retar-decision-rest",
+  "triggerCount": 1,
+  "tags": [{ "name": "compa" }, { "name": "fase-3" }]
+}

@@ -16,8 +16,9 @@ export default function DemoPage() {
           Experimenta Compa en accion
         </h1>
         <p className="mt-3 max-w-2xl text-base leading-7 text-muted">
-          Selecciona un perfil de productor, explora las oportunidades que el sistema detecta
-          y simula la llamada que recibiria un productor real.
+          Todo lo que ves aquí pega al backend real: licitaciones desde Supabase, preguntas
+          generadas por OpenAI, borradores DINAC prellenados y el agente de voz de ElevenLabs
+          — los mismos webhooks n8n que usa la llamada telefónica.
         </p>
       </div>
       <DemoWorkspace />
