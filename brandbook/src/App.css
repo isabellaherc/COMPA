@@ -927,3 +927,114 @@ section {
 .footer-links a:hover {
   opacity: 1;
 }
+
+/* ---------- cofounder flow ---------- */
+.cofounder-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.cofounder-step {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 20px;
+  padding-bottom: 40px;
+  position: relative;
+}
+
+.cofounder-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 27px;
+  top: 64px;
+  width: 2px;
+  height: calc(100% - 40px);
+  background: var(--color-border);
+}
+
+.cofounder-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-paper);
+  flex: none;
+  border: 1px solid rgba(36, 21, 18, 0.14);
+}
+
+.cofounder-body {
+  padding-top: 4px;
+}
+
+.cofounder-body h4 {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  margin: 8px 0 6px;
+}
+
+.cofounder-body p {
+  font-size: 14px;
+  color: var(--color-muted);
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+/* ---------- steps grid ---------- */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 780px) {
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.step-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  background: var(--color-paper);
+  box-shadow: var(--shadow-soft);
+}
+
+.step-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(36, 21, 18, 0.12);
+}
+
+.step-card h3 {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.step-card p {
+  font-size: 14px;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.step-detail {
+  margin-top: 10px;
+  font-size: 12.5px !important;
+  color: var(--color-muted) !important;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-border);
+}

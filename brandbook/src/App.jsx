@@ -1,117 +1,6 @@
-import { useState } from "react";
 import "./App.css";
 
-function luminance(hex) {
-  const c = hex.replace("#", "");
-  const [r, g, b] = [0, 2, 4].map((i) => parseInt(c.slice(i, i + 2), 16) / 255);
-  const lin = (v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4);
-  return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
-}
-
-function contrast(hexA, hexB) {
-  const lA = luminance(hexA) + 0.05;
-  const lB = luminance(hexB) + 0.05;
-  return lA > lB ? lA / lB : lB / lA;
-}
-
-function contrastTag(ratio) {
-  if (ratio >= 4.5) return { label: "AA texto", cls: "pass" };
-  if (ratio >= 3) return { label: "AA grande", cls: "large" };
-  return { label: "No apto texto", cls: "fail" };
-}
-
-const COLORS = [
-  {
-    name: "Rojo Árbol de Fuego",
-    hex: "#C1272D",
-    role: "Primario",
-    usage: "Las flores encendidas del Árbol de Fuego. Acciones principales, enlaces, encabezados y marca.",
-  },
-  {
-    name: "Verde Follaje",
-    hex: "#2E5339",
-    role: "Secundario",
-    usage: "El follaje que sostiene la copa. Fondos oscuros, superficies de contraste, footer.",
-  },
-  {
-    name: "Rosa Maquilishuat",
-    hex: "#FFC5D3",
-    role: "Acento",
-    usage: "Las flores del Maquilishuat cayendo entre el verde. Fondos suaves, tarjetas, etiquetas.",
-  },
-  {
-    name: "Rosa Profundo",
-    hex: "#FF6F91",
-    role: "Acento énfasis",
-    usage: "El Maquilishuat en su tono más intenso. Botones e insignias que deben resaltar — el protagonista.",
-  },
-];
-
-const PAGE_STEPS = [
-  {
-    title: "Barra de navegación",
-    surface: "Marfil translúcido, sticky",
-    hex: "#F6ECDD",
-    detail:
-      "Logo + máximo 4 enlaces + un botón outline. Nunca un botón sólido acá — se guarda para el hero.",
-  },
-  {
-    title: "Hero",
-    surface: "Marfil + hojas cayendo de fondo",
-    hex: "#C1272D",
-    detail:
-      "Un titular, un subtítulo, un botón primario rojo + uno outline. Nunca dos botones sólidos compitiendo.",
-  },
-  {
-    title: "Contenido / prueba",
-    surface: "Marfil, tarjetas claras",
-    hex: "#FFC5D3",
-    detail:
-      "Grilla de tarjetas o features. Un solo color de ícono por tarjeta — no mezclar rojo y rosa profundo en la misma.",
-  },
-  {
-    title: "Sección de énfasis",
-    surface: "Marfil, un acento puntual",
-    hex: "#FF6F91",
-    detail:
-      "Rosa profundo para UNA sola acción o insignia destacada por scroll — es el tono que más llama, se raciona.",
-  },
-  {
-    title: "CTA final",
-    surface: "Verde follaje oscuro",
-    hex: "#2E5339",
-    detail:
-      "Único fondo oscuro del recorrido además del footer. Botón rosa profundo + uno outline claro.",
-  },
-  {
-    title: "Footer",
-    surface: "Verde follaje, misma superficie que el CTA",
-    hex: "#16241B",
-    detail: "Continúa el verde sin borde duro contra el CTA — misma superficie, sensación de cierre.",
-  },
-];
-
-function AnatomyStep({ step, index, total }) {
-  const textColor = luminance(step.hex) > 0.55 ? "#241512" : "#FFFBF3";
-  return (
-    <div className="anatomy-step">
-      <div className="anatomy-num-col">
-        <div className="anatomy-num" style={{ background: step.hex, color: textColor }}>
-          {index + 1}
-        </div>
-        {index < total - 1 && <div className="anatomy-line" />}
-      </div>
-      <div className="anatomy-body">
-        <div className="anatomy-title-row">
-          <span className="anatomy-title">{step.title}</span>
-          <span className="anatomy-bg-tag">{step.surface}</span>
-        </div>
-        <p className="anatomy-detail">{step.detail}</p>
-      </div>
-    </div>
-  );
-}
-
+// ---------- Brand Mark (5-petal flower) ----------
 function Mark({ className }) {
   return (
     <svg viewBox="0 0 32 32" className={className} aria-hidden="true">
@@ -131,6 +20,7 @@ function Mark({ className }) {
   );
 }
 
+// ---------- Leaf + Falling Canopy ----------
 function Leaf({ color }) {
   return (
     <svg viewBox="0 0 20 24" aria-hidden="true">
@@ -172,35 +62,67 @@ function FallingCanopy({ count = 16 }) {
   );
 }
 
-function ColorCard({ c }) {
-  const [copied, setCopied] = useState(false);
-  const copy = () => {
-    navigator.clipboard?.writeText(c.hex);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1200);
-  };
+// ---------- Opportunity card data ----------
+const OPORTUNIDADES = [
+  {
+    icon: "🔍",
+    color: "#C1272D",
+    title: "Detección automática",
+    description:
+      "Compa revisa COMPRASAL cada 6 horas. Encuentra las licitaciones que hacen match con el rubro de tu negocio — sin buscar manualmente.",
+  },
+  {
+    icon: "📞",
+    color: "#FF6F91",
+    title: "Te llama y te explica",
+    description:
+      "Recibís una llamada de Compa contándote la oportunidad en lenguaje simple. Como un socio que te avisa, no como un sistema de alertas.",
+  },
+  {
+    icon: "✅",
+    color: "#2E5339",
+    title: "Match por rubro real",
+    description:
+      "Solo oportunidades de tu rubro. Compa usa tu perfil de negocio para filtrar lo que realmente te sirve. Nada de ruido.",
+  },
+];
+
+const COMO_FUNCIONA = [
+  {
+    step: "1",
+    color: "#C1272D",
+    title: "n8n orquesta todo",
+    description:
+      "Los flujos automatizados conectan COMPRASAL, tu perfil y los datos. Detección, match y disparo de llamadas — 100% automatizado.",
+    detail: "Workflows cada 6 horas o bajo demanda. Sin intervención manual.",
+  },
+  {
+    step: "2",
+    color: "#FF6F91",
+    title: "ElevenLabs te llama",
+    description:
+      "El agente conversacional con voz de Luis — cercano, directo, en vos salvadoreño. Te explica la oportunidad y escucha tu respuesta.",
+    detail: "Llamada outbound con variables dinámicas. Voz consistente, mismo personaje siempre.",
+  },
+  {
+    step: "3",
+    color: "#2E5339",
+    title: "Supabase guarda tu perfil",
+    description:
+      "Tu información de negocio, tus decisiones y tu historial viven en una base de datos PostgreSQL. Rápida, segura, siempre disponible.",
+    detail: "Perfiles con rubro, ubicación, capacidad. Datos de COMPRASAL cacheados para respuesta instantánea.",
+  },
+];
+
+function StepCard({ item, index }) {
   return (
-    <div className="color-card">
-      <div className="color-swatch" style={{ background: c.hex }} />
-      <div className="color-card-body">
-        <div className="role">{c.role}</div>
-        <div className="name">{c.name}</div>
-        <button className="hex" onClick={copy} type="button">
-          {c.hex} {copied ? "· copiado" : "· copiar"}
-        </button>
-        <p className="usage">{c.usage}</p>
-        <div className="contrast-row">
-          {["#FFFBF3", "#241512"].map((bg) => {
-            const ratio = contrast(c.hex, bg);
-            const tag = contrastTag(ratio);
-            return (
-              <span className={`contrast-tag ${tag.cls}`} key={bg}>
-                {tag.label} sobre {bg === "#FFFBF3" ? "marfil" : "tinta"} ({ratio.toFixed(1)}:1)
-              </span>
-            );
-          })}
-        </div>
+    <div className="step-card">
+      <div className="step-num" style={{ background: item.color, color: "#FFFBF3" }}>
+        {item.step}
       </div>
+      <h3>{item.title}</h3>
+      <p>{item.description}</p>
+      <p className="step-detail">{item.detail}</p>
     </div>
   );
 }
@@ -209,48 +131,52 @@ function App() {
   return (
     <div className="page">
       <FallingCanopy count={16} />
+
+      {/* ---------- NAV ---------- */}
       <header className="nav">
         <div className="wrap nav-inner">
           <div className="brand">
             <Mark className="brand-mark" />
-            Brandbook
+            Compa
           </div>
           <nav className="nav-links">
-            <a href="#colores">Colores</a>
-            <a href="#tipografia">Tipografía</a>
-            <a href="#componentes">Componentes</a>
-            <a href="#armado">Armar la página</a>
+            <a href="#oportunidades">Oportunidades</a>
+            <a href="#cofundador">Cofundador</a>
+            <a href="#como-funciona">Cómo funciona</a>
           </nav>
           <div className="nav-cta">
-            <a href="#componentes" className="btn btn-outline btn-sm">
-              Ver componentes
+            <a href="#cta" className="btn btn-outline btn-sm">
+              Empezá hoy
             </a>
           </div>
         </div>
       </header>
 
       <main>
-        {/* HERO */}
+        {/* ---------- HERO ---------- */}
         <section className="hero">
           <div className="wrap hero-inner">
-            <div className="eyebrow">Guía de marca · v1.0</div>
+            <div className="eyebrow">Compa — Tu socio digital</div>
             <h1>
-              Un sistema visual inspirado en <span className="accent">los bosques de El Salvador</span>
+              Oportunidades de compras públicas,{" "}
+              <span className="accent">directo a tu teléfono</span>
             </h1>
             <p className="lead">
-              Rojo del Árbol de Fuego en flor, verde del follaje y el rosa del Maquilishuat,
-              protagonista, cayendo entre las hojas — cuatro colores, roles claros, aplicación
-              consistente en cada superficie.
+              Compa detecta licitaciones en COMPRASAL que calzan con tu negocio, te llama
+              por teléfono para explicártelas y te hace las preguntas difíciles que un buen
+              socio haría antes de decidir. Pensado para MYPE y cooperativas salvadoreñas.
             </p>
             <div className="hero-actions">
-              <a href="#colores" className="btn btn-primary">
-                Ver la paleta
+              <a href="#oportunidades" className="btn btn-primary">
+                Cómo funciona
               </a>
-              <a href="#componentes" className="btn btn-outline">
-                Ver componentes
+              <a href="#cofundador" className="btn btn-outline">
+                Conocé al Cofundador
               </a>
             </div>
-            <p className="hero-note">4 colores base · 2 tipografías · un sistema de componentes</p>
+            <p className="hero-note">
+              Sin instalar apps · Llamada directo a tu celular · Voz en español salvadoreño
+            </p>
             <div className="hero-swatch-row">
               <span className="mini-swatch" style={{ background: "#C1272D" }} />
               <span className="mini-swatch" style={{ background: "#2E5339" }} />
@@ -260,294 +186,150 @@ function App() {
           </div>
         </section>
 
-        {/* COLORES */}
-        <section id="colores">
+        {/* ---------- OPORTUNIDADES ---------- */}
+        <section id="oportunidades">
           <div className="wrap">
             <div className="section-head">
-              <div className="eyebrow">Paleta</div>
-              <h2>Cuatro colores, del Árbol de Fuego y el Maquilishuat</h2>
+              <div className="eyebrow">Oportunidades</div>
+              <h2>De COMPRASAL a tu oído, sin buscar</h2>
               <p>
-                Rojo de las flores encendidas, verde del follaje y dos tonos del Maquilishuat
-                — el rosa protagoniza la paleta, nunca los cuatro compitiendo a la vez.
+                Compa cruza tu perfil de negocio con las licitaciones públicas de El Salvador
+                y te avisa solo cuando hay algo que realmente te sirve.
               </p>
             </div>
-            <div className="color-grid">
-              {COLORS.map((c) => (
-                <ColorCard c={c} key={c.hex} />
+            <div className="card-grid">
+              {OPORTUNIDADES.map((op, i) => (
+                <div className="ui-card" key={i}>
+                  <div className="icon" style={{ background: op.color }}>
+                    {op.icon}
+                  </div>
+                  <h4>{op.title}</h4>
+                  <p>{op.description}</p>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* TIPOGRAFÍA */}
-        <section id="tipografia">
+        {/* ---------- COFUNDADOR ---------- */}
+        <section id="cofundador" style={{ background: "var(--color-surface)" }}>
           <div className="wrap">
             <div className="section-head">
-              <div className="eyebrow">Tipografía</div>
-              <h2>Space Grotesk para títulos, Inter para lectura</h2>
+              <div className="eyebrow">Cofundador</div>
+              <h2>Un socio que te hace las preguntas difíciles</h2>
               <p>
-                Una tipografía geométrica le da personalidad a los títulos; una fuente neutra
-                mantiene el contenido largo fácil de leer.
+                Compa no es un asistente complaciente. Es un cofundador que te reta,
+                te hace pensar y te ayuda a tomar mejores decisiones de negocio.
               </p>
             </div>
 
-            <div className="font-pair-grid">
-              <div className="font-pair-card display">
-                <div className="role">Títulos — Space Grotesk</div>
-                <div className="big">Aa Bb Cc 123</div>
-                <p className="note">Titulares, etiquetas, botones, UI.</p>
+            <div className="cofounder-flow">
+              <div className="cofounder-step">
+                <div className="cofounder-icon" style={{ background: "#C1272D" }}>
+                  <Mark className="brand-mark" style={{ width: 28, height: 28 }} />
+                </div>
+                <div className="cofounder-body">
+                  <span className="badge badge-red">
+                    <span className="badge-dot" /> Paso 1
+                  </span>
+                  <h4>Compa detecta una oportunidad</h4>
+                  <p>
+                    El workflow de n8n cruza tu rubro con COMPRASAL. Si hay match, dispara
+                    una llamada a tu celular con ElevenLabs.
+                  </p>
+                </div>
               </div>
-              <div className="font-pair-card body">
-                <div className="role">Cuerpo — Inter</div>
-                <div className="big">Aa Bb Cc 123</div>
-                <p className="note">Párrafos, campos de formulario, notas.</p>
-              </div>
-            </div>
 
-            <div className="type-scale" style={{ marginTop: 40 }}>
-              <div className="type-row">
-                <div className="meta">
-                  Display
-                  <span>64 / 700</span>
+              <div className="cofounder-step">
+                <div className="cofounder-icon" style={{ background: "#FF6F91" }}>
+                  <span style={{ fontSize: 24 }}>📞</span>
                 </div>
-                <div className="sample" style={{ fontSize: 56, fontWeight: 700 }}>
-                  Copas en flor
-                </div>
-              </div>
-              <div className="type-row">
-                <div className="meta">
-                  Título 1
-                  <span>40 / 700</span>
-                </div>
-                <div className="sample" style={{ fontSize: 40, fontWeight: 700 }}>
-                  Construido para ser consistente
+                <div className="cofounder-body">
+                  <span className="badge badge-pink-deep">
+                    <span className="badge-dot" /> Paso 2
+                  </span>
+                  <h4>Te llama y te explica la oportunidad</h4>
+                  <p>
+                    "Hola, soy Compa. Salió una licitación de alimentos para el ISSS que
+                    calza con tu perfil. ¿La vemos ahora o después?"
+                  </p>
                 </div>
               </div>
-              <div className="type-row">
-                <div className="meta">
-                  Título 2
-                  <span>28 / 700</span>
+
+              <div className="cofounder-step">
+                <div className="cofounder-icon" style={{ background: "#2E5339" }}>
+                  <span style={{ fontSize: 24 }}>💡</span>
                 </div>
-                <div className="sample" style={{ fontSize: 28, fontWeight: 700 }}>
-                  Títulos de sección claros
-                </div>
-              </div>
-              <div className="type-row">
-                <div className="meta">
-                  Título 3
-                  <span>20 / 600</span>
-                </div>
-                <div className="sample" style={{ fontSize: 20, fontWeight: 600 }}>
-                  Etiquetas de componentes y tarjetas
-                </div>
-              </div>
-              <div className="type-row">
-                <div className="meta">
-                  Cuerpo
-                  <span>16 / 400</span>
-                </div>
-                <div className="sample" style={{ fontFamily: "var(--font-body)", fontSize: 16, fontWeight: 400 }}>
-                  El texto de párrafo va a 16px con interlineado de 1.6 para una lectura cómoda.
-                </div>
-              </div>
-              <div className="type-row">
-                <div className="meta">
-                  Nota
-                  <span>13 / 600</span>
-                </div>
-                <div
-                  className="sample"
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: 13,
-                    fontWeight: 600,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em",
-                    color: "var(--color-muted)",
-                  }}
-                >
-                  Etiquetas y metadatos
+                <div className="cofounder-body">
+                  <span className="badge badge-pink">
+                    <span className="badge-dot" /> Paso 3
+                  </span>
+                  <h4>Te reta con 3 preguntas clave</h4>
+                  <p>
+                    Si describís tu decisión, Compa genera tres preguntas duras — las que un
+                    socio real te haría. "¿Ya calculaste tu costo real de producción?"
+                    "¿Tenés flujo de caja para aguantar 90 días sin cobrar?"
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* COMPONENTES */}
-        <section id="componentes">
+        {/* ---------- CÓMO FUNCIONA ---------- */}
+        <section id="como-funciona">
           <div className="wrap">
             <div className="section-head">
-              <div className="eyebrow">Componentes</div>
-              <h2>Construidos desde la paleta</h2>
-              <p>Botones, insignias, tarjetas y campos — todos derivados de los mismos cuatro colores.</p>
-            </div>
-
-            <div className="comp-block">
-              <h3>Botones</h3>
-              <div className="comp-panel">
-                <button className="btn btn-primary" type="button">
-                  Acción primaria
-                </button>
-                <button className="btn btn-pink" type="button">
-                  Destacado rosa
-                </button>
-                <button className="btn btn-outline" type="button">
-                  Secundario
-                </button>
-                <button className="btn btn-ghost" type="button">
-                  Ghost
-                </button>
-                <button className="btn btn-disabled" type="button" disabled>
-                  Deshabilitado
-                </button>
-              </div>
-            </div>
-
-            <div className="comp-block">
-              <h3>Insignias</h3>
-              <div className="comp-panel">
-                <span className="badge badge-red">
-                  <span className="badge-dot" /> En progreso
-                </span>
-                <span className="badge badge-pink-deep">
-                  <span className="badge-dot" /> Destacado
-                </span>
-                <span className="badge badge-pink">
-                  <span className="badge-dot" /> Nuevo
-                </span>
-                <span className="badge badge-neutral">
-                  <span className="badge-dot" /> Archivado
-                </span>
-              </div>
-            </div>
-
-            <div className="comp-block">
-              <h3>Tarjetas</h3>
-              <div className="card-grid">
-                <div className="ui-card">
-                  <div className="icon" style={{ background: "var(--color-red)" }}>
-                    A
-                  </div>
-                  <h4>Tarjeta roja</h4>
-                  <p>Ícono rojo para la variante por defecto, de mayor énfasis.</p>
-                </div>
-                <div className="ui-card">
-                  <div className="icon" style={{ background: "var(--color-green)" }}>
-                    B
-                  </div>
-                  <h4>Tarjeta verde</h4>
-                  <p>Follaje como base sobria para contenido informativo o de fondo.</p>
-                </div>
-                <div className="ui-card">
-                  <div className="icon" style={{ background: "var(--color-pink)" }}>
-                    C
-                  </div>
-                  <h4>Tarjeta rosa suave</h4>
-                  <p>Acento suave para contenido secundario o de apoyo, más ligero.</p>
-                </div>
-                <div className="ui-card">
-                  <div className="icon" style={{ background: "var(--color-pink-deep)" }}>
-                    D
-                  </div>
-                  <h4>Tarjeta rosa profundo</h4>
-                  <p>El tono protagonista — para lo que necesita máximo énfasis.</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="comp-block">
-              <h3>Campos de formulario</h3>
-              <div className="comp-panel">
-                <div className="field-row" style={{ width: "100%" }}>
-                  <div className="field">
-                    <label>Nombre completo</label>
-                    <input placeholder="María Hernández" />
-                  </div>
-                  <div className="field">
-                    <label>Correo</label>
-                    <input placeholder="maria@empresa.com" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* GUÍA DE ARMADO */}
-        <section id="armado">
-          <div className="wrap">
-            <div className="section-head">
-              <div className="eyebrow">Guía de construcción</div>
-              <h2>Cómo armar la página completa</h2>
+              <div className="eyebrow">Tecnología</div>
+              <h2>Tres piezas que trabajan juntas</h2>
               <p>
-                La página es un orden fijo de secciones, no un catálogo suelto de piezas. Seguí
-                esta secuencia de arriba a abajo para que cualquier página nueva se sienta parte
-                del mismo sistema.
+                Compa corre sobre n8n, ElevenLabs y Supabase. Cada una hace una cosa
+                y la hace bien — orquestadas para que el productor solo reciba una llamada.
               </p>
             </div>
 
-            <div className="anatomy">
-              {PAGE_STEPS.map((step, i) => (
-                <AnatomyStep step={step} index={i} total={PAGE_STEPS.length} key={step.title} />
+            <div className="steps-grid">
+              {COMO_FUNCIONA.map((item, i) => (
+                <StepCard item={item} index={i} key={i} />
               ))}
             </div>
-
-            <div className="rules-grid">
-              <div className="rules-col do">
-                <h4>Hacé esto</h4>
-                <ul>
-                  <li>Un solo botón sólido (rojo o rosa profundo) por sección.</li>
-                  <li>Alterná marfil y superficie clara entre secciones, sin bordes duros.</li>
-                  <li>Un h1 por página; los h2 marcan cada sección, nunca saltés a h4 directo.</li>
-                  <li>108px de aire vertical entre secciones en escritorio, 72px en mobile.</li>
-                </ul>
-              </div>
-              <div className="rules-col dont">
-                <h4>Evitá esto</h4>
-                <ul>
-                  <li>Dos fondos verde oscuro seguidos — satura el cierre de la página.</li>
-                  <li>Rosa profundo en más de una acción por scroll — deja de ser énfasis.</li>
-                  <li>Mezclar rojo y rosa profundo en el mismo botón o insignia.</li>
-                  <li>Hojas cayendo dentro de tarjetas o formularios — solo en el fondo general.</li>
-                </ul>
-              </div>
-            </div>
           </div>
         </section>
 
-        {/* CTA OSCURO */}
-        <section className="cta-dark">
+        {/* ---------- CTA OSCURO ---------- */}
+        <section className="cta-dark" id="cta">
           <div className="wrap cta-dark-inner">
-            <div className="eyebrow on-dark">Consistencia ante todo</div>
-            <h2>Aplica el sistema de la misma forma, en todas partes</h2>
+            <div className="eyebrow on-dark">Empezá hoy</div>
+            <h2>Dejá que Compa te avise cuando hay oportunidad</h2>
             <p>
-              Misma paleta, misma tipografía, mismos componentes — en el sitio, en el producto
-              y en cada presentación.
+              Sin instalar apps. Sin registros complicados. Una llamada de teléfono
+              cuando tu negocio tiene una oportunidad real en COMPRASAL.
             </p>
             <div className="cta-dark-actions">
-              <a href="#colores" className="btn btn-pink">
-                Volver a la paleta
+              <a href="#oportunidades" className="btn btn-pink">
+                Ver cómo funciona
               </a>
-              <a href="#tipografia" className="btn btn-outline on-dark">
-                Volver a tipografía
+              <a href="mailto:compa@compa.sv" className="btn btn-outline on-dark">
+                Contactanos
               </a>
             </div>
           </div>
         </section>
       </main>
 
+      {/* ---------- FOOTER ---------- */}
       <footer className="footer">
         <div className="wrap footer-inner">
           <div className="brand">
             <Mark className="brand-mark" />
-            Brandbook
+            Compa
           </div>
           <div className="footer-links">
-            <a href="#colores">Colores</a>
-            <a href="#tipografia">Tipografía</a>
-            <a href="#componentes">Componentes</a>
+            <a href="#oportunidades">Oportunidades</a>
+            <a href="#cofundador">Cofundador</a>
+            <a href="#como-funciona">Cómo funciona</a>
           </div>
-          <div>© 2026 Brandbook. Referencia interna de marca.</div>
+          <div>© 2026 Compa — Hecho en El Salvador</div>
         </div>
       </footer>
     </div>
