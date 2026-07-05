@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compa | Asesor de compras públicas para MYPE</title>
+  <meta name="description" content="Compa detecta oportunidades de COMPRASAL, las explica por voz y reta decisiones de productores salvadoreños antes de ofertar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="canopy" id="canopy" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#inicio" aria-label="Compa inicio">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#C1272D" transform="rotate(0 16 16)"/>
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#FFC5D3" transform="rotate(72 16 16)"/>
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#C1272D" transform="rotate(144 16 16)"/>
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#FFC5D3" transform="rotate(216 16 16)"/>
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#C1272D" transform="rotate(288 16 16)"/>
+          <circle cx="16" cy="16" r="4" fill="#FF6F91"/>
+        </svg>
+        Compa
+      </a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#demo">Demo</a>
+        <a href="#flujo">Flujo</a>
+        <a href="#datos">Datos</a>
+        <a href="#legal">Legal</a>
+      </nav>
+      <a class="btn btn-outline nav-cta" href="#demo">Abrir demo</a>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">COMPRASAL + voz + criterio humano</div>
+          <h1>El socio que llama antes de que una MYPE pierda una oportunidad.</h1>
+          <p class="lead">Compa detecta contratos públicos compatibles, los explica en español claro y hace las preguntas incómodas antes de decidir si conviene participar.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#demo">Simular una llamada</a>
+            <a class="btn btn-outline" href="#flujo">Ver arquitectura</a>
+          </div>
+        </div>
+        <aside class="call-panel" aria-label="Resumen de llamada de demostración">
+          <div class="call-topline">
+            <span class="status-dot"></span>
+            Llamada saliente lista
+          </div>
+          <div class="phone-card">
+            <div>
+              <span class="micro-label">Productora</span>
+              <strong id="heroProducer">Vilma Guardado</strong>
+            </div>
+            <div>
+              <span class="micro-label">Match</span>
+              <strong id="heroScore">100%</strong>
+            </div>
+          </div>
+          <p class="voice-line" id="heroLine">"Hola Vilma, soy Compa. Te llamo porque vi una oportunidad de alimentación escolar que calza con tu comedor."</p>
+          <div class="waveform" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="proof-strip" aria-label="Capacidades principales">
+      <div class="wrap proof-grid">
+        <div>
+          <strong>20</strong>
+          <span>oportunidades cacheadas para demo</span>
+        </div>
+        <div>
+          <strong>3</strong>
+          <span>preguntas duras por decisión</span>
+        </div>
+        <div>
+          <strong>0</strong>
+          <span>trámites administrativos asumidos por Compa</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo" class="workspace-section">
+      <div class="wrap">
+        <div class="section-head wide-head">
+          <div>
+            <div class="eyebrow">Demo operativa</div>
+            <h2>El recorrido completo en una sola pantalla.</h2>
+          </div>
+          <p>Selecciona un productor. Compa calcula matches por rubro, arma el mensaje de ElevenLabs, genera preguntas críticas y muestra proveedores reales de respaldo para cotizar.</p>
+        </div>
+
+        <div class="workspace">
+          <aside class="producer-list" aria-label="Productores de demostración">
+            <div class="panel-title">
+              <span>Productores</span>
+              <small>dataset fallback</small>
+            </div>
+            <div id="producerButtons" class="producer-buttons"></div>
+          </aside>
+
+          <section class="demo-board" aria-live="polite">
+            <div class="board-header">
+              <div>
+                <span class="micro-label">Perfil activo</span>
+                <h3 id="producerName">Vilma Jeanneth Guardado de Ayala</h3>
+              </div>
+              <span class="badge badge-red" id="producerRubro">Alimentos y Bebidas</span>
+            </div>
+
+            <div class="profile-grid">
+              <div>
+                <span class="micro-label">Negocio</span>
+                <strong id="businessName">Comedor El Sazon de Vilma</strong>
+              </div>
+              <div>
+                <span class="micro-label">Ubicación</span>
+                <strong id="producerLocation">San Juan Opico, La Libertad</strong>
+              </div>
+              <div>
+                <span class="micro-label">Capacidad</span>
+                <strong id="producerCapacity">500 almuerzos/día</strong>
+              </div>
+              <div>
+                <span class="micro-label">Experiencia Estado</span>
+                <strong id="producerExperience">Ninguna</strong>
+              </div>
+            </div>
+
+            <div class="match-layout">
+              <div class="matches-panel">
+                <div class="panel-title">
+                  <span>Oportunidades recomendadas</span>
+                  <small id="matchCount">0 matches</small>
+                </div>
+                <div id="opportunityList" class="opportunity-list"></div>
+              </div>
+
+              <div class="voice-panel">
+                <div class="panel-title">
+                  <span>Guion de llamada</span>
+                  <small>ElevenLabs</small>
+                </div>
+                <div class="script-box" id="callScript"></div>
+                <button class="btn btn-primary full-btn" id="simulateCall" type="button">Reproducir simulación</button>
+                <div class="call-log" id="callLog" aria-live="polite"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="cofounder-section">
+      <div class="wrap cofounder-grid">
+        <div class="section-head compact-head">
+          <div class="eyebrow">Cofundador</div>
+          <h2>La parte útil no es avisar. Es pensar antes de ofertar.</h2>
+          <p>Cuando el productor responde, Compa usa el endpoint `retar_decision` para devolver tres preguntas que revelan costo real, liquidez y capacidad de entrega.</p>
+        </div>
+        <div class="question-stack" id="questionStack"></div>
+      </div>
+    </section>
+
+    <section id="flujo">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Arquitectura</div>
+          <h2>n8n orquesta. La voz conversa. Los datos quedan auditables.</h2>
+          <p>La demo está diseñada para sobrevivir fallas de red: Supabase primero, JSON fallback como última defensa.</p>
+        </div>
+        <div class="flow">
+          <article>
+            <span>01</span>
+            <h3>Cache de datos</h3>
+            <p>Oportunidades y perfiles se leen desde Supabase o `fallback.json` con estructura equivalente.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Matching por rubro</h3>
+            <p>Rubro exacto sube el score a 100. Coincidencias parciales quedan como recomendación secundaria.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Llamada con voz</h3>
+            <p>n8n envía variables dinámicas a ElevenLabs: productor, rubro y oportunidad detectada.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Preguntas duras</h3>
+            <p>Codex/OpenAI responde con preguntas, intención y palabras clave para guiar la conversación.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="datos" class="data-section">
+      <div class="wrap data-grid">
+        <div>
+          <div class="eyebrow">Bolsa de empresas</div>
+          <h2>Compa también muestra quién más vende al Estado.</h2>
+          <p>El productor puede ver proveedores del mismo rubro, su capacidad y comportamiento simulado para cotizar insumos. En producción, esta capa se alimenta de RUPES y sanciones públicas.</p>
+        </div>
+        <div class="supplier-panel">
+          <div class="panel-title">
+            <span>Proveedores compatibles</span>
+            <small id="supplierCount">0 disponibles</small>
+          </div>
+          <div id="supplierList" class="supplier-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="legal" class="legal-section">
+      <div class="wrap legal-grid">
+        <article>
+          <div class="eyebrow">Marco legal</div>
+          <h2>Asistencia, no representación.</h2>
+          <p>Compa no oferta, no firma, no adjudica y no modifica oportunidades públicas. Toda recomendación se presenta como sugerencia y conserva referencia a fuente oficial.</p>
+        </article>
+        <div class="rules-list">
+          <div><strong>RN-001</strong><span>Perfil de negocio antes de recomendar.</span></div>
+          <div><strong>RN-005</strong><span>Explicaciones con enlace o referencia oficial.</span></div>
+          <div><strong>RN-006</strong><span>Recomendaciones no vinculantes.</span></div>
+          <div><strong>RN-009</strong><span>Llamadas solo con consentimiento previo.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-dark">
+      <div class="wrap cta-dark-inner">
+        <div class="eyebrow on-dark">Listo para demo</div>
+        <h2>Un prototipo claro para explicar, probar y defender Compa.</h2>
+        <p>El frontend funciona sin backend, usa datos locales y deja visible el razonamiento de negocio que diferencia a Compa de una alerta automática.</p>
+        <div class="cta-dark-actions">
+          <a class="btn btn-pink" href="#demo">Volver a la demo</a>
+          <a class="btn btn-outline on-dark" href="BRANDBOOK.md">Ver brandbook</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#C1272D" transform="rotate(0 16 16)"/>
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#FFC5D3" transform="rotate(72 16 16)"/>
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#C1272D" transform="rotate(144 16 16)"/>
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#FFC5D3" transform="rotate(216 16 16)"/>
+          <ellipse cx="16" cy="7.5" rx="5.4" ry="8" fill="#C1272D" transform="rotate(288 16 16)"/>
+          <circle cx="16" cy="16" r="4" fill="#FF6F91"/>
+        </svg>
+        Compa
+      </div>
+      <span>Prototipo frontend, Buildathon UFG 2026.</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
